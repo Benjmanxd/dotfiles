@@ -1,0 +1,69 @@
+## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+
+[global]
+monitor = HDMI-0
+#follow = mouse
+#width = 280
+width = 280
+height = 80
+origin = top-right
+offset = 10x48
+scale = 0
+indicate_hidden = no
+shrink = no
+transparency = 0
+separator_color = auto
+separator_height = 4
+line_height = 4
+padding = 10
+horizontal_padding = 24
+text_icon_padding = 0
+frame_width = 6
+sort = yes
+idle_threshold = 60
+font = JetBrains Mono 10
+markup = full
+format = "<b>%a</b>\n<i>%s</i>\n%b"
+alignment = center
+vertical_alignment = center
+show_age_threshold = -1
+word_wrap = false
+ellipsize = middle
+ignore_newline = no
+stack_duplicates = true
+hide_duplicate_count = yes
+show_indicators = yes
+icon_position = off
+max_icon_size = 32
+sticky_history = yes
+history_length = 20
+browser = /usr/bin/firefox -new-tab
+always_run_script = true
+title = Dunst
+class = Dunst
+startup_notification = false
+
+[shortcuts]
+close = ctrl+space
+close_all = ctrl+shift+space
+history = ctrl+grave
+context = ctrl+shift+period
+
+[urgency_low]
+timeout = 2
+background = "#282C33"
+foreground = "#D8D8D8"
+frame_color = "#30343B"
+
+[urgency_normal]
+timeout = 5
+background = "#282C33"
+foreground = "#D8D8D8"
+frame_color = "#30343B"
+
+[urgency_critical]
+timeout = 0
+background = "#282C33"
+foreground = "#E06B74"
+frame_color = "#30343B"
