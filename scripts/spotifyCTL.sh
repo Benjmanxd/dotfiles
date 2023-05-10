@@ -14,7 +14,7 @@ elif [[ $1 == "move" ]]; then
     fi
 elif [[ $1 == "title" ]]; then
     title=$(spotifyctl -q status --format '%title%' | cut -d'(' -f1)
-    echo $title
+    echo "$title"
 else
     echo Spotify
 fi
