@@ -15,8 +15,10 @@ ln $PWD/bash/bashrc ~/.bashrc                               # bash
 ln $PWD/starship/starship.toml ~/.config/starship.toml      # starship
 ln $PWD/tmux/tmux.conf ~/.tmux.conf                         # tmux
 ln $PWD/fonts/fonts.conf ~/.fonts.conf                      # fonts
-ln $PWD/picom/picom.conf ~/.config/picom.conf
+ln $PWD/picom/picom.conf ~/.config/picom.conf               # picom
 ln -s $PWD/nvim ~/.config/nvim                              # nvim
+ln -s $PWD/fish ~/.config/fish                              # fish
+ln -s $PWD/dunst ~/.config/dunst                            # dunst
 
 tmux:
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
