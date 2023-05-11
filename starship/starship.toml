@@ -146,7 +146,7 @@ vimcmd_symbol = "[](bold #fdd9e5)"
 [cmd_duration]
 min_time = 500
 show_milliseconds = true
-format = ' [\[ $duration \]](bold yellow)'
+format = ' [\[$duration\]](bold yellow)'
 
 [directory]
 style = "bold #0066d0"
@@ -176,7 +176,7 @@ format = '([\[$all_status$ahead_behind\]]($style) )'
 ssh_only = true
 ssh_symbol = "爵"
 style = "bold #da8ee7"
-format = '[\[ $ssh_symbol$hostname \]]($style)'
+format = '[\[$ssh_symbol $hostname\]]($style)'
 trim_at = ""
 disabled = false
 
@@ -184,12 +184,12 @@ disabled = false
 threshold = 20
 symbol = ""
 style = "bold #cc7722"
-format = '[\[ $symbol $ram \]]($style)'
+format = '[\[$symbol $ram\]]($style)'
 disabled = false
 
 [time]
 style = "bold #8d4004"
-format = '[\[  $time \]]($style) '
+format = '[\[ $time\]]($style) '
 time_format = "%T"
 utc_time_offset = "+8"
 disabled = false
@@ -197,6 +197,6 @@ disabled = false
 [username]
 style_user = "bold #aa336a"
 style_root = "bold black"
-format = ' [\[  $user \]]($style)'
+format = ' [\[ $user\]]($style)'
 disabled = false
 show_always = true
