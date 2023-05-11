@@ -3,7 +3,6 @@ if not status_ok then
     return
 end
 
-
 local config = {
     attach_mode = "global",
     backends = { "lsp", "treesitter", "markdown", "man" },
