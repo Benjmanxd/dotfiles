@@ -15,6 +15,7 @@ ln $PWD/bash/bashrc ~/.bashrc                               # bash
 ln $PWD/starship/starship.toml ~/.config/starship.toml      # starship
 ln $PWD/tmux/tmux.conf ~/.tmux.conf                         # tmux
 ln $PWD/fonts/fonts.conf ~/.fonts.conf                      # fonts
+ln $PWD/picom/picom.conf ~/.config/picom.conf
 ln -s $PWD/nvim ~/.config/nvim                              # nvim
 
 tmux:
