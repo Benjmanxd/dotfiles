@@ -11,4 +11,4 @@ rofi \
 	-show run \
 	-scroll-method 0 \
 	-terminal alacritty \
-	-theme "$HOME"/.config/openbox/rofi/"$STYLE"/runner.rasi
+	-theme "$HOME"/.config/rofi/"$STYLE"/runner.rasi

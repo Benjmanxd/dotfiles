@@ -4,7 +4,7 @@
 ## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
 
 ## rofi sudo askpass helper
-export SUDO_ASKPASS="$HOME"/.config/openbox/rofi/bin/askpass
+export SUDO_ASKPASS="$HOME"/.config/rofi/bin/askpass
 
 ## execute the application
 sudo -A $1

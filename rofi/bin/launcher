@@ -17,4 +17,4 @@ rofi \
 	-no-drun-show-actions \
 	-terminal alacritty \
 	-kb-cancel Alt-F1 \
-	-theme "$HOME"/.config/openbox/rofi/"$STYLE"/launcher.rasi
+	-theme "$HOME"/.config/rofi/"$STYLE"/launcher.rasi

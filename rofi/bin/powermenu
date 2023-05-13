@@ -5,14 +5,14 @@
 
 ## Default
 STYLE="default"
-ddir="$HOME/.config/openbox/rofi/dialogs"
+ddir="$HOME/.config/rofi/dialogs"
 
-rofi_command="rofi -theme $HOME/.config/openbox/rofi/$STYLE/powermenu.rasi"
+rofi_command="rofi -theme $HOME/.config/rofi/$STYLE/powermenu.rasi"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
 ## Buttons
-layout=`cat $HOME/.config/openbox/rofi/$STYLE/powermenu.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
+layout=`cat $HOME/.config/rofi/$STYLE/powermenu.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
 if [[ "$layout" == "TRUE" ]]; then
 	shutdown=""
 	reboot=""
@@ -85,7 +85,7 @@ case $chosen in
     $logout)
 		ans=$(rdialog &)
 		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-			openbox --exit
+			sudo service lightdm restart
 		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
 			exit
         else
