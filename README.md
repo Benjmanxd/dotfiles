@@ -23,6 +23,7 @@ ln -s $PWD/scripts ~/.config/scripts                        # scripts
 
 nvim:
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+setup ChatGPT for nvim later: https://github.com/jackMort/ChatGPT.nvim
 
 tmux:
 sudo dnf install tmux
