@@ -21,6 +21,9 @@ ln -s $PWD/fish ~/.config/fish                              # fish
 ln -s $PWD/dunst ~/.config/dunst                            # dunst
 ln -s $PWD/scripts ~/.config/scripts                        # scripts
 
+nvim:
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
+
 tmux:
 sudo dnf install tmux
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
