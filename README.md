@@ -41,3 +41,10 @@ git clone git@github.com:Benjmanxd/password-store.git ~/.password-store
 gpg --batch --import private.pgp public.pgp
 pkill gpg-agent
 gpg-agent --pinentry-program=/usr/bin/pinentry --daemon
+
+i3lock-color:
+sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel
+git clone https://github.com/Raymo111/i3lock-color.git
+cd i3lock-color
+./build.sh
+./install-i3lock-color.sh
