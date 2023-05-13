@@ -48,3 +48,7 @@ git clone https://github.com/Raymo111/i3lock-color.git
 cd i3lock-color
 ./build.sh
 ./install-i3lock-color.sh
+
+music player:
+sudo dnf install mopidy-spotify
+refer to: https://blog.deepjyoti30.dev/using-spotify-with-ncmpcpp-mopidy-linux
