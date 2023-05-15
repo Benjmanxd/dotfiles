@@ -11,15 +11,16 @@ packages:
 6. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
 
 symlink:
-ln $PWD/bash/bashrc ~/.bashrc                               # bash
-ln $PWD/starship/starship.toml ~/.config/starship.toml      # starship
-ln $PWD/tmux/tmux.conf ~/.tmux.conf                         # tmux
-ln $PWD/fonts/fonts.conf ~/.fonts.conf                      # fonts
-ln $PWD/picom/picom.conf ~/.config/picom.conf               # picom
-ln -s $PWD/nvim ~/.config/nvim                              # nvim
-ln -s $PWD/fish ~/.config/fish                              # fish
-ln -s $PWD/dunst ~/.config/dunst                            # dunst
-ln -s $PWD/scripts ~/.config/scripts                        # scripts
+ln $PWD/bash/bashrc $HOME/.bashrc                               # bash
+ln $PWD/starship/starship.toml $HOME/.config/starship.toml      # starship
+ln $PWD/tmux/tmux.conf $HOME/.tmux.conf                         # tmux
+ln $PWD/fonts/fonts.conf $HOME/.fonts.conf                      # fonts
+ln $PWD/picom/picom.conf $HOME/.config/picom.conf               # picom
+ln -s $PWD/nvim $HOME/.config/nvim                              # nvim
+ln -s $PWD/fish $HOME/.config/fish                              # fish
+ln -s $PWD/dunst $HOME/.config/dunst                            # dunst
+ln -s $PWD/scripts $HOME/.config/scripts                        # scripts
+ln -s $PWD/awesome $HOME/.config/awesome
 
 nvim:
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
