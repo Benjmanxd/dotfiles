@@ -63,6 +63,12 @@ alias open='thunar'
 alias mysql='sudo mysql -u benjmanxd -p'
 
 
+### ABBREVIATION ###
+abbr g "git"
+abbr v "$EDITOR"
+abbr e "$EDITOR"
+
+
 ### FUNCTION ###
 # function to set mode
 function fish_user_key_bindings
