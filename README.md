@@ -1,14 +1,22 @@
 # dotfiles
-display renderer: xorg / x11
-display manager: lightdm
-window manager: awesomewm
+
+## System details
+operating system:   Fedora 38
+display renderer:   xorg / x11
+display manager:    lightdm
+window manager:     sway
+terminal emulator:  alacritty
+file manager:       nemo
+editor:             nvim
+compositor:         picom
+web browser:        firefox
+shell:              fish
+
 packages:
 1. sudo dnf update --security
 2. sudo dnf update
-3. sudo dnf install @base-x @Fonts awesome lightdm slick-greeter neovim python3-neovim alacritty picom rofi polybar thunar feh wget git git-gui neofetch fzf bat atool htop npm zathura
-4. sudo systemctl enable lightdm
-5. sudo systemctl set-default graphical.target
-6. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
+3. sudo dnf install awesome neovim python3-neovim alacritty picom rofi polybar nemo feh wget git git-gui neofetch fzf bat atool htop npm zathura
+4. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
 
 symlink:
 ln $PWD/bash/bashrc $HOME/.bashrc                               # bash
@@ -21,6 +29,16 @@ ln -s $PWD/fish $HOME/.config/fish                              # fish
 ln -s $PWD/dunst $HOME/.config/dunst                            # dunst
 ln -s $PWD/scripts $HOME/.config/scripts                        # scripts
 ln -s $PWD/awesome $HOME/.config/awesome
+
+lightdm:
+sudo dnf install @base-x lightdm lightdm-gtk-greeter sway
+sudo systemctl enable lightdm
+sudo systemctl set-default graphical.target 
+
+sway:
+sudo dnf group install "Sway Desktop"
+sudo dnf install sway-config-fedora
+cp /etc/sway/config $HOME/.config/sway/config
 
 nvim:
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
