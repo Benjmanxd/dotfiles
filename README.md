@@ -3,8 +3,8 @@
 ## System details
 operating system:   Fedora 38
 display renderer:   xorg / x11
-display manager:    lightdm
-window manager:     sway
+display manager:    NOPE!!
+window manager:     i3
 terminal emulator:  alacritty
 file manager:       nemo
 editor:             nvim
@@ -15,7 +15,7 @@ shell:              fish
 packages:
 1. sudo dnf update --security
 2. sudo dnf update
-3. sudo dnf install awesome neovim python3-neovim alacritty picom rofi polybar nemo feh wget git git-gui neofetch fzf bat atool htop npm zathura
+3. sudo dnf install i3 @base-x picom light rofi polybar alacritty feh nemo neovim python3-neovim git git-gui neofetch fzf bat atool htop npm zathura
 4. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
 
 symlink:
@@ -29,16 +29,6 @@ ln -s $PWD/fish $HOME/.config/fish                              # fish
 ln -s $PWD/dunst $HOME/.config/dunst                            # dunst
 ln -s $PWD/scripts $HOME/.config/scripts                        # scripts
 ln -s $PWD/awesome $HOME/.config/awesome
-
-lightdm:
-sudo dnf install @base-x lightdm lightdm-gtk-greeter sway
-sudo systemctl enable lightdm
-sudo systemctl set-default graphical.target 
-
-sway:
-sudo dnf group install "Sway Desktop"
-sudo dnf install sway-config-fedora
-cp /etc/sway/config $HOME/.config/sway/config
 
 nvim:
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
