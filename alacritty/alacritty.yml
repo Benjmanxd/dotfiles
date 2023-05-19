@@ -8,20 +8,21 @@
 #
 # All imports must either be absolute paths starting with `/`, or paths relative
 # to the user's home directory starting with `~/`.
-#import:
+import:
+  - ./themes/embark.yml
 #  - /path/to/alacritty.yml
 
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
+env:
   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -31,29 +32,27 @@ window:
   # least `2`, while using a value of `0` for columns and lines will fall back
   # to the window manager's recommended size
   #dimensions:
-    #columns: 187
-    #lines: 54
+  #  columns: 0
+  #  lines: 0
 
   # Window position (changes require restart)
   #
   # Specified in number of pixels.
   # If the position is not set, the window manager will handle the placement.
   #position:
-    #x: 23
-    #y: 27
+  #  x: 0
+  #  y: 0
 
   # Window padding (changes require restart)
   #
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
-  padding:
-    x: 2
-    y: 2
-    #x: 15
-    #y: 15
+  #padding:
+  #  x: 0
+  #  y: 0
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: true
+  #dynamic_padding: false
 
   # Window decorations
   #
@@ -64,13 +63,13 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: None
+  #decorations: full
 
   # Background opacity
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 0.85
+  opacity: 0.7
 
   # Startup Mode (changes require restart)
   #
@@ -81,7 +80,7 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  startup_mode: Maximized
+  #startup_mode: Windowed
 
   # Window title
   #title: Alacritty
@@ -96,12 +95,24 @@ window:
     # General application class
     general: Alacritty
 
-  # Decorations theme variant (Linux/BSD only)
+  # Decorations theme variant
   #
-  # Override the variant of the GTK theme/Wayland client side decorations.
-  # Commonly supported values are `dark` and `light`. Set this to `None` to use
-  # the default theme variant.
+  # Override the variant of the System theme/GTK theme/Wayland client side
+  # decorations. Commonly supported values are `Dark`, `Light`, and `None` for
+  # auto pick-up. Set this to `None` to use the default theme variant.
   #decorations_theme_variant: None
+
+  # Resize increments
+  #
+  # Prefer resizing window by discrete steps equal to cell dimensions.
+  #resize_increments: false
+
+  # Make `Option` key behave as `Alt` (macOS only):
+  #   - OnlyLeft
+  #   - OnlyRight
+  #   - Both
+  #   - None (default)
+  #option_as_alt: None
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -109,7 +120,7 @@ scrolling:
   history: 10000
 
   # Scrolling distance multiplier.
-  multiplier: 5
+  multiplier: 3
 
 # Font configuration
 font:
@@ -121,7 +132,7 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Regular
@@ -132,7 +143,7 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font
 
     # The `style` can be specified to pick a specific face.
     style: Bold
@@ -143,10 +154,10 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: MediumItalic
+    style: Italic
 
   # Bold italic font face
   bold_italic:
@@ -154,13 +165,13 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: JetBrainsMono Nerd Font
+    family: CaskaydiaCove Nerd Font
 
     # The `style` can be specified to pick a specific face.
-    style: BoldItalic
+    style: Bold Italic
 
   # Point size
-  size: 12
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -181,17 +192,54 @@ font:
   # If `true`, Alacritty will use a custom built-in font for box drawing
   # characters (Unicode points 2500 - 259f).
   #
-  #builtin_box_drawing: true
+  builtin_box_drawing: true
 
 # If `true`, bold text is drawn using the bright color variants.
-draw_bold_text_with_bright_colors: true
+#draw_bold_text_with_bright_colors: false
 
+# Colors (Tomorrow Night)
+#colors:
+  # Default colors
+  #primary:
+  #  background: '#1d1f21'
+  #  foreground: '#c5c8c6'
 
-# Colors (Tokyo Night)
+    # Bright and dim foreground colors
+    #
+    # The dimmed foreground color is calculated automatically if it is not
+    # present. If the bright foreground color is not set, or
+    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
+    # color will be used.
+    #dim_foreground: '#828482'
+    #bright_foreground: '#eaeaea'
+
 schemes:
-  # Tokyo Night theme, based on both:
-  #   https://github.com/ghifarit53/tokyonight-vim
-  #   https://github.com/enkia/tokyo-night-vscode-theme
+  embark: &embark
+    primary:
+      background: '0x1e1c31'
+      foreground: '0xcbe3e7'
+    cursor:
+      text: '0x1e1c31'
+      cursor: '0xa1efd3'
+    normal:
+      black: '0x1e1c31'
+      red: '0xf48fb1'
+      green: '0xa1efd3'
+      yellow: '0xffe6b3'
+      blue: '0x91ddff'
+      magenta: '0xd4bfff'
+      cyan: '0xabf8f7'
+      white: '0xcbe3e7'
+    bright:
+      black: '0x585273'
+      red: '0xf02e6e'
+      green: '0x7fe9c3'
+      yellow: '0xf2b482'
+      blue: '0x78a8ff'
+      magenta: '0x7676ff'
+      cyan: '0x63f2f1'
+      white: '0x8a889d'
+
   tokyo-night: &tokyo-night
     # Default colors
     primary:
@@ -248,26 +296,7 @@ schemes:
       cyan:    '0x0db9d7'
       white:   '0xacb0d0'
 
-# normal dark theme
-#colors: *tokyo-night
-# "storm" uses a lighter BG color
-colors: *tokyo-night-storm
-
-# Colors (Tomorrow Night)
-#colors:
-  # Default colors
-  #primary:
-    #background: '#1d1f21'
-    #foreground: '#c5c8c6'
-
-    # Bright and dim foreground colors
-    #
-    # The dimmed foreground color is calculated automatically if it is not
-    # present. If the bright foreground color is not set, or
-    # `draw_bold_text_with_bright_colors` is `false`, the normal foreground
-    # color will be used.
-    #dim_foreground: '#828482'
-    #bright_foreground: '#eaeaea'
+colors: *tokyo-night
 
   # Cursor colors
   #
@@ -276,8 +305,8 @@ colors: *tokyo-night-storm
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
   #cursor:
-    #text: CellBackground
-    #cursor: CellForeground
+  #  text: CellBackground
+  #  cursor: CellForeground
 
   # Vi mode cursor colors
   #
@@ -351,25 +380,25 @@ colors: *tokyo-night-storm
 
   # Normal colors
   #normal:
-    #black:   '#1d1f21'
-    #red:     '#cc6666'
-    #green:   '#b5bd68'
-    #yellow:  '#f0c674'
-    #blue:    '#81a2be'
-    #magenta: '#b294bb'
-    #cyan:    '#8abeb7'
-    #white:   '#c5c8c6'
+  #  black:   '#1d1f21'
+  #  red:     '#cc6666'
+  #  green:   '#b5bd68'
+  #  yellow:  '#f0c674'
+  #  blue:    '#81a2be'
+  #  magenta: '#b294bb'
+  #  cyan:    '#8abeb7'
+  #  white:   '#c5c8c6'
 
   # Bright colors
   #bright:
-    #black:   '#666666'
-    #red:     '#d54e53'
-    #green:   '#b9ca4a'
-    #yellow:  '#e7c547'
-    #blue:    '#7aa6da'
-    #magenta: '#c397d8'
-    #cyan:    '#70c0b1'
-    #white:   '#eaeaea'
+  #  black:   '#666666'
+  #  red:     '#d54e53'
+  #  green:   '#b9ca4a'
+  #  yellow:  '#e7c547'
+  #  blue:    '#7aa6da'
+  #  magenta: '#c397d8'
+  #  cyan:    '#70c0b1'
+  #  white:   '#eaeaea'
 
   # Dim colors
   #
@@ -451,16 +480,16 @@ colors: *tokyo-night-storm
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
 
-#cursor:
+cursor:
   # Cursor style
-  #style:
+  style:
     # Cursor shape
     #
     # Values for `shape`:
     #   - ▇ Block
     #   - _ Underline
     #   - | Beam
-    #shape: Block
+    shape: Block
 
     # Cursor blinking state
     #
@@ -509,10 +538,7 @@ live_config_reload: true
 #   - (Windows) powershell
 shell:
   program: /bin/fish
-  #args:
-    #- -l
-    #- -c
-    #- "tmux -u attach || tmux -u"
+#  args:
 #    - --login
 
 # Startup directory
@@ -520,9 +546,6 @@ shell:
 # Directory the shell is started in. If this is unset, or `None`, the working
 # directory of the parent process will be used.
 working_directory: ~
-
-# Send ESC (\x1b) before characters when alt is pressed.
-#alt_send_esc: true
 
 # Offer IPC using `alacritty msg` (unix only)
 #ipc_socket: true
@@ -638,7 +661,7 @@ working_directory: ~
 #    - Key0-Key9
 #
 #    A full list with available key codes can be found here:
-#    https://docs.rs/glutin/*/glutin/event/enum.VirtualKeyCode.html#variants
+#    https://docs.rs/winit/*/winit/event/enum.VirtualKeyCode.html#variants
 #
 #    Instead of using the name of the keys, the `key` field also supports using
 #    the scancode of the desired key. Scancodes have to be specified as a
@@ -687,6 +710,7 @@ working_directory: ~
 #   - Quit
 #       Quit Alacritty.
 #   - ToggleFullscreen
+#   - ToggleMaximized
 #   - SpawnNewInstance
 #       Spawn a new instance of Alacritty.
 #   - CreateNewWindow
@@ -945,7 +969,7 @@ key_bindings:
   #- { key: M,              mods: Command,                    action: Minimize              }
   #- { key: Q,              mods: Command,                    action: Quit                  }
   #- { key: W,              mods: Command,                    action: Quit                  }
-  #- { key: N,              mods: Command,                    action: SpawnNewInstance      }
+  #- { key: N,              mods: Command,                    action: CreateNewWindow       }
   #- { key: F,              mods: Command|Control,            action: ToggleFullscreen      }
   #- { key: F,              mods: Command, mode: ~Search,     action: SearchForward         }
   #- { key: B,              mods: Command, mode: ~Search,     action: SearchBackward        }
@@ -967,6 +991,12 @@ key_bindings:
   #   - Debug
   #   - Trace
   #log_level: Warn
+
+  # Renderer override.
+  #   - glsl3
+  #   - gles2
+  #   - gles2_pure
+  #renderer: None
 
   # Print all received window events.
   #print_events: false
