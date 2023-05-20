@@ -23,10 +23,12 @@ ln $PWD/starship/starship.toml $HOME/.config/starship.toml      # starship
 ln $PWD/tmux/tmux.conf $HOME/.tmux.conf                         # tmux
 ln $PWD/fonts/fonts.conf $HOME/.fonts.conf                      # fonts
 ln $PWD/picom/picom.conf $HOME/.config/picom.conf               # picom
+mkdir -p $HOME/.config/i3                                       # i3
+ln $PWD/i3/i3_config $HOME/.config/i3/config                    #
+ln $PWD/i3/i3status_config $HOME/.i3status.conf                 # i3 status
 ln -s $PWD/nvim $HOME/.config/nvim                              # nvim
 ln -s $PWD/fish $HOME/.config/fish                              # fish
 ln -s $PWD/dunst $HOME/.config/dunst                            # dunst
-ln -s $PWD/i3 $HOME/.config/i3                                  # i3
 ln -s $PWD/scripts $HOME/.config/scripts                        # scripts
 
 lightdm:
