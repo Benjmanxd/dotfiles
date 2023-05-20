@@ -14,9 +14,8 @@ shell:              fish
 
 packages:
 1. sudo dnf update --security
-2. sudo dnf update
-3. sudo dnf install i3 @base-x picom light rofi polybar alacritty feh nemo neovim python3-neovim git git-gui neofetch fzf bat atool htop npm zathura
-4. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
+2. sudo dnf install i3 @base-x picom light rofi polybar alacritty feh nemo neovim python3-neovim git git-gui neofetch fzf bat atool htop npm zathura
+3. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
 
 symlink:
 ln $PWD/bash/bashrc $HOME/.bashrc                               # bash
@@ -27,8 +26,13 @@ ln $PWD/picom/picom.conf $HOME/.config/picom.conf               # picom
 ln -s $PWD/nvim $HOME/.config/nvim                              # nvim
 ln -s $PWD/fish $HOME/.config/fish                              # fish
 ln -s $PWD/dunst $HOME/.config/dunst                            # dunst
+ln -s $PWD/i3 $HOME/.config/i3                                  # i3
 ln -s $PWD/scripts $HOME/.config/scripts                        # scripts
-ln -s $PWD/awesome $HOME/.config/awesome
+
+lightdm:
+sudo dnf install lightdm lightdm-gtk-greeter
+sudo systemctl enable lightdm
+sudo systemctl set-default graphical.target 
 
 nvim:
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
