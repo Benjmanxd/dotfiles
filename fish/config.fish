@@ -4,7 +4,7 @@ set SHELL /bin/fish
 set TERM "xterm-256color"
 set VISUAL nvim
 set EDITOR nvim
-set PATH "/home/benjmanxd/.local/bin:/usr/local/go/bin:/home/benjmanxd/.cargo/bin:/usr/share/dotnet:/home/benjmanxd/Documents/scripts:/home/benjmanxd/.vscode/extensions/redhat.java-1.16.0-linux-x64/jre/17.0.6-linux-x86_64/bin:$PATH"
+set PATH "/home/benjmanxd/.local/bin:/usr/local/go/bin:/home/benjmanxd/.cargo/bin:/usr/share/dotnet:/home/benjmanxd/Documents/scripts:/home/benjmanxd/.vscode/extensions/redhat.java-1.16.0-linux-x64/jre/17.0.6-linux-x86_64/bin:$HOME/anaconda3/bin:$PATH"
 #set FZF_DEFAULT_OPTS "--height 50% --layout reverse --info inline --preview 'bat --style=numbers --color=always --line-range :500 {}'"
 set LANG en_US.UTF-8
 set GO111MODULE on
@@ -155,7 +155,7 @@ neofetch
 starship init fish | source
 zoxide init fish | source
 
-if status is-interactive
-    and not set -q TMUX
-    exec tmux new-session -A -s main
-end
+#if status is-interactive
+#    and not set -q TMUX
+#    exec tmux new-session -A -s main
+#end
