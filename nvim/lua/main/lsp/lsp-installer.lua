@@ -27,7 +27,7 @@ local servers = {
     jsonls = {},
     pyright = {},
     rust_analyzer = {},
-    gopls = {},
+    -- gopls = {},
 }
 local mason_lspconfig_config = {
     ensure_installed = vim.tbl_keys(servers),
