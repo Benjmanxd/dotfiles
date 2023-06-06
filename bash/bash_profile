@@ -1,0 +1,8 @@
+#
+# ~/.bash_profile
+#
+
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+
+chown $USER:$USER /dev/sda
+chmod 755 /dev/sda

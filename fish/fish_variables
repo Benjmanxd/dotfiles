@@ -1,9 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export DP1_BRIGHTNESS:\x1d
-SETUVAR --export DP5_BRIGHTNESS:1\x2e0
+SETUVAR --export DP5_BRIGHTNESS:0\x2e80
 SETUVAR --export GTK_IM_MODULE:fcitx
-SETUVAR --export HDMI0_BRIGHTNESS:1\x2e0
+SETUVAR --export HDMI0_BRIGHTNESS:0\x2e80
 SETUVAR --export L_BRIGHTNESS:xrandr\x20\x2d\x2dverbose\x20\x7c\x20grep\x20\x2dA\x2010\x20DP\x2d1\x20\x7c\x20grep\x20Brightness\x20\x7c\x20cut\x20\x2df2\x20\x2dd\x20\x27\x20\x27
 SETUVAR --export NEWS_API_KEY:74f07f93e315468298aaf2ee1b3c26e8
 SETUVAR --export QT_IM_MODULE:fcitx

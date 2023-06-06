@@ -1,25 +1,40 @@
 # dotfiles
-display renderer: xorg / x11
-display manager: lightdm
-window manager: awesomewm
+
+## System details
+operating system:   Fedora 38
+display renderer:   xorg / x11
+display manager:    NOPE!!
+window manager:     i3
+terminal emulator:  alacritty
+file manager:       nemo
+editor:             nvim
+compositor:         picom
+web browser:        firefox
+shell:              fish
+
 packages:
 1. sudo dnf update --security
-2. sudo dnf update
-3. sudo dnf install @base-x @Fonts awesome lightdm slick-greeter neovim python3-neovim alacritty picom rofi polybar thunar feh wget git git-gui neofetch fzf bat atool htop npm zathura
-4. sudo systemctl enable lightdm
-5. sudo systemctl set-default graphical.target
-6. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
+2. sudo dnf install i3 @base-x picom light rofi polybar alacritty feh nemo neovim python3-neovim git git-gui neofetch fzf bat atool htop npm zathura
+3. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
 
 symlink:
-ln $PWD/bash/bashrc ~/.bashrc                               # bash
-ln $PWD/starship/starship.toml ~/.config/starship.toml      # starship
-ln $PWD/tmux/tmux.conf ~/.tmux.conf                         # tmux
-ln $PWD/fonts/fonts.conf ~/.fonts.conf                      # fonts
-ln $PWD/picom/picom.conf ~/.config/picom.conf               # picom
-ln -s $PWD/nvim ~/.config/nvim                              # nvim
-ln -s $PWD/fish ~/.config/fish                              # fish
-ln -s $PWD/dunst ~/.config/dunst                            # dunst
-ln -s $PWD/scripts ~/.config/scripts                        # scripts
+ln $PWD/bash/bashrc $HOME/.bashrc                               # bash
+ln $PWD/starship/starship.toml $HOME/.config/starship.toml      # starship
+ln $PWD/tmux/tmux.conf $HOME/.tmux.conf                         # tmux
+ln $PWD/fonts/fonts.conf $HOME/.fonts.conf                      # fonts
+ln $PWD/picom/picom.conf $HOME/.config/picom.conf               # picom
+mkdir -p $HOME/.config/i3                                       # i3
+ln $PWD/i3/i3_config $HOME/.config/i3/config                    #
+ln $PWD/i3/i3status_config $HOME/.i3status.conf                 # i3 status
+ln -s $PWD/nvim $HOME/.config/nvim                              # nvim
+ln -s $PWD/fish $HOME/.config/fish                              # fish
+ln -s $PWD/dunst $HOME/.config/dunst                            # dunst
+ln -s $PWD/scripts $HOME/.config/scripts                        # scripts
+
+lightdm:
+sudo dnf install lightdm lightdm-gtk-greeter
+sudo systemctl enable lightdm
+sudo systemctl set-default graphical.target 
 
 nvim:
 git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
