@@ -19,6 +19,7 @@ packages:
 
 symlink:
 ln $PWD/bash/bashrc $HOME/.bashrc                               # bash
+ln $PWD/bash/bash_profile $HOME/.bash_profile                   # bash_profile
 ln $PWD/starship/starship.toml $HOME/.config/starship.toml      # starship
 ln $PWD/tmux/tmux.conf $HOME/.tmux.conf                         # tmux
 ln $PWD/fonts/fonts.conf $HOME/.fonts.conf                      # fonts

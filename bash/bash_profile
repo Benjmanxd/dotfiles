@@ -2,7 +2,7 @@
 # ~/.bash_profile
 #
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f ~/.bashrc ]] && . "$HOME"/.bashrc
 
-chown $USER:$USER /dev/sda
-chmod 755 /dev/sda
+chown "$USER":"$USER" /mnt/sda
+chown "$USER":"$USER" /mnt/sdb
