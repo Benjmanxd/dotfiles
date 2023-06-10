@@ -159,3 +159,9 @@ zoxide init fish | source
 #    and not set -q TMUX
 #    exec tmux new-session -A -s main
 #end
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+eval /home/benjmanxd/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# <<< conda initialize <<<
+
