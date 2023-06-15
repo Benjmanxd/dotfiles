@@ -855,12 +855,12 @@ working_directory: ~
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
 key_bindings:
-  - { key: N,         mods: Control,                    action: SpawnNewInstance    }
-  - { key: T,         mods: Control,                    action: CreateNewWindow     }
+  #- { key: N,         mods: Control,                    action: SpawnNewInstance    }
+  #- { key: T,         mods: Control,                    action: CreateNewWindow     }
   - { key: Q,         mods: Control,                    action: Quit                }
-  - { key: D,         mods: Control,                    action: ScrollHalfPageDown  }
-  - { key: U,         mods: Control,                    action: ScrollHalfPageUp    }
-  - { key: M,         mods: Super,                      action: ToggleFullscreen    }
+  #- { key: D,         mods: Control,                    action: ScrollHalfPageDown  }
+  #- { key: U,         mods: Control,                    action: ScrollHalfPageUp    }
+  #- { key: M,         mods: Super,                      action: ToggleFullscreen    }
   - { key: V,         mods: Control|Shift,              action: Paste          }
   - { key: C,         mods: Control|Shift,              action: Copy           }
   #- { key: Paste,                                       action: Paste          }
