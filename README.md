@@ -14,7 +14,7 @@ shell:              fish
 
 packages:
 1. sudo dnf update --security
-2. sudo dnf install i3 @base-x picom light rofi polybar alacritty feh nemo neovim python3-neovim git git-gui neofetch fzf bat atool htop npm zathura
+2. sudo dnf install i3 @base-x picom light rofi polybar alacritty feh nemo neovim python3-neovim git git-gui neofetch fzf bat atool htop npm zathura slides
 3. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
 
 symlink:
