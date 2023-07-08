@@ -25,7 +25,7 @@ local config = {
     end,
     on_exit = function(terminal, job, exit_code, name) -- fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
     end,
-    hide_numbers = true, -- hide the number column in toggleterm buffers
+    hide_numbers = false, -- hide the number column in toggleterm buffers
     shade_filetypes = {},
     autochdir = false, -- when neovim changes it current directory the terminal will change it's own when next it's opened
     -- highlights = {
@@ -49,7 +49,7 @@ local config = {
     terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
     persist_size = true,
     persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered
-    direction = "float", -- value: 'vertical', 'horizontal', 'tab', 'float'
+    direction = "horizontal", -- value: 'vertical', 'horizontal', 'tab', 'float'
     close_on_exit = true, -- close the terminal window when the process exits
     shell = vim.o.shell, -- change the default shell
     auto_scroll = true, -- automatically scroll to the bottom on terminal output
