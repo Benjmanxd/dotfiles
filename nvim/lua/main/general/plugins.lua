@@ -72,6 +72,7 @@ return packer.startup(function(use)
     use "stevearc/aerial.nvim"
     use "dag/vim-fish"
     use "ellisonleao/glow.nvim"
+  use "mhartington/formatter.nvim"
     -- buffer, status
     use "nvim-lualine/lualine.nvim" -- lualine
     use "akinsho/bufferline.nvim" -- bufferline
