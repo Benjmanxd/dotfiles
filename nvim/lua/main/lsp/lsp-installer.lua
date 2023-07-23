@@ -15,12 +15,38 @@ end
 
 mason.setup()
 
+local util = lspconfig.util
 local servers = {
   lua_ls = {
     Lua = {
       diagnostics = {
         globals = { 'vim' }
       }
+    }
+  },
+  fortls = {
+    default_config = {
+      cmd = {
+        'fortls',
+        '--lowercase_intrisics',
+        '--hover_signature',
+        '--hover_language=fortran90',
+        '--use_signature_help',
+        '--incrmental_sync',
+        '--autocomplete_no_prefix'
+      },
+      filetypes = { 'fortran' },
+      root_dir = function(fname)
+        return util.root_pattern '.fortls'(fname) or util.find_git_ancestor(fname)
+      end,
+      settings = {
+        variableHover = true
+      },
+    },
+    docs = {
+      default_config = {
+        root_dir = [[root_pattern(".fortls")]],
+      },
     }
   },
   clangd = {},

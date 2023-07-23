@@ -1,7 +1,7 @@
 ### ENVIRONMENT VARIABLE ###
 set fish_greeting
 set SHELL /bin/fish
-set TERM "xterm-256color"
+set TERM "tmux-256color"
 set VISUAL nvim
 set EDITOR nvim
 set PATH "/home/benjmanxd/.local/bin:/usr/local/go/bin:/home/benjmanxd/.cargo/bin:/usr/share/dotnet:/home/benjmanxd/Documents/scripts:/home/benjmanxd/.vscode/extensions/redhat.java-1.16.0-linux-x64/jre/17.0.6-linux-x86_64/bin:$HOME/anaconda3/bin:$PATH"

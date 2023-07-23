@@ -1,6 +1,6 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-    return
+  return
 end
 
 pcall(telescope.load_extension, 'lazygit')
@@ -9,8 +9,7 @@ pcall(telescope.load_extension, 'fzf')
 
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
-local global_config = require("telescope.config")
-local vimgrep_arguments = { unpack(global_config.values.vimgrep_arguments) }
+local trouble = require("trouble.providers.telescope")
 
 vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>st", builtin.help_tags, { desc = "[S]earch [H]elp" })
@@ -21,64 +20,60 @@ vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]re
 vim.keymap.set("n", "<leader>sr", builtin.lsp_references, { desc = "[S]earch [R]eferences" })
 vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily search in current buffer" })
 vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
-vim.keymap.set("n", "<leader>x",  "<CMD>Telescope file_browser<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
 vim.keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
-
-table.insert(vimgrep_arguments, "--hidden")
-table.insert(vimgrep_arguments, "--glob")
-table.insert(vimgrep_arguments, "!.git/*")
+vim.keymap.set("n", "<leader>x",  "<CMD>Telescope file_browser<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ed", trouble.open_with_trouble, { desc = "[E]rror [D]iagnose" })
 
 local config = {
-    defaults = {
-        -- :help telescope.layout
-        vimgrep_arguments = vimgrep_arguments,
-        path_display = { truncate = 5 },
-        selection_strategy = "reset",
-        sorting_strategy = "ascending",
-        scroll_strategy = "limit",
-        color_devicons = true,
-        layout_strategy = "horizontal",
-        layout_config = {
-            prompt_position = "top",
-            height = 0.85,
-            width = 0.85,
-        },
-        mappings = {
-            i = {
-                ["<ESC>"] = actions.close,
-            },
-        },
+  defaults = {
+    -- :help telescope.layout
+    path_display = { truncate = 5 },
+    selection_strategy = "reset",
+    sorting_strategy = "ascending",
+    scroll_strategy = "limit",
+    color_devicons = true,
+    layout_strategy = "horizontal",
+    layout_config = {
+      prompt_position = "top",
+      height = 0.85,
+      width = 0.85,
     },
-    pickers = {
-		find_files = {
-			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-			find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
-		},
-	},
-    extensions = {
-        fzf = {
-            fuzzy = true,
-            override_generic_sorter = true,
-            override_file_sorter = true,
-            case_mode = "smart_case",
-        },
-        file_browser = {
-            path_display = { truncate = 5 },
-            selection_strategy = "reset",
-            sorting_strategy = "ascending",
-            scroll_strategy = "limit",
-            borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-            --layout_strategy = "horizontal",
-            --layout_config = { 
-            --    prompt_position = "top",
-            --    height = 0.85,
-            --    width = 0.85,
-            --},
-            theme = "ivy",
-            hijack_netrw = true,
-        },
+    mappings = {
+      i = {
+        ["<ESC>"] = actions.close,
+      },
     },
+  },
+  pickers = {
+    find_files = {
+      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+      find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+    },
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
+    file_browser = {
+      path_display = { truncate = 5 },
+      selection_strategy = "reset",
+      sorting_strategy = "ascending",
+      scroll_strategy = "limit",
+      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      --layout_strategy = "horizontal",
+      --layout_config = { 
+      --    prompt_position = "top",
+      --    height = 0.85,
+      --    width = 0.85,
+      --},
+      theme = "ivy",
+      hijack_netrw = false,
+    },
+  },
 }
 
 telescope.setup(config)

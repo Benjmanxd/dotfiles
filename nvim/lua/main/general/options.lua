@@ -18,6 +18,7 @@ o.splitright = true
 --o.cmdheight = 2
 o.swapfile = false
 o.cursorline = true
+o.cursorcolumn = true
 o.smartindent = true
 o.autoindent = true
 o.shiftwidth = 2
