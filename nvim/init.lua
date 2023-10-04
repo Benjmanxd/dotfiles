@@ -1,23 +1,25 @@
-require "main.general.options"
-require "main.general.keymaps"
-require "main.general.plugins"
-require "main.general.commands"
-require "main.general.utils"
-require "main.devicons"
-require "main.cmp"
-require "main.lsp"
-require "main.formatter"
-require "main.trouble"
-require "main.telescope"
-require "main.bufferline"
-require "main.lualine"
-require "main.toggleterm"
-require "main.lazygit"
-require "main.ranger"
-require "main.autopair"
-require "main.neotree"
-require "main.treesitter"
-require "main.aerial"
-require "main.indentline"
-require "main.alpha"
-require "main.pandoc"
+require("main.general.options")
+require("main.general.keymaps")
+require("main.general.plugins")
+require("main.general.commands")
+require("main.general.utils")
+require("main.devicons")
+require("main.cmp")
+require("main.lsp")
+require("main.formatter")
+require("main.trouble")
+require("main.telescope")
+require("main.bufferline")
+require("main.lualine")
+require("main.toggleterm")
+require("main.lazygit")
+require("main.autopair")
+require("main.neotree")
+require("main.treesitter")
+require("main.aerial")
+require("main.indentline")
+require("main.alpha")
+require("main.comment")
+require("main.fidget")
+--require("main.ranger")
+--require("main.pandoc")

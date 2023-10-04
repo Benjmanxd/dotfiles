@@ -1,11 +1,11 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-  return
+	return
 end
 
-pcall(telescope.load_extension, 'lazygit')
-pcall(telescope.load_extension, 'file_browser')
-pcall(telescope.load_extension, 'fzf')
+pcall(telescope.load_extension, "lazygit")
+pcall(telescope.load_extension, "file_browser")
+pcall(telescope.load_extension, "fzf")
 
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
@@ -22,58 +22,58 @@ vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "[/
 vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
 vim.keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
-vim.keymap.set("n", "<leader>x",  "<CMD>Telescope file_browser<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>x", "<CMD>Telescope file_browser<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>ed", trouble.open_with_trouble, { desc = "[E]rror [D]iagnose" })
 
 local config = {
-  defaults = {
-    -- :help telescope.layout
-    path_display = { truncate = 5 },
-    selection_strategy = "reset",
-    sorting_strategy = "ascending",
-    scroll_strategy = "limit",
-    color_devicons = true,
-    layout_strategy = "horizontal",
-    layout_config = {
-      prompt_position = "top",
-      height = 0.85,
-      width = 0.85,
-    },
-    mappings = {
-      i = {
-        ["<ESC>"] = actions.close,
-      },
-    },
-  },
-  pickers = {
-    find_files = {
-      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-      find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
-    },
-  },
-  extensions = {
-    fzf = {
-      fuzzy = true,
-      override_generic_sorter = true,
-      override_file_sorter = true,
-      case_mode = "smart_case",
-    },
-    file_browser = {
-      path_display = { truncate = 5 },
-      selection_strategy = "reset",
-      sorting_strategy = "ascending",
-      scroll_strategy = "limit",
-      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-      --layout_strategy = "horizontal",
-      --layout_config = { 
-      --    prompt_position = "top",
-      --    height = 0.85,
-      --    width = 0.85,
-      --},
-      theme = "ivy",
-      hijack_netrw = false,
-    },
-  },
+	defaults = {
+		-- :help telescope.layout
+		path_display = { truncate = 5 },
+		selection_strategy = "reset",
+		sorting_strategy = "ascending",
+		scroll_strategy = "limit",
+		color_devicons = true,
+		layout_strategy = "horizontal",
+		layout_config = {
+			prompt_position = "top",
+			height = 0.85,
+			width = 0.85,
+		},
+		mappings = {
+			i = {
+				["<ESC>"] = actions.close,
+			},
+		},
+	},
+	pickers = {
+		find_files = {
+			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+			find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+		},
+	},
+	extensions = {
+		fzf = {
+			fuzzy = true,
+			override_generic_sorter = true,
+			override_file_sorter = true,
+			case_mode = "smart_case",
+		},
+		file_browser = {
+			path_display = { truncate = 5 },
+			selection_strategy = "reset",
+			sorting_strategy = "ascending",
+			scroll_strategy = "limit",
+			borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+			--layout_strategy = "horizontal",
+			--layout_config = {
+			--    prompt_position = "top",
+			--    height = 0.85,
+			--    width = 0.85,
+			--},
+			theme = "ivy",
+			hijack_netrw = false,
+		},
+	},
 }
 
 telescope.setup(config)

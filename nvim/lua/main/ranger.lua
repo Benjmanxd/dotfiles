@@ -13,8 +13,8 @@ g.rnvimr_hide_gitignore = 0
 
 --Change the border's color
 g.rnvimr_border_attr = {
-    ["fg"] = 14,
-    ["bg"] = -1,
+	["fg"] = 14,
+	["bg"] = -1,
 }
 
 --Make Neovim wipe the buffers corresponding to the files deleted by Ranger
@@ -25,9 +25,9 @@ g.rnvimr_shadow_winblend = 40
 
 --Draw border with both
 g.rnvimr_ranger_cmd = {
-    "ranger",
-    "--cmd=set colorscheme jungle",
-    "--cmd=set draw_borders both",
+	"ranger",
+	"--cmd=set colorscheme jungle",
+	"--cmd=set draw_borders both",
 }
 
 --Link CursorLine into RnvimrNormal highlight in the Floating window
@@ -51,18 +51,18 @@ vim.keymap.set("t", "<leader>rs", "<CMD>RnvimrResize 3<CR>", { noremap = true })
 
 --Map Rnvimr action
 g.rnvimr_action = {
-    ["<C-t>"] = "NvimEdit tabedit",
-    ["<C-x>"] = "NvimEdit split",
-    ["<C-v>"] = "NvimEdit vsplit",
-    ["gw"] = "JumpNvimCwd",
-    ["yw"] = "EmitRangerCwd",
+	["<C-t>"] = "NvimEdit tabedit",
+	["<C-x>"] = "NvimEdit split",
+	["<C-v>"] = "NvimEdit vsplit",
+	["gw"] = "JumpNvimCwd",
+	["yw"] = "EmitRangerCwd",
 }
 
 --Add views for Ranger to adapt the size of floating window
 g.rnvimr_ranger_views = {
-    { ['minwidth'] = 90, ['ratio'] = {} },
-    { ['minwidth'] = 50, ['maxwidth'] = 89, ['ratio'] = {1,1} },
-    { ['maxwidth'] = 49, ['ratio'] = {1} },
+	{ ["minwidth"] = 90, ["ratio"] = {} },
+	{ ["minwidth"] = 50, ["maxwidth"] = 89, ["ratio"] = { 1, 1 } },
+	{ ["maxwidth"] = 49, ["ratio"] = { 1 } },
 }
 
 --Customize the initial layout
