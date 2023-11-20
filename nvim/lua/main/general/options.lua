@@ -1,6 +1,6 @@
 -- vim option
 local o = vim.opt
-local home = vim.fn.expand('~')
+local home = vim.fn.expand("~")
 
 o.backup = false
 o.swapfile = false
@@ -17,8 +17,8 @@ o.splitbelow = true
 o.splitright = true
 --o.cmdheight = 2
 o.swapfile = false
-o.cursorline = true
-o.cursorcolumn = true
+o.cursorline = false
+o.cursorcolumn = false
 o.smartindent = true
 o.autoindent = true
 o.shiftwidth = 2
@@ -35,7 +35,6 @@ o.signcolumn = "yes"
 o.guifont = "monospace:h17"
 o.termguicolors = true
 o.completeopt = { "menu", "menuone", "noselect" }
-o.shortmess:append "c"
+o.shortmess:append("c")
 o.backupdir = home .. "/.nvim/backups"
 o.undodir = home .. "/.nvim/undos"
-

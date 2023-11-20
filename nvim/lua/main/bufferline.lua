@@ -15,9 +15,8 @@ local config = {
 		-- and so changing this is NOT recommended, this is intended
 		-- as an escape hatch for people who cannot bear it for whatever reason
 		indicator_icon = nil,
-		indicator = { style = "icon", icon = "▎" },
-		buffer_close_icon = "",
-		-- buffer_close_icon = '',
+		indicator = { style = "icon", icon = "  ▎" },
+		buffer_close_icon = "",
 		modified_icon = "●",
 		close_icon = "",
 		-- close_icon = '',
@@ -33,8 +32,8 @@ local config = {
 		--     return vim.fn.fnamemodify(buf.name, ':t:r')
 		--   end
 		-- end,
-		max_name_length = 30,
-		max_prefix_length = 30, -- prefix used when a buffer is de-duplicated
+		max_name_length = 50,
+		max_prefix_length = 50, -- prefix used when a buffer is de-duplicated
 		tab_size = 15,
 		diagnostics = "nvim_lsp",
 		diagnostics_update_in_insert = false,
@@ -57,7 +56,10 @@ local config = {
 		--     return true
 		--   end
 		-- end,
-		offsets = { { filetype = "NvimTree", text = "", padding = 1 } },
+		offsets = {
+			{ filetype = "neo-tree", text = "File Explorer", text_align = "center", separator = true },
+			{ filetype = "aerial", text = "Symbols", text_align = "center", separator = true },
+		},
 		show_buffer_icons = true,
 		show_buffer_close_icons = true,
 		show_close_icon = true,
@@ -65,7 +67,7 @@ local config = {
 		persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
 		-- can also be a table containing 2 custom separators
 		-- [focused and unfocused]. eg: { '|', '|' }
-		separator_style = "thin", -- | "thick" | "thin" | { 'any', 'any' },
+		separator_style = "thick", -- | "thick" | "thin" | { 'any', 'any' },
 		enforce_regular_tabs = true,
 		always_show_bufferline = true,
 		-- sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
@@ -82,7 +84,6 @@ local config = {
 			fg = { attribute = "fg", highlight = "TabLine" },
 			bg = { attribute = "bg", highlight = "TabLine" },
 		},
-
 		-- buffer_selected = {
 		--   fg = {attribute='fg',highlight='#ff0000'},
 		--   bg = {attribute='bg',highlight='#0000ff'},

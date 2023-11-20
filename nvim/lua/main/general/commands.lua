@@ -8,3 +8,25 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*" },
 	command = "Format",
 })
+
+vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "WinEnter", "BufWinEnter" }, {
+	pattern = { "*" },
+	callback = function()
+		local listed = vim.api.nvim_get_option_value("buflisted", { scope = "local" })
+		if listed then
+			vim.cmd("setlocal cursorline")
+			vim.cmd("setlocal cursorcolumn")
+		else
+			vim.cmd("setlocal nocursorline")
+			vim.cmd("setlocal nocursorcolumn")
+		end
+	end,
+})
+
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+	pattern = { "*" },
+	callback = function()
+		vim.cmd("setlocal nocursorline")
+		vim.cmd("setlocal nocursorcolumn")
+	end,
+})
