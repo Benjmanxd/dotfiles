@@ -39,59 +39,68 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- colourscheme, ui
-	use("KeitaNakamura/neodark.vim") -- theme
-	use("goolord/alpha-nvim") -- neovim startup
+	use("VDuchauffour/neodark.nvim") -- theme
+	use({ "goolord/alpha-nvim", requires = { "nvim-tree/nvim-web-devicons" } }) -- greeter
 	use("nvim-lua/popup.nvim")
-	use("nvim-lua/plenary.nvim")
-	use("mortepau/codicons.nvim")
-	use("kyazdani42/nvim-web-devicons")
-	use("MunifTanjim/nui.nvim")
 
 	-- completetion, snippet
-	use("hrsh7th/nvim-cmp")
-	use("hrsh7th/cmp-buffer")
-	use("hrsh7th/cmp-path")
-	use("hrsh7th/cmp-nvim-lua")
-	use("hrsh7th/cmp-nvim-lsp")
-	use("hrsh7th/cmp-cmdline")
-	use("hrsh7th/cmp-nvim-lsp-document-symbol")
-	use("L3MON4D3/LuaSnip")
-	use("saadparwaiz1/cmp_luasnip")
-	use("rafamadriz/friendly-snippets")
-
-	-- lsp
-	use("neovim/nvim-lspconfig")
-	use("williamboman/mason.nvim")
-	use("williamboman/mason-lspconfig.nvim")
+	use({
+		"hrsh7th/nvim-cmp",
+		requires = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-path",
+			"hrsh7th/cmp-nvim-lua",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-nvim-lsp-document-symbol",
+			"saadparwaiz1/cmp_luasnip",
+		},
+	})
+	use({ "L3MON4D3/LuaSnip", require = { "rafamadriz/friendly-snippets" } })
+	use({
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	})
 
 	-- file, fuzzy
-	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- searcher
-	use("nvim-telescope/telescope-file-browser.nvim")
-	use("nvim-telescope/telescope-fzf-native.nvim")
-	use({ "nvim-neo-tree/neo-tree.nvim", branch = "v2.x" }) -- tree file visualization
-	--use("kevinhwang91/rnvimr") -- floating file explorer
+	use({ "nvim-telescope/telescope.nvim", branch = "0.1.x", requires = { { "nvim-lua/plenary.nvim" } } }) -- searcher
+	use({
+		"nvim-telescope/telescope-fzf-native.nvim",
+		run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+	})
+	use({
+		"nvim-neo-tree/neo-tree.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons",
+			"MunifTanjim/nui.nvim",
+			-- "3rd/image.nvim", -- optional image support in preview window
+		},
+	}) -- tree
 
 	-- code editting
 	use("windwp/nvim-autopairs") -- pair symbol automation
-	use("nvim-treesitter/nvim-treesitter") -- code highlighter
-	use("Yggdroot/indentLine") -- auto identation
+	use({
+		"nvim-treesitter/nvim-treesitter",
+		run = function()
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			ts_update()
+		end,
+	}) -- code highlighter
 	use("stevearc/aerial.nvim") -- code symbol
-	use("dag/vim-fish")
 	use("mhartington/formatter.nvim") -- code formatter
-	use("folke/trouble.nvim") -- code error, warning
+	use({ "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } }) -- error, warning
 	use("numToStr/Comment.nvim") -- comments
-	--use("aspeddro/pandoc.nvim") -- preview
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }) -- debug
 
 	-- buffer, status
-	use("nvim-lualine/lualine.nvim") -- neovim status
-	use("akinsho/bufferline.nvim") -- neovim buffer
-	use("kazhala/close-buffers.nvim")
+	use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } }) -- neovim status
+	use({ "akinsho/bufferline.nvim", requires = "nvim-tree/nvim-web-devicons" }) -- neovim buffer
 	use("akinsho/toggleterm.nvim") -- terminal
-	use("j-hui/fidget.nvim") -- lsp progress
 
 	-- git
 	use("tpope/vim-fugitive") -- git function
-	use("kdheepak/lazygit.nvim") -- git gui
 
 	-- Automcatically setup configuration after cloning packer.nvim, put this after all plugins
 	if PACKER_BOOTSTRAP then

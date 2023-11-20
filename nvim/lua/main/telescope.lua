@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
-pcall(telescope.load_extension, "lazygit")
-pcall(telescope.load_extension, "file_browser")
 pcall(telescope.load_extension, "fzf")
 
 local builtin = require("telescope.builtin")

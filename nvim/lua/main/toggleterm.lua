@@ -3,8 +3,6 @@ if not status_ok then
 	return
 end
 
---vim.keymap.set("n", "<leader>tt", "<CMD>ToggleTerm<CR>", { noremap = true })
-
 local config = {
 	-- size can be a number or function which is passed the current terminal
 	size = function(term) -- or return 20
@@ -12,20 +10,12 @@ local config = {
 			return 15
 		elseif term.direction == "vertical" then
 			return vim.o.columns * 0.4
+		else
+			return 100
 		end
 	end,
 	open_mapping = [[<c-\>]],
-	on_open = function(terminal) -- fun(t: Terminal) function to run when the terminal opens
-	end,
-	on_close = function(terminal) -- fun(t: Terminal) function to run when the terminal closes
-	end,
-	on_stdout = function(terminal, job, data, name) -- fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stdout
-	end,
-	on_stderr = function(terminal, job, data, name) -- fun(t: Terminal, job: number, data: string[], name: string) -- callback for processing output on stderr
-	end,
-	on_exit = function(terminal, job, exit_code, name) -- fun(t: Terminal, job: number, exit_code: number, name: string) -- function to run when terminal process exits
-	end,
-	hide_numbers = false, -- hide the number column in toggleterm buffers
+	hide_numbers = true, -- hide the number column in toggleterm buffers
 	shade_filetypes = {},
 	autochdir = false, -- when neovim changes it current directory the terminal will change it's own when next it's opened
 	-- highlights = {
@@ -49,7 +39,7 @@ local config = {
 	terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
 	persist_size = true,
 	persist_mode = true, -- if set to true (default) the previous terminal mode will be remembered
-	direction = "horizontal", -- value: 'vertical', 'horizontal', 'tab', 'float'
+	direction = "tab", -- value: 'vertical', 'horizontal', 'tab', 'float'
 	close_on_exit = true, -- close the terminal window when the process exits
 	shell = vim.o.shell, -- change the default shell
 	auto_scroll = true, -- automatically scroll to the bottom on terminal output
@@ -64,12 +54,6 @@ local config = {
 		width = 150,
 		height = 60,
 		winblend = 15,
-	},
-	winbar = {
-		enabled = false,
-		name_formatter = function(term) --  term: Terminal
-			return term.name
-		end,
 	},
 }
 
