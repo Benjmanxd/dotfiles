@@ -11,7 +11,7 @@ local config = {
 		-- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
 		-- min_width and max_width can be a list of mixed types.
 		-- max_width = {40, 0.2} means "the lesser of 40 columns or 20% of total"
-		max_width = { 40, 0.2 },
+		max_width = { 30, 0.2 },
 		width = nil,
 		min_width = 10,
 
@@ -125,32 +125,9 @@ local config = {
 		["zx"] = "actions.tree_sync_folds",
 		["zX"] = "actions.tree_sync_folds",
 	},
-
-	-- Options for opening aerial in a floating win
-	float = {
-		-- Controls border appearance. Passed to nvim_open_win
-		border = "rounded",
-
-		-- Determines location of floating window
-		--   cursor - Opens float on top of the cursor
-		--   editor - Opens float centered in the editor
-		--   win    - Opens float centered in the window
-		relative = "cursor",
-
-		-- These control the height of the floating window.
-		-- They can be integers or a float between 0 and 1 (e.g. 0.4 for 40%)
-		-- min_height and max_height can be a list of mixed types.
-		-- min_height = {8, 0.1} means "the greater of 8 rows or 10% of total"
-		max_height = 0.9,
-		height = nil,
-		min_height = { 8, 0.1 },
-
-		override = function(conf, source_winid)
-			-- This is the config that will be passed to nvim_open_win.
-			-- Change values here to customize the layout
-			return conf
-		end,
-	},
+	highlight_mode = "split_width", -- split_width | full_width | last | none
+	highlight_closest = true,
+	highlight_on_hover = true,
 
 	lsp = {
 		-- Fetch document symbols when LSP diagnostics update.

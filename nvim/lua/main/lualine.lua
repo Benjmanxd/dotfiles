@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+local utils = require("main.general.utils")
+
 -- local function
 local progress = function()
 	local current_line = vim.fn.line(".")

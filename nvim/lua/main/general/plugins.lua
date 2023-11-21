@@ -39,9 +39,10 @@ return packer.startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- colourscheme, ui
-	use("VDuchauffour/neodark.nvim") -- theme
+	-- use("VDuchauffour/neodark.nvim") -- theme
+	use("KeitaNakamura/neodark.vim")
 	use({ "goolord/alpha-nvim", requires = { "nvim-tree/nvim-web-devicons" } }) -- greeter
-	use("nvim-lua/popup.nvim")
+	use("norcalli/nvim-colorizer.lua")
 
 	-- completetion, snippet
 	use({
