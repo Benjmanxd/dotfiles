@@ -50,6 +50,7 @@ local palette = {
 }
 
 local style = {
+	none = "none",
 	bold = "bold",
 	italic = "italic",
 }
@@ -152,10 +153,12 @@ theme.bufferline = {
 	BufferLineTab = { fg = palette.fg, bg = palette.bg_1 },
 	-- BufferLineTabSelected = { fg = palette.bg, bg = palette.bg },
 	-- BufferLineTabClose = { fg = palette.bg, bg = palette.bg },
-	-- BufferLineIndicatorSelected = { fg = palette.bg, bg = palette.bg },
-	-- BufferLineSeparator = { fg = palette.grey_4, bg = palette.grey_4 },
-	-- BufferLineSeparatorVisible = { fg = palette.bg, bg = palette.bg },
-	-- BufferLineSeparatorSelected = { fg = palette.grey_4, bg = palette.grey_4 },
+	BufferLineIndicatorSelected = { fg = palette.blue_1, bg = palette.bg },
+
+	BufferLineSeparator = { fg = palette.bg, bg = palette.bg },
+	BufferLineSeparatorVisible = { fg = palette.bg, bg = palette.bg },
+	BufferLineSeparatorSelected = { fg = palette.bg, bg = palette.bg },
+
 	BufferLineCloseButton = { fg = palette.grey_8, bg = palette.bg_2 },
 	BufferLineCloseButtonVisible = { fg = palette.grey_4, bg = palette.bg_1 },
 	BufferLineCloseButtonSelected = { fg = palette.grey_10, bg = palette.bg },
