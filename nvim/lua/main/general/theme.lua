@@ -4,7 +4,7 @@ local palette = {
 	none = "NONE",
 	fg = "#abb2bf",
 	fg_1 = "#c5cad4",
-	bg = "#0b1b3b",
+	bg = "#101429",
 	bg_1 = "#12151b",
 	bg_2 = "#0e0f12",
 	black = "#181a1f",
@@ -45,6 +45,7 @@ local palette = {
 	purple_statement = "#bb8bc9",
 	purple_comment = "#565f89",
 	purple_highlight = "#bf40bf",
+  purple_bg = "#1a0a24",
 	unlisted = "#40e0d0",
 }
 
