@@ -41,7 +41,7 @@ return packer.startup(function(use)
 	-- ui
 	use({ "goolord/alpha-nvim", requires = { "nvim-tree/nvim-web-devicons" } }) -- greeter
 	use("norcalli/nvim-colorizer.lua")
-  use "lukas-reineke/indent-blankline.nvim"
+	use("lukas-reineke/indent-blankline.nvim")
 
 	-- completetion, snippet
 	use({
@@ -88,51 +88,52 @@ return packer.startup(function(use)
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
-			local ts_update = require("nvim-treesitter.install").update({ with_sync = true }, {
-        "bash",
-        "c",
-        "cmake",
-        "cpp",
-        "dockerfile",
-        "erlang",
-        "fish",
-        "git_config",
-        "git_rebase",
-        "gitattributes",
-        "gitcommit",
-        "gitignore",
-        "go",
-        "groovy",
-        "haskell",
-        "hcl",
-        "html",
-        "http",
-        "ini",
-        "java",
-        "javascript",
-        "jq",
-        "jsdoc",
-        "kotlin",
-        "latex",
-        "llvm",
-        "lua",
-        "make",
-        "markdown",
-        "nix",
-        "ocaml",
-        "python",
-        "regex",
-        "ruby",
-        "rust",
-        "solidity",
-        "sql",
-        "swift",
-        "terraform",
-        "toml",
-        "yaml",
-        "zig",
-      })
-			ts_update()
+			local ts_update = require("nvim-treesitter.install").update({ with_sync = true })
+			local languages = {
+				"bash",
+				"c",
+				"cmake",
+				"cpp",
+				"dockerfile",
+				"erlang",
+				"fish",
+				"git_config",
+				"git_rebase",
+				"gitattributes",
+				"gitcommit",
+				"gitignore",
+				"go",
+				"groovy",
+				"haskell",
+				"hcl",
+				"html",
+				"http",
+				"ini",
+				"java",
+				"javascript",
+				"jq",
+				"jsdoc",
+				"kotlin",
+				"latex",
+				"llvm",
+				"lua",
+				"make",
+				"markdown",
+				"nix",
+				"ocaml",
+				"python",
+				"regex",
+				"ruby",
+				"rust",
+				"solidity",
+				"sql",
+				"swift",
+				"terraform",
+				"toml",
+				"yaml",
+				"zig",
+			}
+			ts_update(languages)
 		end,
 	}) -- code highlighter
 	use("stevearc/aerial.nvim") -- code symbol

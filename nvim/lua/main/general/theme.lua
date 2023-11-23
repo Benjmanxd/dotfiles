@@ -45,7 +45,7 @@ local palette = {
 	purple_statement = "#bb8bc9",
 	purple_comment = "#565f89",
 	purple_highlight = "#bf40bf",
-  purple_bg = "#1a0a24",
+	purple_bg = "#1a0a24",
 	unlisted = "#40e0d0",
 }
 
@@ -136,6 +136,7 @@ theme.base = {
 	EndOfBuffer = { fg = palette.bg, bg = palette.none },
 	FloatBorder = { bg = palette.none },
 	MatchParen = { fg = palette.none, bg = palette.grey_5 },
+	Unlisted = { fg = palette.unlisted, bg = palette.none, style = { style.bold, style.italic } },
 }
 
 theme.aerial = {
@@ -150,6 +151,7 @@ theme.bufferline = {
 	BufferLineBufferSelected = { fg = palette.purple, bg = palette.bg, style = { style.bold, style.italic } },
 	BufferLineTab = { fg = palette.fg, bg = palette.bg_1 },
 	BufferLineIndicatorSelected = { fg = palette.blue_1, bg = palette.bg, style = { style.bold } },
+	BufferLineIndicatorVisible = { fg = palette.bg_1, bg = palette.bg_1 },
 	BufferLineSeparator = { fg = palette.bg, bg = palette.bg, style = { style.bold } },
 	BufferLineCloseButton = { fg = palette.grey_8, bg = palette.bg_2 },
 	BufferLineCloseButtonVisible = { fg = palette.grey_4, bg = palette.bg_1 },
@@ -162,10 +164,13 @@ theme.bufferline = {
 	BufferLineDevIconLua = { fg = palette.none, bg = palette.bg_1 },
 	BufferLineDevIconLuaInactive = { fg = palette.blue, bg = palette.bg_1 },
 	BufferLineDevIconLuaSelected = { fg = palette.blue, bg = palette.bg },
-	BufferLineNeotree = { fg = palette.unlisted, bg = palette.none, style = { style.bold, style.italic } },
-	BufferLineAerial = { fg = palette.unlisted, bg = palette.none, style = { style.bold, style.italic } },
+}
+
+theme.indentblankline = {
+	IndentBlankLine = { fg = palette.purple_comment, bg = palette.none },
 }
 
 utils.set_theme(theme.base)
 utils.set_theme(theme.aerial)
 utils.set_theme(theme.bufferline)
+utils.set_theme(theme.indentblankline)

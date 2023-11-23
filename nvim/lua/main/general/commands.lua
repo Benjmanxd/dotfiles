@@ -12,9 +12,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 
 vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "WinEnter", "BufWinEnter" }, {
 	pattern = { "*" },
-	callback = function()
-		local listed = vim.api.nvim_get_option_value("buflisted", { scope = "local" })
-		if not listed then
+	callback = function(event)
+		if not vim.bo[event.buf].buflisted then
 			vim.cmd("setlocal nocursorline")
 			vim.cmd("setlocal nocursorcolumn")
 		end

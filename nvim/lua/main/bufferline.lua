@@ -3,6 +3,8 @@ if not status_ok then
 	return
 end
 
+local g_help_name = nil
+
 local config = {
 	options = {
 		numbers = "none", -- | "ordinal" | "buffer_id" | "both" | function({ ordinal, id, lower, raise }): string,
@@ -67,7 +69,35 @@ local config = {
 				filetype = "aerial",
 				text = "Symbols",
 				text_align = "center",
-				highlight = "BufferLineAerial",
+				highlight = "Unlisted",
+				separator = true,
+			},
+			{
+				filetype = "checkhealth",
+				text = "Neovim Diagnostic",
+				text_align = "center",
+				highlight = "Unlisted",
+				separator = true,
+			},
+			{
+				filetype = "help",
+				text = function()
+					local file_name = vim.fn.expand("%:t")
+					local help_name = string.match(file_name, "(.*).txt")
+					if help_name then
+						g_help_name = help_name:sub(1, 1):upper() .. help_name:sub(2)
+					end
+					return "Help: " .. (g_help_name or "Empty")
+				end,
+				text_align = "center",
+				highlight = "Unlisted",
+				separator = true,
+			},
+			{
+				filetype = "man",
+				text = "Mannual",
+				text_align = "center",
+				highlight = "Unlisted",
 				separator = true,
 			},
 		},
