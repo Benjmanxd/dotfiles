@@ -1,7 +1,3 @@
-vim.cmd("colorscheme neodark") --colourscheme
--- vim.cmd("colorscheme neodarker") --colourscheme
--- vim.cmd("colorscheme tokyonight-moon")
-
 local utils = require("main.general.utils")
 
 local palette = {
@@ -148,7 +144,6 @@ theme.aerial = {
 theme.bufferline = {
 	-- BufferLineFill = { fg = palette.grey_8, bg = palette.grey_4 },
 	BufferLineFill = { fg = palette.bg_2, bg = palette.bg_2 },
-	-- BufferLineBackground = { fg = palette.grey_8, bg = palette.grey_4 },
 	BufferLineBackground = { fg = palette.fg, bg = palette.bg_1 }, -- buffer that not shown in window
 	BufferLineBufferVisible = { fg = palette.fg_1, bg = palette.bg_1 }, -- buffer that are visible
 	BufferLineBufferSelected = { fg = palette.purple, bg = palette.bg, style = { style.bold, style.italic } },
