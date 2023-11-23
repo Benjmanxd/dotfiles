@@ -4,6 +4,7 @@ if not status_ok then
 end
 
 pcall(telescope.load_extension, "fzf")
+pcall(telescope.load_extension, "file_browser")
 
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
