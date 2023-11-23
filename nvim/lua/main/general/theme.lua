@@ -1,5 +1,6 @@
 vim.cmd("colorscheme neodark") --colourscheme
 -- vim.cmd("colorscheme neodarker") --colourscheme
+-- vim.cmd("colorscheme tokyonight-moon")
 
 local utils = require("main.general.utils")
 
@@ -45,6 +46,8 @@ local palette = {
 	gold = "#ffcc00",
 	cyan = "#56b6c2",
 	purple = "#c678dd",
+	purple_statement = "#bb8bc9",
+	purple_comment = "#565f89",
 	purple_highlight = "#bf40bf",
 	unlisted = "#40e0d0",
 }
@@ -59,21 +62,21 @@ local theme = {}
 
 theme.base = {
 	Normal = { fg = palette.fg, bg = palette.bg },
-	Comment = { fg = palette.grey_2, bg = palette.none },
-	Constant = { fg = palette.yellow, bg = palette.none },
+	Comment = { fg = palette.purple_comment, bg = palette.none, style = { style.italic } },
+	Constant = { fg = palette.yellow_1, bg = palette.none },
 	String = { fg = palette.green, bg = palette.none },
 	Character = { fg = palette.green, bg = palette.none },
-	Number = { fg = palette.orange, bg = palette.none },
-	Boolean = { fg = palette.blue, bg = palette.none },
-	Float = { fg = palette.yellow, bg = palette.none },
+	Number = { fg = palette.orange_1, bg = palette.none },
+	Boolean = { fg = palette.red, bg = palette.none },
+	Float = { fg = palette.orange_1, bg = palette.none },
 	Identifier = { fg = palette.blue, bg = palette.none },
-	Function = { fg = palette.yellow, bg = palette.none },
-	Statement = { fg = palette.purple, bg = palette.none },
-	Conditional = { fg = palette.purple, bg = palette.none },
-	Repeat = { fg = palette.purple, bg = palette.none },
+	Function = { fg = palette.purple_statement, bg = palette.none, style = { style.italic, style.bold } },
+	Statement = { fg = palette.purple, bg = palette.none, style = { style.italic } },
+	Conditional = { fg = palette.purple, bg = palette.none, style = { style.italic } },
+	Repeat = { fg = palette.purple, bg = palette.none, style = { style.italic } },
 	Label = { fg = palette.blue, bg = palette.none },
 	Operator = { fg = palette.purple, bg = palette.none },
-	Keyword = { fg = palette.purple, bg = palette.none },
+	Keyword = { fg = palette.purple, bg = palette.none, style = { style.italic } },
 	Exception = { fg = palette.purple, bg = palette.none },
 	Preproc = { fg = palette.yellow, bg = palette.none },
 	Include = { fg = palette.purple, bg = palette.none },
@@ -81,7 +84,7 @@ theme.base = {
 	Title = { fg = palette.cyan, bg = palette.none },
 	Macro = { fg = palette.purple, bg = palette.none },
 	PreCondit = { fg = palette.blue, bg = palette.none },
-	Type = { fg = palette.blue, bg = palette.none },
+	Type = { fg = palette.yellow, bg = palette.none },
 	StorageClass = { fg = palette.blue, bg = palette.none },
 	Structure = { fg = palette.yellow, bg = palette.none },
 	Typedef = { fg = palette.yellow, bg = palette.none },
@@ -96,7 +99,7 @@ theme.base = {
 	Conceal = { fg = palette.grey, bg = palette.none },
 	CursorColumn = { fg = palette.none, bg = palette.grey_4 },
 	CursorLine = { fg = palette.none, bg = palette.grey_3 },
-	Directory = { fg = palette.blue, bg = palette.none },
+	Directory = { fg = palette.blue, bg = palette.none, style = { style.italic } },
 	DiffAdd = { fg = palette.grey_3, bg = palette.green },
 	DiffChange = { fg = palette.yellow, bg = palette.none },
 	DiffDelete = { fg = palette.grey_3, bg = palette.red },
@@ -146,28 +149,23 @@ theme.bufferline = {
 	-- BufferLineFill = { fg = palette.grey_8, bg = palette.grey_4 },
 	BufferLineFill = { fg = palette.bg_2, bg = palette.bg_2 },
 	-- BufferLineBackground = { fg = palette.grey_8, bg = palette.grey_4 },
-	BufferLineBackground = { fg = palette.fg_1, bg = palette.bg_1 }, -- buffer that not shown in window
-	-- BufferLineBufferVisible = { fg = palette.fg, bg = palette.bg },
-	BufferLineBufferVisible = { fg = palette.fg, bg = palette.bg_1 }, -- buffer that are visible
+	BufferLineBackground = { fg = palette.fg, bg = palette.bg_1 }, -- buffer that not shown in window
+	BufferLineBufferVisible = { fg = palette.fg_1, bg = palette.bg_1 }, -- buffer that are visible
 	BufferLineBufferSelected = { fg = palette.purple, bg = palette.bg, style = { style.bold, style.italic } },
 	BufferLineTab = { fg = palette.fg, bg = palette.bg_1 },
-	-- BufferLineTabSelected = { fg = palette.bg, bg = palette.bg },
-	-- BufferLineTabClose = { fg = palette.bg, bg = palette.bg },
-	BufferLineIndicatorSelected = { fg = palette.blue_1, bg = palette.bg },
-
-	BufferLineSeparator = { fg = palette.bg, bg = palette.bg },
-	BufferLineSeparatorVisible = { fg = palette.bg, bg = palette.bg },
-	BufferLineSeparatorSelected = { fg = palette.bg, bg = palette.bg },
-
+	BufferLineIndicatorSelected = { fg = palette.blue_1, bg = palette.bg, style = { style.bold } },
+	BufferLineSeparator = { fg = palette.bg, bg = palette.bg, style = { style.bold } },
 	BufferLineCloseButton = { fg = palette.grey_8, bg = palette.bg_2 },
 	BufferLineCloseButtonVisible = { fg = palette.grey_4, bg = palette.bg_1 },
 	BufferLineCloseButtonSelected = { fg = palette.grey_10, bg = palette.bg },
-	-- BufferLineModified = { fg = palette.red_4, bg = palette.grey_4 },
-	-- BufferLineModifiedVisible = { fg = palette.fg, bg = palette.bg },
-	-- BufferLineModifiedSelected = { fg = palette.green_2, bg = palette.bg },
+	BufferLineModified = { fg = palette.fg, bg = palette.bg_1 },
+	BufferLineModifiedVisible = { fg = palette.green, bg = palette.bg_1 },
+	BufferLineModifiedSelected = { fg = palette.green, bg = palette.bg },
 	BufferLineError = { fg = palette.red_1, bg = palette.red_1 },
 	BufferLineErrorDiagnostic = { fg = palette.red_1, bg = palette.red_1 },
-	BufferLineDevIconLuaInactive = { fg = palette.none, bg = palette.bg_1 },
+	BufferLineDevIconLua = { fg = palette.none, bg = palette.bg_1 },
+	BufferLineDevIconLuaInactive = { fg = palette.blue, bg = palette.bg_1 },
+	BufferLineDevIconLuaSelected = { fg = palette.blue, bg = palette.bg },
 	BufferLineNeotree = { fg = palette.unlisted, bg = palette.none, style = { style.bold, style.italic } },
 	BufferLineAerial = { fg = palette.unlisted, bg = palette.none, style = { style.bold, style.italic } },
 }

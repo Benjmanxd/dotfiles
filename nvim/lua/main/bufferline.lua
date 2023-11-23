@@ -32,7 +32,7 @@ local config = {
 		--   end
 		-- end,
 		max_name_length = 15,
-		max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+		max_prefix_length = 10, -- prefix used when a buffer is de-duplicated
 		tab_size = 20,
 		diagnostics = "nvim_lsp",
 		diagnostics_update_in_insert = false,
