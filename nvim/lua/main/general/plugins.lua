@@ -94,6 +94,8 @@ return packer.startup(function(use)
 	use({ "folke/trouble.nvim", requires = { "nvim-tree/nvim-web-devicons" } }) -- error, warning
 	use("numToStr/Comment.nvim") -- comments
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }) -- debug
+	use("folke/which-key.nvim")
+	use("mg979/vim-visual-multi")
 
 	-- buffer, status
 	use({ "nvim-lualine/lualine.nvim", requires = { "nvim-tree/nvim-web-devicons", opt = true } }) -- neovim status
