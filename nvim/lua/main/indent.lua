@@ -7,7 +7,7 @@ local config = {
 	enabled = true,
 	indent = {
 		char = ":",
-		highlight = "Comment",
+		highlight = "IndentBlankLine",
 	},
 	scope = {
 		enabled = false,
