@@ -144,7 +144,6 @@ theme.aerial = {
 }
 
 theme.bufferline = {
-	-- BufferLineFill = { fg = palette.grey_8, bg = palette.grey_4 },
 	BufferLineFill = { fg = palette.bg_2, bg = palette.bg_2 },
 	BufferLineBackground = { fg = palette.fg, bg = palette.bg_1 }, -- buffer that not shown in window
 	BufferLineBufferVisible = { fg = palette.fg_1, bg = palette.bg_1 }, -- buffer that are visible
@@ -166,6 +165,14 @@ theme.bufferline = {
 	BufferLineDevIconLuaSelected = { fg = palette.blue, bg = palette.bg },
 }
 
+theme.lualine = {
+	-- lualine_a_normal = { fg = palette.bg, bg = palette.purple },
+	-- lualine_transitional_lualine_a_normal_to_lualine_b_normal = { fg = palette.purple, bg = palette.fg },
+	-- lualine_b_normal = { fg = palette.fg, bg = palette.purple },
+	-- lualine_transitional_lualine_b_normal_to_lualine_c_normal = { fg = palette.fg, bg = palette.bg },
+	-- lualine_c_normal = { fg = palette.fg, bg = palette.bg },
+}
+
 theme.indentblankline = {
 	IndentBlankLine = { fg = palette.purple_comment, bg = palette.none },
 }
@@ -173,4 +180,5 @@ theme.indentblankline = {
 utils.set_theme(theme.base)
 utils.set_theme(theme.aerial)
 utils.set_theme(theme.bufferline)
+utils.set_theme(theme.lualine)
 utils.set_theme(theme.indentblankline)

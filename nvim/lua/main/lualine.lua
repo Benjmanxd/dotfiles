@@ -5,16 +5,6 @@ end
 
 local utils = require("main.general.utils")
 
--- local function
-local progress = function()
-	local current_line = vim.fn.line(".")
-	local total_lines = vim.fn.line("$")
-	local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
-	local line_ratio = current_line / total_lines
-	local index = math.ceil(line_ratio * #chars)
-	return chars[index]
-end
-
 local spaces = function()
 	return "spaces: " .. vim.api.nvim_buf_get_option(0, "shiftwidth")
 end
@@ -159,8 +149,7 @@ local config = {
 	options = {
 		icons_enabled = true,
 		--theme = "auto",
-		--theme = "seoul256",
-		--theme = "onedark",
+		-- theme = "onedark",
 		theme = "palenight",
 		--component_separators = { left = "", right = "" },
 		--section_separators = { left = "", right = "" },
@@ -172,7 +161,7 @@ local config = {
 			left = utils.get_icon("LualineSectionSeparatorLeft"),
 			right = utils.get_icon("LualineSectionSeparatorRight"),
 		},
-		disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "neo-tree", "aerial" },
+		disabled_filetypes = { "alpha", "neo-tree", "aerial", "help" },
 		always_divide_middle = true,
 		padding = { left = 2, right = 2 },
 	},
@@ -183,8 +172,8 @@ local config = {
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		-- lualine_x = { diff, spaces, "encoding", filetype },
 		lualine_x = { diff },
-		lualine_y = { location, encoding, filetype },
-		lualine_z = { progress },
+		lualine_y = { encoding, filetype },
+		lualine_z = { location },
 	},
 	inactive_sections = {
 		lualine_a = {},
@@ -194,17 +183,6 @@ local config = {
 		lualine_y = {},
 		lualine_z = {},
 	},
-	--[[
-	tabline = {
-        lualine_a = { filename_tabline },
-		lualine_b = {},
-		lualine_c = {},
-		lualine_x = {},
-		lualine_y = {},
-		lualine_z = { date },
-    },
-    --]]
-	winbar = {},
 	extensions = {},
 }
 

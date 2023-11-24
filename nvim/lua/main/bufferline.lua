@@ -27,12 +27,13 @@ local config = {
 		--- Please note some names can/will break the
 		--- bufferline so use this at your discretion knowing that it has
 		--- some limitations that will *NOT* be fixed.
-		-- name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
-		--   -- remove extension from markdown files for example
-		--   if buf.name:match('%.md') then
-		--     return vim.fn.fnamemodify(buf.name, ':t:r')
-		--   end
-		-- end,
+		name_formatter = function(buf) -- buf contains a "name", "path" and "bufnr"
+			-- remove extension from markdown files for example
+			-- if buf.name:match("%.md") then
+			-- 	return vim.fn.fnamemodify(buf.name, ":t:r")
+			-- end
+			return " " .. buf.name
+		end,
 		max_name_length = 15,
 		max_prefix_length = 10, -- prefix used when a buffer is de-duplicated
 		tab_size = 20,
@@ -62,7 +63,7 @@ local config = {
 				filetype = "neo-tree",
 				text = "File Explorer",
 				text_align = "center",
-				highlight = "BufferLineNeotree",
+				highlight = "Unlisted",
 				separator = true,
 			},
 			{

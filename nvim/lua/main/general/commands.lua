@@ -1,9 +1,6 @@
 -- vim command
 vim.cmd("language en_US.utf8") --ui language
-vim.cmd([[
-let g:neodark#terminal_transparent = 1
-let g:neodark#italics = 1
-]])
+vim.cmd("cnoreabbrev h vert h")
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	pattern = { "*" },
