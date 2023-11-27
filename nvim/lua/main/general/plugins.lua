@@ -21,8 +21,8 @@ end
 -- Install plugins
 lazy.setup({
 	-- ui
-	{ "goolord/alpha-nvim", dependencies = { "nvim-tree/nvim-web-devicons" } }, -- greeter
-	{ "norcalli/nvim-colorizer.lua" },
+	{ "goolord/alpha-nvim", lazy = true, dependencies = { "nvim-tree/nvim-web-devicons" } }, -- greeter
+	{ "norcalli/nvim-colorizer.lua", lazy = true },
 	{ "lukas-reineke/indent-blankline.nvim" },
 
 	-- completetion, snippet
@@ -46,14 +46,16 @@ lazy.setup({
 	},
 
 	-- file, fuzzy
-	{ "nvim-telescope/telescope.nvim", branch = "0.1.x", dependencies = { { "nvim-lua/plenary.nvim" } } }, -- searcher
-	{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	{ "nvim-telescope/telescope.nvim", lazy = true, branch = "0.1.x", dependencies = { { "nvim-lua/plenary.nvim" } } }, -- searcher
+	{ "nvim-telescope/telescope-fzf-native.nvim", lazy = true, build = "make" },
 	{
 		"nvim-telescope/telescope-file-browser.nvim",
+		lazy = true,
 		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
 	},
 	{
 		"nvim-neo-tree/neo-tree.nvim",
+		lazy = true,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
 			"nvim-tree/nvim-web-devicons",
@@ -72,14 +74,14 @@ lazy.setup({
 	{ "mhartington/formatter.nvim" }, -- code formatter
 	{ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } }, -- error, warning
 	{ "numToStr/Comment.nvim" }, -- comments
-	{ "rcarriga/nvim-dap-ui", dependencies = { "mfussenegger/nvim-dap" } }, -- debug
+	{ "rcarriga/nvim-dap-ui", lazy = true, dependencies = { "mfussenegger/nvim-dap" } }, -- debug
 	{ "folke/which-key.nvim" },
 	{ "mg979/vim-visual-multi" },
 
 	-- buffer, status
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons", opt = true } }, -- neovim status
 	{ "akinsho/bufferline.nvim", dependencies = "nvim-tree/nvim-web-devicons" }, -- neovim buffer
-	{ "akinsho/toggleterm.nvim" }, -- terminal
+	{ "akinsho/toggleterm.nvim", lazy = true }, -- terminal
 
 	-- git
 	{ "tpope/vim-fugitive" }, -- git function
