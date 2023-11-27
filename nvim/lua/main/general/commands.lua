@@ -1,5 +1,5 @@
 -- vim command
-vim.cmd("language en_US.utf8") --ui language
+-- vim.cmd("language en_US.utf8") --ui language
 vim.cmd("cnoreabbrev h vert h")
 
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {

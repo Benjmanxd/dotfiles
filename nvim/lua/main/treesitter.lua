@@ -54,12 +54,6 @@ local config = {
 		additional_vim_regex_highlighting = false,
 		disable = { "css" }, -- list of language that will be disabled
 	},
-	autopairs = {
-		enable = true,
-	},
-	indent = {
-		enable = true,
-	},
 }
 
 treesitter.setup(config)
