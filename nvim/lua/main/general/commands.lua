@@ -7,6 +7,14 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 	command = "Format",
 })
 
+vim.api.nvim_create_autocmd("BufWritePost", {
+	pattern = "plugins.lua",
+	callback = function()
+		vim.cmd("Lazy install")
+		vim.cmd("Lazy sync")
+	end,
+})
+
 vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "WinEnter", "BufWinEnter" }, {
 	pattern = { "*" },
 	callback = function(event)
