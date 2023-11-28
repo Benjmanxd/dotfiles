@@ -12,6 +12,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	callback = function()
 		vim.cmd("Lazy install")
 		vim.cmd("Lazy sync")
+		vim.cmd("write")
 	end,
 })
 

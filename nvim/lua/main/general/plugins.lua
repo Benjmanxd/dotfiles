@@ -19,7 +19,7 @@ if not status_ok then
 end
 
 -- Install plugins
-lazy.setup({
+local plugins = {
 	-- ui
 	{ "goolord/alpha-nvim", lazy = true, dependencies = { "nvim-tree/nvim-web-devicons" } }, -- greeter
 	{ "norcalli/nvim-colorizer.lua", lazy = true },
@@ -85,4 +85,21 @@ lazy.setup({
 
 	-- git
 	{ "tpope/vim-fugitive" }, -- git function
-})
+}
+
+local options = {
+	ui = {
+		border = "rounded",
+		title = "Laazzzyyyy!!!!!",
+		title_pos = "center",
+	},
+	checker = {
+		enabled = false,
+	},
+	change_detection = {
+		enabled = true,
+		notify = false,
+	},
+}
+
+lazy.setup(plugins, options)
