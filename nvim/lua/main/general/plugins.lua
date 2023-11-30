@@ -90,7 +90,7 @@ local plugins = {
 local options = {
 	ui = {
 		border = "rounded",
-		title = "Laazzzyyyy!!!!!",
+		title = " Laazzzyyyy!!!!! ",
 		title_pos = "center",
 	},
 	checker = {
