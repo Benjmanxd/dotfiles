@@ -10,8 +10,8 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 vim.api.nvim_create_autocmd("BufWritePost", {
 	pattern = "plugins.lua",
 	callback = function()
-		vim.cmd("Lazy install")
-		vim.cmd("Lazy sync")
+		vim.cmd("Lazy clean")
+		vim.cmd("Lazy update")
 		vim.cmd("write")
 	end,
 })

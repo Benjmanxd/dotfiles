@@ -104,7 +104,7 @@ local filetype = {
 local mode = {
 	"mode",
 	fmt = function(str)
-		return "-- " .. str .. " --"
+		return " " .. str .. " "
 	end,
 }
 
@@ -167,12 +167,12 @@ local config = {
 	},
 	sections = {
 		lualine_a = { mode },
-		lualine_b = { branch },
+		lualine_b = { branch, diff },
 		lualine_c = { lsp, diagnostics },
 		-- lualine_x = { "encoding", "fileformat", "filetype" },
 		-- lualine_x = { diff, spaces, "encoding", filetype },
-		lualine_x = { diff },
-		lualine_y = { encoding, filetype },
+		lualine_x = { encoding },
+		lualine_y = { fileformat, filetype },
 		lualine_z = { location },
 	},
 	inactive_sections = {

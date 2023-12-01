@@ -25,7 +25,7 @@ local plugins = {
 	{ "norcalli/nvim-colorizer.lua", lazy = true },
 	{ "lukas-reineke/indent-blankline.nvim" },
 
-	-- completetion, snippet
+	-- LSP
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
@@ -44,6 +44,7 @@ local plugins = {
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	},
+	{ "rmagatti/goto-preview", lazy = true },
 
 	-- file, fuzzy
 	{ "nvim-telescope/telescope.nvim", lazy = true, branch = "0.1.x", dependencies = { { "nvim-lua/plenary.nvim" } } }, -- searcher
@@ -77,6 +78,7 @@ local plugins = {
 	{ "rcarriga/nvim-dap-ui", lazy = true, dependencies = { "mfussenegger/nvim-dap" } }, -- debug
 	{ "folke/which-key.nvim" },
 	{ "mg979/vim-visual-multi" },
+	{ "folke/todo-comments.nvim", lazy = true, dependencies = { "nvim-lua/plenary.nvim" } },
 
 	-- buffer, status
 	{ "nvim-lualine/lualine.nvim", dependencies = { "nvim-tree/nvim-web-devicons", opt = true } }, -- neovim status
@@ -97,7 +99,7 @@ local options = {
 		enabled = false,
 	},
 	change_detection = {
-		enabled = true,
+		enabled = false,
 		notify = false,
 	},
 }

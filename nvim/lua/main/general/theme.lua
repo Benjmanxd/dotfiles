@@ -148,20 +148,25 @@ theme.aerial = {
 theme.bufferline = {
 	BufferLineFill = { fg = palette.bg_2, bg = palette.bg_2 },
 	BufferLineBackground = { fg = palette.fg, bg = palette.bg_1 }, -- buffer that not shown in window
+	BufferLineBuffer = { fg = palette.fg, bg = palette.bg_1 }, -- buffer that are visible
 	BufferLineBufferVisible = { fg = palette.fg_1, bg = palette.bg_1 }, -- buffer that are visible
 	BufferLineBufferSelected = { fg = palette.purple_statement, bg = palette.bg, style = { style.bold, style.italic } },
 	BufferLineTab = { fg = palette.fg, bg = palette.bg_1 },
 	BufferLineIndicatorSelected = { fg = palette.blue_2, bg = palette.bg, style = { style.bold } },
 	BufferLineIndicatorVisible = { fg = palette.bg_1, bg = palette.bg_1 },
 	BufferLineSeparator = { fg = palette.bg, bg = palette.bg, style = { style.bold } },
-	BufferLineCloseButton = { fg = palette.grey_8, bg = palette.bg_2 },
+	BufferLineCloseButton = { fg = palette.grey_8, bg = palette.bg_1 },
 	BufferLineCloseButtonVisible = { fg = palette.grey_4, bg = palette.bg_1 },
 	BufferLineCloseButtonSelected = { fg = palette.grey_10, bg = palette.bg },
 	BufferLineModified = { fg = palette.fg, bg = palette.bg_1 },
 	BufferLineModifiedVisible = { fg = palette.green, bg = palette.bg_1 },
 	BufferLineModifiedSelected = { fg = palette.green, bg = palette.bg },
-	BufferLineError = { fg = palette.red_1, bg = palette.red_1 },
-	BufferLineErrorDiagnostic = { fg = palette.red_1, bg = palette.red_1 },
+	BufferLineError = { fg = palette.red_1, bg = palette.bg_1 },
+	BufferLineErrorVisible = { fg = palette.red_1, bg = palette.bg_1 },
+	BufferLineErrorSelected = { fg = palette.red_1, bg = palette.bg },
+	BufferLineErrorDiagnostic = { fg = palette.red_1, bg = palette.bg_1 },
+	BufferLineErrorDiagnosticVisible = { fg = palette.red_1, bg = palette.bg_1 },
+	BufferLineErrorDiagnosticSelected = { fg = palette.red_1, bg = palette.bg },
 	BufferLineDevIconLua = { fg = palette.none, bg = palette.bg_1 },
 	BufferLineDevIconLuaInactive = { fg = palette.blue, bg = palette.bg_1 },
 	BufferLineDevIconLuaSelected = { fg = palette.blue, bg = palette.bg },
