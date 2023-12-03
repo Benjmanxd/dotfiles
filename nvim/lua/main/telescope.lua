@@ -10,6 +10,7 @@ local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
 local trouble = require("trouble.providers.telescope")
 
+-- FIX: broken keymaps!!
 vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
 vim.keymap.set("n", "<leader>st", builtin.help_tags, { desc = "[S]earch [H]elp" })
 vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
@@ -22,6 +23,9 @@ vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently o
 vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
 vim.keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
 vim.keymap.set("n", "<leader>x", "<CMD>Telescope file_browser<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>sgc", builtin.git_commits, { desc = "[S]earch [G]it [C]ommits" })
+vim.keymap.set("n", "<leader>sgb", builtin.git_branches, { desc = "[S]earch [G]it [B]ranches" })
+vim.keymap.set("n", "<leader>sgs", builtin.git_status, { desc = "[S]earch [G]it [S]tatus" })
 vim.keymap.set("n", "<leader>ed", trouble.open_with_trouble, { desc = "[E]rror [D]iagnose" })
 
 local config = {

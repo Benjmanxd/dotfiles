@@ -7,16 +7,32 @@ local utils = require("main.general.utils")
 
 -- Unless you are still migrating, remove the deprecated commands from v1.x
 vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-vim.keymap.set("n", "<leader>tt", "<CMD>Neotree toggle<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>tb", "<CMD>Neotree buffers toggle<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>tg", "<CMD>Neotree git_status toggle<CR>", { noremap = true })
+vim.keymap.set(
+	"n",
+	"<leader>nf",
+	"<CMD>Neotree filesystem toggle<CR>",
+	{ noremap = true, desc = "[N]eotree [F]ilesystem" }
+)
+vim.keymap.set("n", "<leader>nb", "<CMD>Neotree buffers toggle<CR>", { noremap = true, desc = "[N]eotree [B]uffers" })
+vim.keymap.set(
+	"n",
+	"<leader>ng",
+	"<CMD>Neotree git_status toggle<CR>",
+	{ noremap = true, desc = "[N]eotree [G]it status" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>ns",
+	"<CMD>Neotree document_symbols toggle<CR>",
+	{ noremap = true, desc = "[N]eotree [D]ocument symbols" }
+)
 
--- If you want icons for diagnostic errors, you'll need to define them somewhere:
 vim.fn.sign_define("DiagnosticSignError", { text = utils.get_icon("DiagnosticError"), texthl = "DiagnosticSignError" })
 vim.fn.sign_define("DiagnosticSignWarn", { text = utils.get_icon("DiagnosticWarn"), texthl = "DiagnosticSignWarn" })
 vim.fn.sign_define("DiagnosticSignInfo", { text = utils.get_icon("DiagnosticInfo"), texthl = "DiagnosticSignInfo" })
 vim.fn.sign_define("DiagnosticSignHint", { text = utils.get_icon("DiagnosticHint"), texthl = "DiagnosticSignHint" })
 
+-- FIX: config source_selector.tab_labels deprecated but dunno what to use??
 local config = {
 	close_if_last_window = true, -- Close Neo-tree if it is the last window left in the tab
 	popup_border_style = "rounded",
@@ -31,15 +47,22 @@ local config = {
 	--           return a.type > b.type
 	--       end
 	--   end , -- this sorts files and directories descendantly
+	sources = {
+		"filesystem",
+		"buffers",
+		"git_status",
+		"document_symbols",
+	},
 	source_selector = {
-		winbar = false,
-		content_layout = "center",
-		sources = {
+		winbar = true,
+		statusline = false,
+		tab_labels = {
 			filesystem = utils.get_icon("FolderClosed") .. " File",
 			buffers = utils.get_icon("DefaultFile") .. " Bufs",
-			git_status = utils.get_icon("Git") .. " Git",
-			diagnostics = utils.get_icon("Diagnostic") .. " Diagnostic",
+			git_status = utils.get_icon("GitBranch") .. " Git",
+			document_symbols = utils.get_icon("Symbol") .. " Symbols",
 		},
+		separator = " ",
 	},
 	default_component_configs = {
 		container = {
@@ -91,7 +114,7 @@ local config = {
 	},
 	window = {
 		position = "left",
-		width = 30,
+		width = 40,
 		mapping_options = {
 			noremap = true,
 			nowait = true,
@@ -117,7 +140,7 @@ local config = {
 			--["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
 			["C"] = "close_node",
 			["z"] = "close_all_nodes",
-			--["Z"] = "expand_all_nodes",
+			["Z"] = "expand_all_nodes",
 			["a"] = {
 				"add",
 				-- some commands may take optional config options, see `:h neo-tree-mappings` for details
@@ -154,7 +177,7 @@ local config = {
 			hide_gitignored = false,
 			hide_hidden = false, -- only works on Windows for hidden files/directories
 			hide_by_name = {
-				--"node_modules"
+				"node_modules",
 			},
 			hide_by_pattern = { -- uses glob style patterns
 				".git",
@@ -164,8 +187,8 @@ local config = {
 				--".gitignored",
 			},
 			never_show = { -- remains hidden even if visible is toggled to true, this overrides always_show
-				--".DS_Store",
-				--"thumbs.db"
+				".DS_Store",
+				"thumbs.db",
 			},
 			never_show_by_pattern = { -- uses glob style patterns
 				--".null-ls_*",
@@ -206,6 +229,7 @@ local config = {
 		group_empty_dirs = true, -- when true, empty folders will be grouped together
 		show_unloaded = true,
 		window = {
+			position = "left",
 			mappings = {
 				["bd"] = "buffer_delete",
 				["<bs>"] = "navigate_up",
@@ -215,7 +239,7 @@ local config = {
 	},
 	git_status = {
 		window = {
-			position = "float",
+			position = "left",
 			mappings = {
 				["A"] = "git_add_all",
 				["gu"] = "git_unstage_file",
