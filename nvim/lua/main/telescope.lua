@@ -1,6 +1,6 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-	return
+  return
 end
 
 pcall(telescope.load_extension, "fzf")
@@ -8,7 +8,6 @@ pcall(telescope.load_extension, "file_browser")
 
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
-local trouble = require("trouble.providers.telescope")
 
 -- FIX: broken keymaps!!
 vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -26,57 +25,56 @@ vim.keymap.set("n", "<leader>x", "<CMD>Telescope file_browser<CR>", { noremap = 
 vim.keymap.set("n", "<leader>sgc", builtin.git_commits, { desc = "[S]earch [G]it [C]ommits" })
 vim.keymap.set("n", "<leader>sgb", builtin.git_branches, { desc = "[S]earch [G]it [B]ranches" })
 vim.keymap.set("n", "<leader>sgs", builtin.git_status, { desc = "[S]earch [G]it [S]tatus" })
-vim.keymap.set("n", "<leader>ed", trouble.open_with_trouble, { desc = "[E]rror [D]iagnose" })
 
 local config = {
-	defaults = {
-		-- :help telescope.layout
-		path_display = { truncate = 5 },
-		selection_strategy = "reset",
-		sorting_strategy = "ascending",
-		scroll_strategy = "limit",
-		color_devicons = true,
-		layout_strategy = "horizontal",
-		layout_config = {
-			prompt_position = "top",
-			height = 0.85,
-			width = 0.85,
-		},
-		mappings = {
-			i = {
-				["<ESC>"] = actions.close,
-			},
-		},
-	},
-	pickers = {
-		find_files = {
-			-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-			find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
-		},
-	},
-	extensions = {
-		fzf = {
-			fuzzy = true,
-			override_generic_sorter = true,
-			override_file_sorter = true,
-			case_mode = "smart_case",
-		},
-		file_browser = {
-			path_display = { truncate = 5 },
-			selection_strategy = "reset",
-			sorting_strategy = "ascending",
-			scroll_strategy = "limit",
-			borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-			--layout_strategy = "horizontal",
-			--layout_config = {
-			--    prompt_position = "top",
-			--    height = 0.85,
-			--    width = 0.85,
-			--},
-			theme = "ivy",
-			hijack_netrw = false,
-		},
-	},
+  defaults = {
+    -- :help telescope.layout
+    path_display = { truncate = 5 },
+    selection_strategy = "reset",
+    sorting_strategy = "ascending",
+    scroll_strategy = "limit",
+    color_devicons = true,
+    layout_strategy = "horizontal",
+    layout_config = {
+      prompt_position = "top",
+      height = 0.85,
+      width = 0.85,
+    },
+    mappings = {
+      i = {
+        ["<ESC>"] = actions.close,
+      },
+    },
+  },
+  pickers = {
+    find_files = {
+      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+      find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+    },
+  },
+  extensions = {
+    fzf = {
+      fuzzy = true,
+      override_generic_sorter = true,
+      override_file_sorter = true,
+      case_mode = "smart_case",
+    },
+    file_browser = {
+      path_display = { truncate = 5 },
+      selection_strategy = "reset",
+      sorting_strategy = "ascending",
+      scroll_strategy = "limit",
+      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+      --layout_strategy = "horizontal",
+      --layout_config = {
+      --    prompt_position = "top",
+      --    height = 0.85,
+      --    width = 0.85,
+      --},
+      theme = "ivy",
+      hijack_netrw = false,
+    },
+  },
 }
 
 telescope.setup(config)

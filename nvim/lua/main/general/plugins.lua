@@ -35,6 +35,9 @@ local plugins = {
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-cmdline",
 			"hrsh7th/cmp-nvim-lsp-document-symbol",
+			"hrsh7th/cmp-emoji",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"petertriho/cmp-git",
 			"saadparwaiz1/cmp_luasnip",
 		},
 	},
@@ -71,9 +74,8 @@ local plugins = {
 		"nvim-treesitter/nvim-treesitter",
 		version = nil,
 	}, -- code highlighter
-	{ "stevearc/aerial.nvim" }, -- code symbol
-	{ "mhartington/formatter.nvim" }, -- code formatter
-	{ "folke/trouble.nvim", dependencies = { "nvim-tree/nvim-web-devicons" } }, -- error, warning
+	-- { "stevearc/aerial.nvim" }, -- code symbol
+	-- { "mhartington/formatter.nvim" }, -- code formatter
 	{ "numToStr/Comment.nvim" }, -- comments
 	{ "rcarriga/nvim-dap-ui", lazy = true, dependencies = { "mfussenegger/nvim-dap" } }, -- debug
 	{ "folke/which-key.nvim" },
