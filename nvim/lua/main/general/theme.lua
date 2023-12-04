@@ -98,7 +98,7 @@ theme.base = {
   Conceal = { fg = palette.grey, bg = palette.none },
   CursorColumn = { fg = palette.none, bg = palette.bg_highlight },
   CursorLine = { fg = palette.none, bg = palette.bg_highlight },
-  Directory = { fg = palette.blue, bg = palette.none, style = { style.italic } },
+  Directory = { fg = palette.blue, bg = palette.none },
   DiffAdd = { fg = palette.grey_3, bg = palette.green },
   DiffChange = { fg = palette.yellow, bg = palette.none },
   DiffDelete = { fg = palette.grey_3, bg = palette.red },
