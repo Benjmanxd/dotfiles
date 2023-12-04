@@ -5,9 +5,11 @@ end
 
 pcall(telescope.load_extension, "fzf")
 pcall(telescope.load_extension, "file_browser")
+pcall(telescope.load_extension, "live_grep_args")
 
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
+local live_grep = telescope.extensions.live_grep_args
 
 -- FIX: broken keymaps!!
 vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
@@ -15,7 +17,7 @@ vim.keymap.set("n", "<leader>st", builtin.help_tags, { desc = "[S]earch [H]elp" 
 vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
 vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]ianostics" })
 vim.keymap.set("n", "<leader>sb", builtin.buffers, { desc = "[S]earch [B]uffers" })
-vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+vim.keymap.set("n", "<leader>sg", live_grep.live_grep_args, { desc = "[S]earch by [G]rep" })
 vim.keymap.set("n", "<leader>sr", builtin.lsp_references, { desc = "[S]earch [R]eferences" })
 vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "[/] Fuzzily search in current buffer" })
 vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
@@ -64,15 +66,11 @@ local config = {
       selection_strategy = "reset",
       sorting_strategy = "ascending",
       scroll_strategy = "limit",
-      borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-      --layout_strategy = "horizontal",
-      --layout_config = {
-      --    prompt_position = "top",
-      --    height = 0.85,
-      --    width = 0.85,
-      --},
       theme = "ivy",
       hijack_netrw = false,
+    },
+    live_grep_args = {
+      auto_quoting = true,
     },
   },
 }

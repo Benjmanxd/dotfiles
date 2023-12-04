@@ -1,4 +1,4 @@
-local status_ok, cmp, luasnip, path, lspkind
+local status_ok, cmp, luasnip, lspkind
 status_ok, cmp = pcall(require, "cmp")
 if not status_ok then
   return
@@ -141,12 +141,15 @@ local config = {
         -- Kind icons
         vim_item.kind = " " .. (kind_icons[vim_item.kind] or "")
         vim_item.menu = ({
-          nvim_lsp = "[LSP]",
-          nvim_lua = "[VIM]",
-          luasnip = "[Snip]",
           buffer = "[Buf]",
+          cmdline = "[Cmd]",
+          emoji = "[Emo]",
+          git = "[Git]",
+          luasnip = "[Snip]",
+          nvim_lsp = "[LSP]",
+          nvim_lsp_document_symbol = "[Symb]",
+          nvim_lua = "[Vim]",
           path = "[Path]",
-          emoji = "[Emoji]",
         })[entry.source.name]
         vim_item.abbr = vim_item.abbr:match("[^(]+")
         return vim_item
@@ -159,7 +162,6 @@ local config = {
     { name = "nvim_lsp",               max_item_count = 10 },
     { name = "luasnip",                max_item_count = 5, option = { use_show_condition = false } },
     { name = "nvim_lua",               max_item_count = 5 },
-    { name = "nvim_lsp_signature_help" },
     { name = "path",                   max_item_count = 5, option = { trailing_slash = true, label_trailing_slash = true } },
     { name = "emoji",                  max_item_count = 5 },
   }, {
@@ -192,17 +194,19 @@ cmp.setup.filetype("gitcommit", {
 
 cmp.setup.cmdline({ "/", "?" }, {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = {
-    { name = "buffer" },
-  },
+  sources = cmp.config.sources({
+    { name = "nvim_lsp_document_symbol", max_item_count = 10 },
+  }, {
+    { name = "buffer", max_item_count = 10 },
+  }),
 })
 
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
-    { name = "path", option = { trailing_slash = true, label_trailing_slash = true } },
+    { name = "path", max_item_count = 10, option = { trailing_slash = true, label_trailing_slash = true } },
   }, {
-    { name = "cmdline" },
+    { name = "cmdline", max_item_count = 10 },
   }),
 })
 

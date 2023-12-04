@@ -1,4 +1,5 @@
 local utils = {}
+local set_hl = vim.api.nvim_set_hl
 
 utils.icons = require("main.icons.nerd_font")
 utils.text_icons = require("main.icons.text")
@@ -7,21 +8,13 @@ utils.text_icons = require("main.icons.text")
 -- @param kind the kind of icon in `lspkind` to retrieve
 -- @return the icon
 function utils.get_icon(kind)
-	return utils.icons[kind] or utils.text_icons[kind] or ""
+  return utils.icons[kind] or utils.text_icons[kind] or ""
 end
 
-function utils.set_theme(palette)
-	for k, v in pairs(palette) do
-		vim.cmd(
-			string.format(
-				"highlight %s gui=%s guifg=%s guibg=%s",
-				k,
-				v.style and table.concat(v.style, ",") or "none",
-				v.fg,
-				v.bg
-			)
-		)
-	end
+function utils.set_theme(palette_table)
+  for k, v in pairs(palette_table) do
+    set_hl(0, k, v);
+  end
 end
 
 return utils

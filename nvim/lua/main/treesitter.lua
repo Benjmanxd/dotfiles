@@ -28,6 +28,7 @@ local config = {
 		"javascript",
 		"jq",
 		"jsdoc",
+    "json",
 		"kotlin",
 		"latex",
 		"llvm",
