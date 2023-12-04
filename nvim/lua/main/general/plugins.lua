@@ -75,7 +75,6 @@ local plugins = {
 		version = nil,
 	}, -- code highlighter
 	-- { "stevearc/aerial.nvim" }, -- code symbol
-	-- { "mhartington/formatter.nvim" }, -- code formatter
 	{ "numToStr/Comment.nvim" }, -- comments
 	{ "rcarriga/nvim-dap-ui", lazy = true, dependencies = { "mfussenegger/nvim-dap" } }, -- debug
 	{ "folke/which-key.nvim" },
