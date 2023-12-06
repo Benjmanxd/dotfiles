@@ -125,17 +125,22 @@ local plugins = {
   }, -- neovim status
   {
     "akinsho/bufferline.nvim",
-    dependencies = "nvim-tree/nvim-web-devicons"
+    dependencies = { "nvim-tree/nvim-web-devicons" }
   }, -- neovim buffer
   {
     "akinsho/toggleterm.nvim",
     lazy = true
   }, -- terminal
+  {
+    "ThePrimeagen/harpoon",
+    lazy = true,
+    branch = "harpoon2",
+    dependencies = { "nvim-lua/plenary.nvim" },
+  },
 
   -- git
   {
     "tpope/vim-fugitive",
-    lazy = true
   }, -- git function
 }
 

@@ -5,7 +5,7 @@ local theme = {}
 
 theme.base = {
   Normal = { fg = palette.blue_normal, bg = palette.bg },
-  NormalFloat = { fg = palette.blue, bg = palette.bg },
+  NormalFloat = { fg = palette.blue_normal, bg = palette.bg },
   Comment = { fg = palette.purple_comment, bg = palette.none, italic = true },
   Constant = { fg = palette.yellow_1, bg = palette.none },
   String = { fg = palette.green, bg = palette.none },

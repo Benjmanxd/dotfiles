@@ -6,6 +6,7 @@ end
 pcall(telescope.load_extension, "fzf")
 pcall(telescope.load_extension, "file_browser")
 pcall(telescope.load_extension, "live_grep_args")
+-- pcall(telescope.load_extension, "harpoon")
 
 local builtin = require("telescope.builtin")
 local actions = require("telescope.actions")
@@ -23,10 +24,11 @@ vim.keymap.set("n", "<leader>/", builtin.current_buffer_fuzzy_find, { desc = "[/
 vim.keymap.set("n", "<leader>?", builtin.oldfiles, { desc = "[?] Find recently opened files" })
 vim.keymap.set("n", "<leader>ds", builtin.lsp_document_symbols, { desc = "[D]ocument [S]ymbols" })
 vim.keymap.set("n", "<leader>ws", builtin.lsp_dynamic_workspace_symbols, { desc = "[W]orkspace [S]ymbols" })
-vim.keymap.set("n", "<leader>x", "<CMD>Telescope file_browser<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>x", "<CMD>Telescope file_browser<CR>", { noremap = true, desc = "Telescope File E[X]plorer" })
 vim.keymap.set("n", "<leader>sgc", builtin.git_commits, { desc = "[S]earch [G]it [C]ommits" })
 vim.keymap.set("n", "<leader>sgb", builtin.git_branches, { desc = "[S]earch [G]it [B]ranches" })
 vim.keymap.set("n", "<leader>sgs", builtin.git_status, { desc = "[S]earch [G]it [S]tatus" })
+-- vim.keymap.set("n", "<leader>hh", "<CMD>Telescope harpoon marks<CR>", { desc = "[H]arpoon List Toggle"})
 
 local config = {
   defaults = {
@@ -72,6 +74,7 @@ local config = {
     live_grep_args = {
       auto_quoting = true,
     },
+    harpoon = {},
   },
 }
 

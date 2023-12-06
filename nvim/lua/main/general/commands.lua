@@ -1,7 +1,7 @@
 local utils = require("main.general.utils")
 local palette = require("main.general.palette")
 
-vim.cmd("language en_US.utf8") --ui language
+-- vim.cmd("language en_US.utf8") --ui language
 vim.cmd("cnoreabbrev h vert h")
 
 vim.api.nvim_create_autocmd("BufWritePost", {
