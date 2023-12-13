@@ -25,6 +25,7 @@ o.shiftwidth = 2
 o.tabstop = 2
 o.expandtab = true
 o.showtabline = 2
+o.laststatus = 3
 --o.scrolloff = 8
 o.sidescrolloff = 8
 o.encoding = "utf-8"
