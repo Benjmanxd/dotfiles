@@ -48,9 +48,6 @@ local palette = {
   purple_highlight = "#bf40bf",
   purple_bg = "#1a0a24",
   unlisted = "#40e0d0",
-  lua_icon = "#51a0cf",
-  yaml_icon = "#6d8086",
-  sh_icon = "#4d5a5e"
 }
 
 return palette

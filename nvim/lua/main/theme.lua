@@ -49,7 +49,7 @@ theme.base = {
   DiffDelete = { fg = palette.grey_3, bg = palette.red },
   DiffText = { fg = palette.grey_3, bg = palette.yellow },
   ErrorMsg = { fg = palette.red, bg = palette.none },
-  VertSplit = { fg = palette.grey_4, bg = palette.none },
+  VertSplit = { fg = palette.blue_normal, bg = palette.none },
   Folded = { fg = palette.grey, bg = palette.none },
   FoldColumn = { fg = palette.none, bg = palette.none },
   IncSearch = { fg = palette.yellow, bg = palette.grey },
@@ -84,6 +84,8 @@ theme.base = {
   FloatBorder = { fg = palette.blue_normal, bg = palette.none },
   MatchParen = { fg = palette.none, bg = palette.grey_5 },
   Unlisted = { fg = palette.unlisted, bg = palette.none, bold = true, italic = true },
+  DiagnosticError = { fg = palette.red_1, bg = palette.bg },
+  DiagnosticWarning = { fg = palette.yellow_diag, bg = palette.bg },
 }
 
 theme.aerial = {
@@ -146,13 +148,15 @@ theme.lazy = {
 --   LspReferenceWrite = { bg = palette.bg_highlight_2 },
 -- }
 
--- theme.lualine = {
---   lualine_a_normal = { fg = palette.bg, bg = palette.pink },
---   lualine_transitional_lualine_a_normal_to_lualine_b_normal = { fg = palette.pink, bg = palette.fg },
---   lualine_b_normal = { fg = palette.fg, bg = palette.pink },
---   lualine_transitional_lualine_b_normal_to_lualine_c_normal = { fg = palette.fg, bg = palette.bg },
---   lualine_c_normal = { fg = palette.fg, bg = palette.bg },
--- }
+theme.lualine = {
+  -- lualine_a_normal = { fg = palette.bg, bg = palette.pink },
+  -- lualine_transitional_lualine_a_normal_to_lualine_b_normal = { fg = palette.pink, bg = palette.fg },
+  -- lualine_b_normal = { fg = palette.fg, bg = palette.pink },
+  -- lualine_transitional_lualine_b_normal_to_lualine_c_normal = { fg = palette.fg, bg = palette.bg },
+  -- lualine_c_normal = { fg = palette.fg, bg = palette.bg },
+  lualine_x_diagnostics_warn_normal = { fg = palette.yellow_diag, bg = palette.bg },
+  lualine_c_normal = { fg = palette.fg, bg = palette.bg },
+}
 
 theme.mason = {
   MasonNormal = { fg = palette.blue_normal, bg = palette.bg },
