@@ -4,7 +4,10 @@
 
 # rofi command. Make sure to have "$@" as last argument
 _rofi () {
-    rofi -i -no-auto-select -theme $HOME/.config/rofi-pass/pass.rasi "$@"
+    rofi -i -no-auto-select \
+    -terminal alacritty \
+    -kb-cancel "Alt-F1" \
+    -theme $HOME/.config/rofi-pass/pass.rasi "$@"
 }
 
 # default command to generate passwords
@@ -43,7 +46,7 @@ delay=1
 wait=0.2
 
 # delay between keypresses when typing (in ms)
-xdotool_delay=12
+type_delay=12
 
 ## Programs to be used
 # Editor

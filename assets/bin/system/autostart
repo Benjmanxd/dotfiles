@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+
+## Kill if already running
+killall -9 picom polybar mpd dunst thunar ksuperkey
+
+## polkit agent
+if [[ ! `pidof xfce-polkit` ]]; then
+	/usr/lib/xfce-polkit/xfce-polkit &
+fi
+
+## wallpaper
+feh --bg-fill ~/.config/assets/wallpaper/current_wallpaper.jpg
+
+## Start Compositing Manager
+exec picom &
+
+## Launch Polybar
+killall -q polybar
+exec polybar &
+
+## Notification Daemon
+exec dunst &
+
+## Start Music Player Daemon
+# exec mpd &
+
+## Thunar Daemon
+exec thunar --daemon &
+
+## Enable Super Keys For Menu
+ksuperkey -e 'Super_L=Alt_L|F1' &
+ksuperkey -e 'Super_R=Alt_L|F1' &
+
+## Lock screen service
+systemctl enable betterlockscreen@benjmanxd
+
+## Launch polybar-spotify listener service
+#systemctl --user enable spotify-listener
+#systemctl --user start spotify-listener
+
+## Launch nordvpn service
+#systemctl enable nordvpnd.service
+#systemctl start nordvpnd.service
+
+## Launch fcitx
+fcitx -d &
+
+## Display Brightness
+xrandr --output DP-1 --brightness 0.8
+xrandr --output HDMI-1 --brightness 0.8

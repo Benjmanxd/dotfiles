@@ -1,0 +1,195 @@
+configuration {
+  modi:                           "run,drun,filebrowser,window";
+  show-icons:                     true;
+  display-run:                    "";
+  display-drun:                   "";
+  display-filebrowser:            "";
+  display-window:                 "";
+  run-display-format:             "{name}";
+	drun-display-format:            "{icon} {name}";
+	window-format:                  "{w} · {c} · {t}";
+  font:                           "JetBrains Mono Nerd Font SemiBold 10";
+}
+
+* {
+  accent: #babbf1;
+}
+@import "~/.config/assets/theme/rofi/frappe"
+
+window {
+  enabled:                        true;
+  transparency:                   "real";
+  location:                       center;
+  anchor:                         center;
+  fullscreen:                     false;
+  width:                          350px;
+  height:                         450px;
+  border:                         2px solid;
+  border-color:                   @mantle;
+  border-radius:                  8px;
+  cursor:                         default;
+  background-color:               @base;
+}
+
+mainbox {
+  enabled:                        true;
+  spacing:                        0px;
+  padding:                        10px;
+  orientation:                    vertical;
+  background-color:               transparent;
+  children:                       [ "inputbar", "listbox", "mode-switcher" ];
+}
+
+inputbar {
+  enabled:                        true;
+  spacing:                        10px;
+  padding:                        10px;
+  text-color:                     @text;
+  orientation:                    horizontal;
+  border-radius:                  12px;
+  background-image:               url("~/.wall", width);
+  background-color:               transparent;
+  children:                       [ "prompt", "entry" ];
+}
+
+prompt {
+  enabled:                        true;
+  expand:                         false;
+  padding:                        12px;
+  border-radius:                  100%;
+  vertical-align:                 0.5;
+  background-color:               @accent;
+  text-color:                     @mantle;
+}
+
+entry {
+  enabled:                        true;
+  expand:                         true;
+  padding:                        10px 14px;
+  border-radius:                  80%;
+  background-color:               @mantle;
+  text-color:                     inherit;
+  cursor:                         text;
+  vertical-align:                 0.5;
+  placeholder:                    "Search";
+  placeholder-color:              inherit;
+}
+
+listbox {
+  spacing:                        12px;
+  padding:                        10px 10px;
+  orientation:                    vertical;
+  background-color:               transparent;
+  children:                       [ "message", "listview" ];
+}
+
+mode-switcher{
+  enabled:                        true;
+  spacing:                        10px;
+  padding:                        5px 5px;
+  background-color:               transparent;
+  text-color:                     @text;
+}
+
+button {
+  width:                          45px;
+  padding:                        10px;
+  border-radius:                  100%;
+  background-color:               @mantle;
+  text-color:                     inherit;
+  cursor:                         pointer;
+}
+
+button selected {
+  background-color:               @accent;
+  text-color:                     @mantle;
+}
+
+listview {
+  enabled:                        true;
+  layout:                         vertical;
+  columns:                        1;
+  lines:                          5;
+  cycle:                          true;
+  dynamic:                        true;
+  scrollbar:                      false;
+  reverse:                        false;
+  fixed-height:                   true;
+  fixed-columns:                  true;   
+  spacing:                        5px;
+  background-color:               transparent;
+  text-color:                     @text;
+}
+
+element {
+  enabled:                        true;
+  spacing:                        5px;
+  padding:                        6px;
+  border-radius:                  8px;
+  background-color:               transparent;
+  text-color:                     @text;
+  cursor:                         pointer;
+}
+
+element normal.normal {
+  background-color:               inherit;
+  text-color:                     inherit;
+}
+
+element normal.urgent {
+  background-color:               @red;
+  text-color:                     @mantle;
+}
+
+element normal.active {
+  background-color:               @accent;
+  text-color:                     @mantle;
+}
+
+element selected.normal {
+  background-color:               @accent;
+  text-color:                     @mantle;
+}
+
+element selected.urgent {
+  background-color:               @red;
+  text-color:                     @mantle;
+}
+
+element selected.active {
+  background-color:               @green;
+  text-color:                     @mantle;
+}
+
+element-icon {
+  background-color:               transparent;
+  text-color:                     inherit;
+  size:                           32px;
+  cursor:                         inherit;
+}
+
+element-text {
+  background-color:               transparent;
+  text-color:                     inherit;
+  cursor:                         inherit;
+  vertical-align:                 0.5;
+}
+
+message {
+  background-color:               transparent;
+}
+
+textbox {
+  padding:                        12px;
+  border-radius:                  8px;
+  background-color:               @mantle;
+  text-color:                     @text;
+  vertical-align:                 0.5;
+}
+
+error-message {
+  padding:                        12px;
+  border-radius:                  20px;
+  background-color:               @red;
+  text-color:                     @mantle;
+}

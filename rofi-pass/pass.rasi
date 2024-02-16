@@ -1,150 +1,179 @@
-/* Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com> */
-/* Everyone is permitted to copy and distribute copies of this file under GNU-GPL3 */
-
 configuration {
-    show-icons:                     true;
-    display-drun: 					"";
-    drun-display-format:            "{icon} {name}";
-    disable-history:                false;
-	click-to-exit: 					true;
+  show-icons:                     false;
+  font:                           "Jetbrains Mono NL SemiBold 10";
 }
 
-@import "font.rasi"
-@import "colors.rasi"
+* {
+  accent: #f4b8e4;
+}
+@import "~/.config/assets/theme/rofi/frappe"
 
 window {
-    transparency:                   "real";
-    background-color:               @BG;
-    text-color:                     @FG;
-    border-radius:                  10px;
-    width:                          300px;
-    location:                       center;
-    anchor:                         center;
-    x-offset:                       0;
-    y-offset:                       0;
-}
-
-prompt {
-    enabled: 						true;
-	padding: 						8px;
-	background-color: 				@BG;
-	text-color: 					@IMG;
-}
-
-textbox-prompt-colon {
-	expand: 						false;
-	str: 							"";
-    border-radius:                  100%;
-    background-color:               @SEL;
-    text-color:                     @BG;
-    padding:                        8px 12px 8px 12px;
-	font:							"Iosevka Nerd Font 10";
-}
-
-entry {
-    background-color:               @BGA;
-    text-color:                     @FG;
-    placeholder-color:              @FG;
-    expand:                         true;
-    horizontal-align:               0;
-    placeholder:                    "Search...";
-    blink:                          true;
-    border:                  		0px 0px 2px 0px;
-    border-color:                  	@BDR;
-    border-radius:                  10px;
-    padding:                        8px;
-}
-
-inputbar {
-	children: 						[ textbox-prompt-colon, prompt, entry ];
-    background-color:               @BG;
-    text-color:                     @FG;
-    expand:                         false;
-    border:                  		0px 0px 0px 0px;
-    border-radius:                  0px;
-    border-color:                  	@BDR;
-    margin:                         0px 0px 0px 0px;
-    padding:                        0px;
-    position:                       center;
-}
-
-case-indicator {
-    background-color:               @BG;
-    text-color:                     @FG;
-    spacing:                        0;
-}
-
-
-listview {
-    background-color:               @BG;
-    columns:                        1;
-    lines:							7;
-    spacing:                        4px;
-    cycle:                          false;
-    dynamic:                        true;
-    layout:                         vertical;
+  enabled:                        true;
+  transparency:                   "real";
+  location:                       center;
+  anchor:                         center;
+  fullscreen:                     false;
+  width:                          250px;
+  height:                         350px;
+  border:                         2px solid;
+  border-color:                   @mantle;
+  border-radius:                  8px;
+  cursor:                         default;
+  background-color:               @base;
 }
 
 mainbox {
-    background-color:               @BG;
-    children:                       [ inputbar, listview ];
-    spacing:                       	15px;
-    padding:                        15px;
+  enabled:                        true;
+  spacing:                        0px;
+  padding:                        8px;
+  orientation:                    vertical;
+  background-color:               transparent;
+  children:                       [ "inputbar", "listbox" ];
+}
+
+inputbar {
+  enabled:                        true;
+  spacing:                        10px;
+  padding:                        10px;
+  text-color:                     @text;
+  orientation:                    horizontal;
+  border-radius:                  12px;
+  background-image:               url("~/.wall", width);
+  background-color:               transparent;
+  children:                       [ "prompt", "entry" ];
+}
+
+prompt {
+  enabled:                        true;
+  expand:                         false;
+  padding:                        12px;
+  border-radius:                  100%;
+  vertical-align:                 0.5;
+  background-color:               @accent;
+  text-color:                     @mantle;
+}
+
+entry {
+  enabled:                        true;
+  expand:                         true;
+  padding:                        10px 14px;
+  border-radius:                  80%;
+  background-color:               @mantle;
+  text-color:                     inherit;
+  cursor:                         text;
+  vertical-align:                 0.5;
+  placeholder:                    "Search";
+  placeholder-color:              inherit;
+}
+
+listbox {
+  spacing:                        12px;
+  padding:                        10px 10px;
+  orientation:                    vertical;
+  background-color:               transparent;
+  children:                       [ "message", "listview" ];
+}
+
+button {
+  width:                          45px;
+  padding:                        12px;
+  border-radius:                  100%;
+  background-color:               @mantle;
+  text-color:                     inherit;
+  cursor:                         pointer;
+}
+
+button selected {
+  background-color:               @accent;
+  text-color:                     @mantle;
+}
+
+listview {
+  enabled:                        true;
+  layout:                         vertical;
+  columns:                        1;
+  lines:                          5;
+  cycle:                          true;
+  dynamic:                        true;
+  scrollbar:                      false;
+  reverse:                        false;
+  fixed-height:                   true;
+  fixed-columns:                  true;   
+  spacing:                        6px;
+  background-color:               transparent;
+  text-color:                     @text;
 }
 
 element {
-    background-color:               @BG;
-    text-color:                     @FG;
-    orientation:                    horizontal;
-    border-radius:                  4px;
-    padding:                        6px 6px 6px 6px;
+  enabled:                        true;
+  spacing:                        5px;
+  padding:                        6px;
+  border-radius:                  8px;
+  background-color:               transparent;
+  text-color:                     @text;
+  cursor:                         pointer;
 }
 
-element-icon {
-    background-color: 				inherit;
-    text-color:       				inherit;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
-    size:                           24px;
-    border:                         0px;
+element normal.normal {
+  background-color:               inherit;
+  text-color:                     inherit;
 }
 
-element-text {
-    background-color: 				inherit;
-    text-color:       				inherit;
-    expand:                         true;
-    horizontal-align:               0;
-    vertical-align:                 0.5;
-    margin:                         2px 0px 2px 2px;
+element normal.urgent {
+  background-color:               @red;
+  text-color:                     @mantle;
 }
 
-element normal.urgent,
-element alternate.urgent {
-    background-color:               @UGT;
-    text-color:                     @FG;
-    border-radius:                  9px;
+element normal.active {
+  background-color:               @accent;
+  text-color:                     @mantle;
 }
 
-element normal.active,
-element alternate.active {
-    background-color:               @BGA;
-    text-color:                     @FG;
-}
-
-element selected {
-    background-color:               @BGA;
-    text-color:                     @SEL;
-    border:                  		0px 0px 0px 0px;
-    border-radius:                  10px;
-    border-color:                  	@BDR;
+element selected.normal {
+  background-color:               @accent;
+  text-color:                     @mantle;
 }
 
 element selected.urgent {
-    background-color:               @UGT;
-    text-color:                     @FG;
+  background-color:               @red;
+  text-color:                     @mantle;
 }
 
 element selected.active {
-    background-color:               @BGA;
-    color:                          @FG;
+  background-color:               @green;
+  text-color:                     @mantle;
+}
+
+element-icon {
+  background-color:               transparent;
+  text-color:                     inherit;
+  size:                           32px;
+  cursor:                         inherit;
+}
+
+element-text {
+  background-color:               transparent;
+  text-color:                     inherit;
+  cursor:                         inherit;
+  vertical-align:                 0.5;
+}
+
+message {
+  background-color:               transparent;
+}
+
+textbox {
+  padding:                        12px;
+  border-radius:                  8px;
+  background-color:               @mantle;
+  text-color:                     @text;
+  vertical-align:                 0.5;
+}
+
+error-message {
+  padding:                        12px;
+  border-radius:                  20px;
+  background-color:               @red;
+  text-color:                     @mantle;
 }
