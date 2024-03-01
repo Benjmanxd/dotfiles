@@ -155,6 +155,7 @@ theme.lualine = {
   -- lualine_transitional_lualine_b_normal_to_lualine_c_normal = { fg = palette.fg, bg = palette.bg },
   -- lualine_c_normal = { fg = palette.fg, bg = palette.bg },
   lualine_x_diagnostics_warn_normal = { fg = palette.yellow_diag, bg = palette.bg },
+  lualine_x_diagnostics_warn_command = { fg = palette.yellow_diag, bg = palette.bg },
   lualine_c_normal = { fg = palette.fg, bg = palette.bg },
 }
 
