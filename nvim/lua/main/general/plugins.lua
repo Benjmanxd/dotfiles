@@ -110,6 +110,10 @@ local plugins = {
     lazy = true,
     dependencies = { "nvim-lua/plenary.nvim" }
   },
+  {
+    "glepnir/template.nvim",
+    cmd = {'Template', 'TemProject'}
+  }, -- templates
 
   -- web dev
   {
