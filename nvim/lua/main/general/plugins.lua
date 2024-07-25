@@ -56,6 +56,9 @@ local plugins = {
     "neovim/nvim-lspconfig",
   },
   {
+    'stevearc/conform.nvim',
+  },
+  {
     "ray-x/lsp_signature.nvim",
     event = "VeryLazy",
   },
@@ -103,8 +106,10 @@ local plugins = {
     lazy = true,
     dependencies = { "mfussenegger/nvim-dap" }
   }, -- debug
-  { "folke/which-key.nvim" },
-  { "mg979/vim-visual-multi" },
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+  },
   {
     "folke/todo-comments.nvim",
     lazy = true,

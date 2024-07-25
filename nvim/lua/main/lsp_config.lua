@@ -10,7 +10,7 @@ for _, sign in ipairs(signs) do
   vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
 end
 
-local config = {
+local vim_diag_config = {
   virtual_text = false,
   signs = {
     active = signs,
@@ -28,7 +28,7 @@ local config = {
   },
 }
 
-vim.diagnostic.config(config)
+vim.diagnostic.config(vim_diag_config)
 
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
   border = "rounded",
@@ -44,7 +44,14 @@ status_ok, mason = pcall(require, "mason")
 if not status_ok then
   return
 end
-mason.setup()
+
+local mason_config = {
+  ui = {
+    check_outdated_packages_on_open = true,
+    border = "rounded",
+  }
+}
+mason.setup(mason_config)
 
 status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
 if not status_ok then
@@ -78,11 +85,13 @@ if not status_ok then
   return
 end
 
+require('lspconfig.ui.windows').default_options.border = "rounded"
 local on_attach = require("main.lsp_handlers").on_attach
 local capabilities = require("main.lsp_handlers").capabilities
 
 local mason_lspconfig_config = {
   ensure_installed = vim.tbl_keys(servers),
+  automatic_installation = false,
 }
 mason_lspconfig.setup(mason_lspconfig_config)
 mason_lspconfig.setup_handlers({
@@ -111,5 +120,4 @@ local signature_config = {
     border = "rounded",
   },
 }
-
 signature.setup(signature_config)

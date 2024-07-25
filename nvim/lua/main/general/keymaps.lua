@@ -41,6 +41,16 @@ vim.keymap.set("n", "<C-S-k>", ":m .-2<CR>==", { noremap = true, silent = true }
 vim.keymap.set("n", "<", "<<", { desc = "Ident left", noremap = true, silent = true })
 vim.keymap.set("n", ">", ">>", { desc = "Ident right", noremap = true, silent = true })
 
+-- Diagnostics
+-- FIX: broken keymaps
+vim.keymap.set("n", "[d", diag.goto_prev, { desc = "Go to previous diagnostic message" })
+vim.keymap.set("n", "]d", diag.goto_next, { desc = "Go to next diagnostic message" })
+vim.keymap.set("n", "gl", diag.open_float, { desc = "Open flating diagnostic message" })
+vim.keymap.set("n", "<leader>q", diag.setloclist, { desc = "Open diagnostic list" })
+
+-- Lsp
+vim.keymap.set("n", "<leader>f", require("conform").format, { desc = "[F]ormat", buffer = bufnr, silent = true })
+
 -- Visual mode
 -- indentation
 vim.keymap.set("v", "<", "<gv", { desc = "Ident left", noremap = true, silent = true })
@@ -49,10 +59,3 @@ vim.keymap.set("v", ">", ">gv", { desc = "Ident right", noremap = true, silent =
 vim.keymap.set("v", "<C-S-j>", ":m '>+1<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<C-S-k>", ":m '<-2<CR>gv=gv", { noremap = true, silent = true })
 vim.keymap.set("v", "p", '"_dP', { noremap = true, silent = true })
-
--- Diagnostics
--- FIX: broken keymaps
-vim.keymap.set("n", "[d", diag.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set("n", "]d", diag.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set("n", "gl", diag.open_float, { desc = "Open flating diagnostic message" })
-vim.keymap.set("n", "<leader>q", diag.setloclist, { desc = "Open diagnostic list" })
