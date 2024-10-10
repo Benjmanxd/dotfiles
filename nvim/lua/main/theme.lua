@@ -142,11 +142,12 @@ theme.lazy = {
   LazyNormal = { fg = palette.blue_normal, bg = palette.bg },
 }
 
--- theme.lsp = {
+theme.lsp = {
 --   LspReferenceText = { bg = palette.bg_highlight_2 },
 --   LspReferenceRead = { bg = palette.bg_highlight_2 },
 --   LspReferenceWrite = { bg = palette.bg_highlight_2 },
--- }
+  LspInfoBorder = { fg = palette.blue_normal, bg = palette.none },
+}
 
 theme.lualine = {
   -- lualine_a_normal = { fg = palette.bg, bg = palette.pink },

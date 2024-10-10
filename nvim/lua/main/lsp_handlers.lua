@@ -19,9 +19,9 @@ local function lsp_keymaps(bufnr)
   vim.keymap.set("n", "gh", buf.hover, { desc = "[G]oto [H]over", buffer = bufnr, silent = true })
   vim.keymap.set("n", "gr", buf.references, { desc = "[G]oto [R]eferences", buffer = bufnr, silent = true })
   vim.keymap.set("n", "gs", lsp_sig.toggle_float_win, { desc = "[G]oto [S]ignature Help", buffer = bufnr, silent = true })
-  vim.keymap.set("n", "<leader>f", function()
-    buf.format({ async = true })
-  end, { desc = "[F]ormat", buffer = bufnr, silent = true })
+  -- vim.keymap.set("n", "<leader>f", function()
+  --   buf.format({ async = true })
+  -- end, { desc = "[F]ormat", buffer = bufnr, silent = true })
 end
 
 -- NOTE: vim-illuminate seems work much better than DocumentHighlight provided by vim.lsp

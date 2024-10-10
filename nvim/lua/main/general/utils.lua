@@ -13,7 +13,14 @@ end
 
 function utils.set_theme(palette_table)
   for k, v in pairs(palette_table) do
-    set_hl(0, k, v);
+    set_hl(0, k, v)
+  end
+end
+
+function utils.func_wrapper(func, ...)
+  local args = {...}
+  return function()
+    func(table.unpack(args))
   end
 end
 
