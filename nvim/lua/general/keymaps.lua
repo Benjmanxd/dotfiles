@@ -1,5 +1,3 @@
-local diag = vim.diagnostic
-
 -- space as leader key
 vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
 
@@ -41,13 +39,7 @@ vim.keymap.set("n", ">", ">>", { desc = "Ident right", noremap = true, silent = 
 
 -- Diagnostics
 -- FIX: broken keymaps
-vim.keymap.set("n", "[d", diag.goto_prev, { desc = "Go to previous diagnostic message" })
-vim.keymap.set("n", "]d", diag.goto_next, { desc = "Go to next diagnostic message" })
-vim.keymap.set("n", "gl", diag.open_float, { desc = "Open flating diagnostic message" })
-vim.keymap.set("n", "<leader>q", diag.setloclist, { desc = "Open diagnostic list" })
 
--- Lsp
-vim.keymap.set("n", "<leader>f", require("conform").format, { desc = "[F]ormat", buffer = bufnr, silent = true })
 
 -- Visual mode
 -- indentation
