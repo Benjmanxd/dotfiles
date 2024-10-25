@@ -1,9 +1,4 @@
 local plugins = {
-  {
-    "rmagatti/goto-preview",
-    lazy = true
-  },
-
   -- code editting
   {
     "rcarriga/nvim-dap-ui",

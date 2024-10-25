@@ -16,7 +16,7 @@ return {
 	},
 	opts = function()
 		local cmp = require("cmp")
-    local luasnip = require("luasnip")
+		local luasnip = require("luasnip")
 		local check_backspace = function()
 			local col = vim.fn.col(".") - 1
 			return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
@@ -84,24 +84,21 @@ return {
 				{ name = "nvim_lsp", max_item_count = 10 },
 				{ name = "luasnip", max_item_count = 5, option = { use_show_condition = false } },
 				{ name = "nvim_lua", max_item_count = 5 },
-				{
-					name = "path",
-					max_item_count = 5,
-					option = { trailing_slash = true, label_trailing_slash = true },
-				},
+				{ name = "path", max_item_count = 5, option = { trailing_slash = true, label_trailing_slash = true } },
 				{ name = "emoji", max_item_count = 5 },
+        { name = "nvim_lsp_document_symbol" },
 			}, {
 				{ name = "buffer", max_item_count = 5, keyword_length = 3 },
 			}),
 			formatting = {
-				fields = { "kind", "abbr" },
+				fields = { "kind", "abbr", "menu" },
 				format = function(entry, vim_item)
 					local lspkind_ok, lspkind = pcall(require, "lspkind")
 					local kind_icons = require("general.icons.cmp_icon")
 					if not lspkind_ok then
 						-- Kind icons
 						-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind)
-            vim_item.kind = kind_icons[vim_item.kind]
+						vim_item.kind = kind_icons[vim_item.kind]
 						vim_item.menu = ({
 							buffer = "[Buf]",
 							cmdline = "[Cmd]",
@@ -113,7 +110,7 @@ return {
 							nvim_lua = "[Vim]",
 							path = "[Path]",
 						})[entry.source.name]
-            vim_item.abbr = vim_item.abbr:match("[^(]+")
+						vim_item.abbr = vim_item.abbr:match("[^(]+")
 						return vim_item
 					else
 						return lspkind.cmp_format()(entry, vim_item)
@@ -153,17 +150,20 @@ return {
 				{ name = "buffer", max_item_count = 10 },
 			}),
 		})
+
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
-				{ name = "path", max_item_count = 10, option = { trailing_slash = true, label_trailing_slash = true } },
+				{ name = "path", max_item_count = 10, option = { trailing_slash = false, label_trailing_slash = true } },
 			}, {
 				{ name = "cmdline", max_item_count = 10 },
 			}),
+      matching = { disallow_symbol_nonprefix_matching = false }
 		})
 		require("luasnip.loaders.from_vscode").lazy_load()
 	end,
 }
+
 -- vim command - :highlight Pmenu ctermbg=gray guibg=gray
 -- {
 --     PmenuSel = { bg = "#282C34", fg = "NONE" },

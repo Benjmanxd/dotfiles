@@ -26,7 +26,7 @@ local opts = {
 		title = " 👑Laazzzyyyy!!!!!👑 ",
 		title_pos = "center",
 	},
-	checker = { enabled = true },
+	checker = { enabled = false },
 	change_detection = {
 		enabled = false,
 		notify = false,

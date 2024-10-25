@@ -1,5 +1,8 @@
 return {
 	"stevearc/conform.nvim",
+  keys = {
+    { "<leader>f", "<CMD>lua require('conform').format()<CR>", desc = "[F]ormat", buffer = vim.bufnr, silent = true },
+  },
 	opts = {
 		formatters_by_ft = {
 			go = { "gofmt" },
@@ -11,9 +14,4 @@ return {
 			cpp = { "clang-format" },
 		},
 	},
-	config = function(_, opts)
-		local conform = require("conform")
-		vim.keymap.set("n", "<leader>f", conform.format, { desc = "[F]ormat", buffer = vim.bufnr, silent = true })
-		conform.setup(opts)
-	end,
 }

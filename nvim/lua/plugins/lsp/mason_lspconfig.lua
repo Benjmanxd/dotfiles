@@ -20,7 +20,7 @@ return {
 			-- gopls = {},
 			pyright = {},
 			rust_analyzer = {},
-			ts_ls = {},
+			tsserver = {},
 			vimls = {},
 			zls = {},
 		}

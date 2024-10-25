@@ -17,14 +17,24 @@ vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "WinEnter", "BufWinEnter" 
   pattern = { "*" },
   callback = function(event)
     -- set cursorline & cursorcolumn
-    if not vim.bo[event.buf].buflisted then
-      vim.cmd("setlocal nocursorline")
-      vim.cmd("setlocal nocursorcolumn")
-    else
+    if vim.bo[event.buf].buflisted then
       vim.cmd("setlocal cursorline")
       vim.cmd("setlocal cursorcolumn")
     end
+  end,
+})
 
+vim.api.nvim_create_autocmd({ "WinLeave" }, {
+  pattern = { "*" },
+  callback = function()
+    vim.cmd("setlocal nocursorline")
+    vim.cmd("setlocal nocursorcolumn")
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "WinEnter", "BufWinEnter" }, {
+  pattern = { "*" },
+  callback = function()
     -- set icon highlight
     local icon_ok, icons = pcall(require, "nvim-web-devicons")
     if not icon_ok then
@@ -52,13 +62,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "VimEnter", "WinEnter", "BufWinEnter" 
       },
     }
     utils.set_theme(iconSkeleton)
-  end,
-})
-
-vim.api.nvim_create_autocmd({ "WinLeave" }, {
-  pattern = { "*" },
-  callback = function()
-    vim.cmd("setlocal nocursorline")
-    vim.cmd("setlocal nocursorcolumn")
   end,
 })
