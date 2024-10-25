@@ -147,6 +147,12 @@ theme.cmp = {
 	CmpItemKindUnit = { link = "CmpItemKindKeyword" },
 }
 
+theme.dap = {
+  DapBreakpoint = { fg = palette.red_1, },
+  DapLogPoint = { fg = palette.blue, },
+  DapStopped = { fg = palette.green, },
+}
+
 theme.illuminate = {
 	IlluminatedWordText = { bg = palette.bg_highlight_2 },
 	IlluminatedWordRead = { bg = palette.bg_highlight_2 },
