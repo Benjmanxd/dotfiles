@@ -88,6 +88,10 @@ theme.base = {
 	DiagnosticWarning = { fg = palette.yellow_diag, bg = palette.bg },
 }
 
+theme.alpha = {
+  AlphaHeader = { fg = palette.yellow, bg = palette.none },
+}
+
 theme.aerial = {
 	AerialLine = { fg = palette.black_1, bg = palette.purple_highlight },
 }
