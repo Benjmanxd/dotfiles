@@ -1,7 +1,7 @@
 return {
-	"rcarriga/nvim-dap-ui",
+	"mfussenegger/nvim-dap",
 	dependencies = {
-		"mfussenegger/nvim-dap",
+		"rcarriga/nvim-dap-ui",
 		"nvim-neotest/nvim-nio",
 		"theHamsta/nvim-dap-virtual-text",
 	},
@@ -13,10 +13,10 @@ return {
 		{ "<leader>d3", "<CMD>DapStepOver<CR>", desc = "[D]ap Step Over" },
 		{ "<leader>d4", "<CMD>DapStepOut<CR>", desc = "[D]ap Step Out" },
 		{ "<leader>d5", "<CMD>DapStepBack<CR>", desc = "[D]ap Step Back" },
-		{ "<leader>dr", "<CMD>DapRestart<CR>", desc = "[D]ap [R]estart" },
-    { "<leader>dr", "<CMD>lua require('dap').run_to_cursor()<CR>", desc = "[D]ap [R]un to cursor" },
-    { "<leader>dt", "<CMD>lua require('dapui').toggle()<CR>", desc = "[D]apUI [T]oggle" },
-    { "<leader>d?", "<CMD>lua require('dapui').eval(nil, { enter = true })<CR>", desc = "[D]apUI Inspect Element" },
+		{ "<leader>dR", "<CMD>DapRestart<CR>", desc = "[D]ap [R]estart" },
+		{ "<leader>dr", "<CMD>lua require('dap').run_to_cursor()<CR>", desc = "[D]ap [R]un to cursor" },
+		{ "<leader>dt", "<CMD>lua require('dapui').toggle()<CR>", desc = "[D]apUI [T]oggle" },
+		{ "<leader>d?", "<CMD>lua require('dapui').eval(nil, { enter = true })<CR>", desc = "[D]apUI Inspect Element" },
 	},
 	init = function()
 		vim.fn.sign_define("DapBreakpoint", { text = "", texthl = "DapBreakpoint", linehl = "", numhl = "" })
