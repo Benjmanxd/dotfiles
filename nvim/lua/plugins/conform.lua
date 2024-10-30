@@ -1,5 +1,6 @@
 return {
 	"stevearc/conform.nvim",
+  branch = "nvim-0.9",
   keys = {
     { "<leader>f", "<CMD>lua require('conform').format()<CR>", desc = "[F]ormat", buffer = vim.bufnr, silent = true },
   },
