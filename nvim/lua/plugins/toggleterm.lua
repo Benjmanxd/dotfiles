@@ -1,6 +1,26 @@
 return {
   "akinsho/toggleterm.nvim",
   version = "*",
+  keys = {
+    -- { "<c-\\>", "<CMD>1ToggleTerm direction=tab<CR>", desc = "Fullscreen Term", buffer = vim.bufnr },
+    { "<c-\\>", function()
+      local buf_name = vim.api.nvim_buf_get_name(0)
+      if buf_name:find("toggleterm#1") then
+        vim.api.nvim_command(":ToggleTermToggleAll")
+      elseif buf_name:find("toggleterm#2") then
+        vim.api.nvim_command(":ToggleTermToggleAll")
+        vim.api.nvim_command(":1ToggleTerm direction=tab")
+      else
+        vim.api.nvim_command(":1ToggleTerm direction=tab")
+      end
+    end, mode = {"n", "t", "i"}, desc = "Fullscreen Term", buffer = vim.bufnr },
+    { "<leader>e", function()
+      local cmd = vim.fn.input("> ")
+      vim.api.nvim_command(string.format(":2TermExec direction=horizontal cmd=\"%s\"", cmd))
+      vim.api.nvim_command(":wincmd j")
+      vim.keymap.set("n", "q", ":q<CR>", { buffer = true })
+    end, desc = "Halfscreen horizontal Term" },
+  },
   opts = {
     -- size can be a number or function which is passed the current terminal
     size = function(term) -- or return 20
@@ -12,7 +32,8 @@ return {
         return 100
       end
     end,
-    open_mapping = [[<c-\>]],
+    -- open_mapping = [[<c-\>]],
+    open_mapping = nil,
     hide_numbers = true, -- hide the number column in toggleterm buffers
     shade_filetypes = {},
     autochdir = false, -- when neovim changes it current directory the terminal will change it's own when next it's opened

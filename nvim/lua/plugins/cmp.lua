@@ -142,7 +142,8 @@ return {
 				{ name = "buffer" },
 			}),
 		})
-		cmp.setup.cmdline({ "/", "?" }, {
+
+		cmp.setup.cmdline({ "/", "?" }, { -- start with @
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp_document_symbol", max_item_count = 10 },
@@ -156,10 +157,11 @@ return {
 			sources = cmp.config.sources({
 				{ name = "path", max_item_count = 10, option = { trailing_slash = false, label_trailing_slash = true } },
 			}, {
-				{ name = "cmdline", max_item_count = 10 },
+				{ name = "cmdline", max_item_count = 10, option = { treat_trailing_slash = false } },
 			}),
       matching = { disallow_symbol_nonprefix_matching = false }
 		})
+
 		require("luasnip.loaders.from_vscode").lazy_load()
 	end,
 }
