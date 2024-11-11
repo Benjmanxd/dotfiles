@@ -396,24 +396,19 @@
       <action name="SendToDesktopRight"/>
     </keybind>
     <!-- Media Controls-->
-    <keybind key="XF86AudioRaiseVolume">
+    <keybind key="A-equal">
       <action name="Execute">
-        <command>volume --inc</command>
+        <command>amixer set Master 10%+</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioLowerVolume">
+    <keybind key="A-minus">
       <action name="Execute">
-        <command>volume --dec</command>
+        <command>amixer set Master 10%-</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioMute">
+    <keybind key="A-BackSpace">
       <action name="Execute">
-        <command>volume --toggle</command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioMicMute">
-      <action name="Execute">
-        <command>volume --toggle-mic</command>
+        <command>amixer set Master toggle</command>
       </action>
     </keybind>
     <keybind key="XF86AudioStop">
