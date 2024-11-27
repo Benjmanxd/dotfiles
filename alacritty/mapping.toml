@@ -1,0 +1,10 @@
+# hide_when_typing = true
+# save_to_clipboard = true
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Control"
+
+[selection]
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"

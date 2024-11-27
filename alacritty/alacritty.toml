@@ -1,0 +1,27 @@
+import = ["/home/benjmanxd/.config/alacritty/font.toml", "/home/benjmanxd/.config/alacritty/mapping.toml", "/home/benjmanxd/.config/assets/theme/alacritty/sweetpastel.toml"]
+live_config_reload = true
+
+[cursor]
+# custom_cursor_colors = true
+unfocused_hollow = true
+style = { blinking = "On", shape = "Block" }
+
+[env]
+EDITOR = "nvim"
+TERM = "alacritty"
+VISUAL = "nvim"
+
+[shell]
+program = "zsh"
+
+[window]
+opacity = 0.9
+dimensions = { columns = 200, lines = 40 }
+padding = { x = 10, y = 10 }
+decorations = "None"
+startup_mode = "Maximized"
+class = { general = "Alacritty", instance = "Alacritty" }
+
+[scrolling]
+history = 10000
+multiplier = 3
