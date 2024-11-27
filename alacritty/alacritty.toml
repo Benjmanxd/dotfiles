@@ -16,10 +16,11 @@ program = "zsh"
 
 [window]
 opacity = 0.9
-dimensions = { columns = 200, lines = 40 }
-padding = { x = 10, y = 10 }
-decorations = "None"
-startup_mode = "Maximized"
+# dimensions = { columns = 189, lines = 40 }
+padding = { x = 3, y = 4 }
+# position = { x = 10, y= 10 }
+decorations = "Full"
+startup_mode = "Windowed"
 class = { general = "Alacritty", instance = "Alacritty" }
 
 [scrolling]

@@ -17,20 +17,21 @@
   programs.home-manager.enable = true;
   home.packages = with pkgs; [
     # terminal
+    alacritty
+    zsh
+    git
+    neovim
+    tmux
     tree
     tldr
     atool
-    alacritty
     bat
     fzf
     htop
     btop
     neofetch
-    tmux
     wmctrl
-    zsh
-    git
-    neovim
+    xdotool
     ripgrep
     killall
     pass
@@ -44,7 +45,6 @@
     stalonetray
     ffmpeg
     unzip
-    teleport
     coreutils-full
     cava
     sxhkd

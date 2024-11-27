@@ -22,9 +22,10 @@
     <primaryMonitor>Mouse</primaryMonitor>
   </placement>
   <theme>
-    <name>Arc-Dark</name>
+    <!-- <name>Arc-Dark</name> -->
+    <name>main</name>
     <titleLayout>DLIMC</titleLayout>
-    <keepBorder>no</keepBorder>
+    <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
       <name>JetBrains Mono</name>
@@ -83,10 +84,10 @@
     </popupFixedPosition>
   </resize>
   <margins>
-    <top>0</top>
+    <top>10</top>
     <bottom>10</bottom>
-    <left>10</left>
-    <right>10</right>
+    <left>8</left>
+    <right>8</right>
   </margins>
   <dock>
     <position>Bottom</position>
@@ -184,9 +185,12 @@
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">
-        <width>50%</width>
+        <width>49%</width>
       </action>
-      <action name="MoveToEdgeWest"/>
+      <action name="MoveResizeTo">
+        <x>10</x>
+        <y>-5</y>
+      </action>
     </keybind>
     <keybind key="W-Right">
       <action name="UnmaximizeFull"/>
@@ -194,10 +198,17 @@
       <action name="MoveResizeTo">
         <width>49%</width>
       </action>
-      <action name="MoveToEdgeEast"/>
+      <action name="MoveResizeTo">
+        <x>-10</x>
+        <y>-5</y>
+      </action>
     </keybind>
     <keybind key="W-Up">
-      <action name="MaximizeFull"/>
+      <action name="MoveResizeTo">
+        <width>99%</width>
+        <height>100%</height>
+      </action>
+      <action name="MoveToCenter"/>
     </keybind>
     <keybind key="W-Down">
       <action name="UnmaximizeFull"/>
@@ -206,6 +217,27 @@
         <height>80%</height>
       </action>
       <action name="MoveToCenter"/>
+    </keybind>
+    <keybind key="W-bracketleft">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>49%</width>
+      </action>
+      <action name="MoveToEdgeWest"/>
+    </keybind>
+    <keybind key="W-bracketright">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>49%</width>
+      </action>
+      <action name="MoveToEdgeEast"/>
+    </keybind>
+    <keybind key="W-m">
+      <action name="Lower"/>
+      <action name="FocusToBottom"/>
+      <action name="Unfocus"/>
     </keybind>
     <!-- Top right-->
     <keybind key="W-k">
@@ -227,7 +259,7 @@
     <keybind key="W-j">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-        <x>5</x>
+        <x>10</x>
         <y>-5</y>
       </action>
     </keybind>
@@ -475,11 +507,6 @@
         <command>alacritty</command>
       </action>
     </keybind>
-    <keybind key="W-t">
-      <action name="Execute">
-        <command>furminal</command>
-      </action>
-    </keybind>
     <keybind key="W-f">
       <action name="Execute">
         <command>thunar</command>
@@ -487,7 +514,7 @@
     </keybind>
     <keybind key="W-w">
       <action name="Execute">
-        <command>firefox</command>
+        <command>brave</command>
       </action>
     </keybind>
     <keybind key="W-e">
@@ -506,19 +533,9 @@
         <command>networkmanager_dmenu</command>
       </action>
     </keybind>
-    <keybind key="W-m">
-      <action name="Execute">
-        <command>~/.config/openbox/rofi/bin/music</command>
-      </action>
-    </keybind>
     <keybind key="W-x">
       <action name="Execute">
         <command>~/.config/assets/bin/utilities/menu/power.sh</command>
-      </action>
-    </keybind>
-    <keybind key="W-s">
-      <action name="Execute">
-        <command>~/.config/openbox/rofi/bin/screenshot</command>
       </action>
     </keybind>
     <keybind key="W-r">
@@ -593,16 +610,13 @@
     <keybind key="C-S-R">
       <action name="Reconfigure"/>
     </keybind>
-    <keybind key="W-Escape">
-      <action name="Execute">
-        <command>xkill</command>
-      </action>
-    </keybind>
     <keybind key="W-c">
       <action name="Close"/>
     </keybind>
     <keybind key="W-q">
-      <action name="Close"/>
+      <action name="Execute">
+        <command>xdotool getactivewindow windowkill</command>
+      </action>
     </keybind>
     <keybind key="A-F5">
       <action name="Iconify"/>
@@ -903,28 +917,19 @@
     <manageDesktops>yes</manageDesktops>
   </menu>
   <!-- ################################ Applications Rules ################################ -->
+  <!-- obtain application property from command: obxprop | grep "^_OB_APP" -->
   <applications>
     <application class="*">
       <focus>yes</focus>
-      <decor>yes</decor>
-    </application>
-    <application name="obconf">
-      <position force="yes">
+      <decor>no</decor>
+      <position>
         <x>center</x>
         <y>center</y>
       </position>
       <size>
-        <width>50%</width>
+        <width>99%</width>
+        <height>99%</height>
       </size>
-    </application>
-    <application title="MPlayer">
-      <decor>no</decor>
-    </application>
-    <application title="Nitrogen">
-      <position force="yes">
-        <x>center</x>
-        <y>center</y>
-      </position>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
