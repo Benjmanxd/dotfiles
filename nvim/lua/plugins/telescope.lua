@@ -1,6 +1,7 @@
 return {
   "nvim-telescope/telescope.nvim",
   tag = "0.1.8",
+  lazy = false,
   dependencies = {
     { "nvim-lua/plenary.nvim" },
     { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
@@ -26,55 +27,57 @@ return {
     { "<leader>sgb", "<CMD>Telescope git_branches<CR>", desc = "[S]earch [G]it [B]ranches" },
     { "<leader>sgs", "<CMD>Telescope git_status<CR>", desc = "[S]earch [G]it [S]tatus" },
     -- { "<leader>hh", "<CMD>Telescope harpoon marks<CR>", desc = "[H]arpoon List Toggle"},
-
   },
-  opts = {
-    defaults = {
-      -- :help telescope.layout
-      path_display = { truncate = 5 },
-      selection_strategy = "reset",
-      sorting_strategy = "ascending",
-      scroll_strategy = "limit",
-      color_devicons = true,
-      layout_strategy = "horizontal",
-      layout_config = {
-        prompt_position = "top",
-        height = 0.85,
-        width = 0.85,
-      },
-      mappings = {
-        i = {
-          ["<ESC>"] = require("telescope.actions").close,
-        },
-      },
-    },
-    pickers = {
-      find_files = {
-        -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-        find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
-      },
-    },
-    extensions = {
-      fzf = {
-        fuzzy = true,
-        override_generic_sorter = true,
-        override_file_sorter = true,
-        case_mode = "smart_case",
-      },
-      file_browser = {
+  opts = function()
+    local actions = require("telescope.actions")
+    return {
+      defaults = {
+        -- :help telescope.layout
         path_display = { truncate = 5 },
         selection_strategy = "reset",
         sorting_strategy = "ascending",
         scroll_strategy = "limit",
-        theme = "ivy",
-        hijack_netrw = false,
+        color_devicons = true,
+        layout_strategy = "horizontal",
+        layout_config = {
+          prompt_position = "top",
+          height = 0.85,
+          width = 0.85,
+        },
+        mappings = {
+          i = {
+            ["<ESC>"] = actions.close,
+          },
+        },
       },
-      live_grep_args = {
-        auto_quoting = true,
+      pickers = {
+        find_files = {
+          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+          find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+        },
       },
-      harpoon = {},
-    },
-  },
+      extensions = {
+        fzf = {
+          fuzzy = true,
+          override_generic_sorter = true,
+          override_file_sorter = true,
+          case_mode = "smart_case",
+        },
+        file_browser = {
+          path_display = { truncate = 5 },
+          selection_strategy = "reset",
+          sorting_strategy = "ascending",
+          scroll_strategy = "limit",
+          theme = "ivy",
+          hijack_netrw = false,
+        },
+        live_grep_args = {
+          auto_quoting = true,
+        },
+        harpoon = {},
+      },
+    }
+  end,
   config = function(_, opts)
     local telescope = require("telescope")
 
