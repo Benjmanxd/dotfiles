@@ -139,9 +139,9 @@ style = "bold #ffda00"
 format = "[$symbol($version )]($style)"
 
 [character]
-success_symbol = "[](bold #f99dbc)"
-error_symbol = "[](bold #ff64dc)"
-vimcmd_symbol = "[](bold #fdd9e5)"
+success_symbol = "[󰎇](bold #f99dbc)"
+error_symbol = "[󰎊](bold #ff64dc)"
+vimcmd_symbol = "[󰷞](bold #fdd9e5)"
 
 [cmd_duration]
 min_time = 500
@@ -151,7 +151,7 @@ format = ' [\[$duration\]](bold yellow)'
 [directory]
 style = "bold #0066d0"
 format = " [ $path]($style)[$read_only]($read_only_style) "
-read_only = " "
+read_only = " "
 truncation_length = 4
 truncate_to_repo = true
 
@@ -182,7 +182,7 @@ disabled = false
 
 [memory_usage]
 threshold = 20
-symbol = ""
+symbol = "󰍛"
 style = "bold #cc7722"
 format = '[\[$symbol $ram\]]($style)'
 disabled = false
