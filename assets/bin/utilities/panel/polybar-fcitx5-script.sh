@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
-CAPS_SYMBOL="%{F#c0392b}⇧%{F-}"
+CAPS_SYMBOL="%{F#F4B8E4}󰌎%{F-}"
 IMLIST_FILE="/tmp/fcitx5-imlist"
 
 capslock() {
-  xset -q | grep Caps | grep -q on && {
+  xset -q | grep -q "Caps Lock:   on" && {
     echo on
     return 0
   } || {
@@ -16,7 +16,7 @@ capslock() {
 # Print out identifier of current input method
 current() {
   dbus-send --session --print-reply \
-    --dest=org.fcitx.Fcitx \
+    --dest=org.fcitx.Fcitx5 \
     /controller \
     org.fcitx.Fcitx.Controller1.CurrentInputMethod \
     | grep -Po '(?<=")[^"]+'
@@ -59,25 +59,4 @@ print_pretty_name() {
   echo "${name}"
 }
 
-react() {
-  # Without this, Polybar will display empty
-  # string until you switch input method.
-  print_pretty_name
-
-  # Track input method changes. Each new line read is an event fired from IM switch
-  while true; do
-    # When read someting from dbus-monitor
-    read -r unused
-    print_pretty_name
-  done
-}
-
-##
-# Watch for events from Fcitx.
-#
-# Because this script won't stop, I have to put the event handling part
-# in another file named `react`.
-##
-
-# Need --line-buffered to avoid messages being hold in buffer
-dbus-monitor --session destination=org.freedesktop.IBus | grep --line-buffered '65505\|65509' | react
+print_pretty_name
