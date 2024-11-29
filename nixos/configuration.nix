@@ -65,6 +65,7 @@
   services.xserver = {
     enable = true;
     xkb.layout = "us";
+    desktopManager.runXdgAutostartIfNone = true;
     windowManager.openbox.enable = true;
     displayManager = {
       lightdm = {
@@ -97,42 +98,6 @@
     alsa.support32Bit = true;
     pulse.enable = true;
     jack.enable = true;
-  };
-
-  services.mopidy = {
-    enable = true;
-    extensionPackages = [
-      pkgs.mopidy-local
-      pkgs.mopidy-mpd
-      pkgs.mopidy-mopify
-      pkgs.mopidy-spotify
-    ];
-    configuration = ''
-      [core]
-      restore_state = true
-
-      [audio]
-      output = tee name=t ! queue ! autoaudiosink t. ! queue ! udpsink port=5555
-
-      [local]
-      media_dir = /home/benjmanxd/Documents/chill
-
-      [file]
-      media_dirs = /home/benjmanxd/Documents/chill
-
-      [mpd]
-      enabled = true
-      hostname = 127.0.0.1
-      port = 6600
-
-      [spotify]
-      enabled = true
-      username = 12156574856
-      password = AA%NR%pDVpUO0<n
-      client_id = ebd9984d-9ab7-457f-a0f3-2971e9fb8f9d
-      client_secret = kTOx-Q8zufaA9nslQ_MbGF8RAwOTSaWC0cGstiCcZK8=
-      bitrate = 320
-    '';
   };
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -175,7 +140,6 @@
     pinentryPackage = pkgs.pinentry-gtk2;
     enableSSHSupport = true;
   };
-
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

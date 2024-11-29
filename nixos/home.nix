@@ -158,18 +158,18 @@ neofetch
   };
   programs.starship.enable = true;
 
-  i18n = {
-    inputMethod = {
-      enabled = "fcitx5";
-      fcitx5.addons = with pkgs; [
-        fcitx5-rime
-        fcitx5-mozc
-        fcitx5-hangul
-        fcitx5-m17n
-        fcitx5-gtk
-        fcitx5-chinese-addons
-      ];
-    };
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx5.addons = with pkgs; [
+      fcitx5-rime
+      fcitx5-mozc
+      fcitx5-hangul
+      fcitx5-m17n
+      fcitx5-gtk
+      fcitx5-chinese-addons
+      fcitx5-table-extra
+      fcitx5-chewing
+    ];
   };
   fonts.fontconfig.enable = true;
 

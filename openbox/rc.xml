@@ -430,12 +430,12 @@
     <!-- Media Controls-->
     <keybind key="A-equal">
       <action name="Execute">
-        <command>amixer set Master 10%+</command>
+        <command>amixer set Master 5%+</command>
       </action>
     </keybind>
     <keybind key="A-minus">
       <action name="Execute">
-        <command>amixer set Master 10%-</command>
+        <command>amixer set Master 5%-</command>
       </action>
     </keybind>
     <keybind key="A-BackSpace">
@@ -929,6 +929,19 @@
       <size>
         <width>99%</width>
         <height>99%</height>
+      </size>
+    </application>
+    <application class="Skype" role="browser-window">
+      <focus>no</focus>
+      <decor>no</decor>
+      <position>
+        <x>80%</x>
+        <y>1%</y>
+        <monitor>1</monitor>
+      </position>
+      <size>
+        <width>20%</width>
+        <height>25%</height>
       </size>
     </application>
     <!--

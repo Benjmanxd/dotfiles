@@ -55,7 +55,7 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 #systemctl start nordvpnd.service
 
 ## Launch fcitx
-fcitx -d &
+# fcitx -d
 
 ## Display Brightness
 xrandr --output DP-1 --brightness 0.8
