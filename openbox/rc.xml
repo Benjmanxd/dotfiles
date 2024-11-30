@@ -101,6 +101,7 @@
     <showDelay>300</showDelay>
     <moveButton>Middle</moveButton>
   </dock>
+
   <!-- ################################ Keybindings ################################ -->
   <keyboard>
     <chainQuitKey/>
@@ -500,6 +501,7 @@
         <command>takeshot --area</command>
       </action>
     </keybind>
+
     <!-- ################################ Launch Applications ################################ -->
     <!-- Apps -->
     <keybind key="W-Return">
@@ -654,6 +656,7 @@
       </action>
     </keybind>
   </keyboard>
+
   <!-- ################################ Mouse Settings ################################ -->
   <mouse>
     <dragThreshold>4</dragThreshold>
@@ -916,6 +919,7 @@
     <applicationIcons>no</applicationIcons>
     <manageDesktops>yes</manageDesktops>
   </menu>
+
   <!-- ################################ Applications Rules ################################ -->
   <!-- obtain application property from command: obxprop | grep "^_OB_APP" -->
   <applications>
@@ -935,7 +939,7 @@
       <focus>no</focus>
       <decor>no</decor>
       <position>
-        <x>80%</x>
+        <x>79%</x>
         <y>1%</y>
         <monitor>1</monitor>
       </position>
@@ -943,6 +947,10 @@
         <width>20%</width>
         <height>25%</height>
       </size>
+    </application>
+    <application class="stalonetray">
+      <focus>no</focus>
+      <decor>yes></decor>
     </application>
     <!--
   # this is an example with comments through out. use these to make your

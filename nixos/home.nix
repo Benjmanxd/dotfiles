@@ -46,6 +46,7 @@
     ffmpeg
     unzip
     coreutils-full
+    pciutils
     cava
     sxhkd
     xclip

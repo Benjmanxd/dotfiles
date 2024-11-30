@@ -1,6 +1,10 @@
 background "#161a1e"
-vertical true 
-geometry 1x1-75+60
+decorations all
+dockapp_mode none
+vertical false 
+geometry 2x1-70+50
 grow_gravity NE 
 icon_gravity NE
-slot_size 32
+icon_size 20
+slot_size 24
+kludges fix_window_pos
