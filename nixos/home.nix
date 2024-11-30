@@ -2,7 +2,7 @@
 {
   imports = [ ./modules/spicetify.nix ];
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
   home.username = "benjmanxd";
   home.homeDirectory = "/home/benjmanxd";
   home.keyboard.layout = lib.mkForce "us";
@@ -97,10 +97,10 @@
     flameshot
 
     # virtualization
-    virt-manager
-    qemu_full
-    libvirt
-    vagrant
+    # virt-manager
+    # qemu_full
+    # libvirt
+    # vagrant
     podman
     podman-compose
 
