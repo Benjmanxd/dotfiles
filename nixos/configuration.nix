@@ -96,6 +96,7 @@
   };
   services.displayManager.defaultSession = "none+openbox";
 
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

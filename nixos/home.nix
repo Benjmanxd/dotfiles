@@ -97,9 +97,9 @@
     flameshot
 
     # virtualization
-    # virt-manager
-    # qemu_full
-    # libvirt
+    virt-manager
+    qemu_full
+    libvirt
     # vagrant
     podman
     podman-compose

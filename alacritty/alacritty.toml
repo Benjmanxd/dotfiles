@@ -1,3 +1,4 @@
+[general]
 import = ["/home/benjmanxd/.config/alacritty/font.toml", "/home/benjmanxd/.config/alacritty/mapping.toml", "/home/benjmanxd/.config/assets/theme/alacritty/sweetpastel.toml"]
 live_config_reload = true
 
@@ -11,7 +12,7 @@ EDITOR = "nvim"
 TERM = "alacritty"
 VISUAL = "nvim"
 
-[shell]
+[terminal.shell]
 program = "zsh"
 
 [window]

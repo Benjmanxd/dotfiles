@@ -950,7 +950,7 @@
     </application>
     <application class="stalonetray">
       <focus>no</focus>
-      <decor>yes></decor>
+      <decor>yes</decor>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
