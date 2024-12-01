@@ -1,59 +1,58 @@
 # dotfiles
 
 ## System details
-operating system:   Fedora 38
-display renderer:   xorg / x11
-display manager:    NOPE!!
-window manager:     i3
-terminal emulator:  alacritty
-file manager:       nemo
-editor:             nvim
-compositor:         picom
-web browser:        firefox
-shell:              fish
+- operating system:   NixOS 24.11
+- display renderer:   xorg / x11
+- display manager:    NOPE!!
+- window manager:     openbox
+- terminal emulator:  alacritty
+- file manager:       thunar
+- editor:             nvim
+- compositor:         picom
+- web browser:        brave
+- shell:              zsh
 
-packages:
-1. sudo dnf update --security
-2. sudo dnf install i3 @base-x picom light rofi polybar alacritty feh nemo neovim python3-neovim git git-gui neofetch fzf bat atool htop npm zathura slides
-3. sudo dnf groupinstall "Development Tools" "Development Libraries" / sudo dnf install make automake gcc gcc-c++ kernel-devel
+## Installation details
 
 symlink:
-ln $PWD/bash/bashrc $HOME/.bashrc                               # bash
-ln $PWD/bash/bash_profile $HOME/.bash_profile                   # bash_profile
-ln $PWD/starship/starship.toml $HOME/.config/starship.toml      # starship
-ln $PWD/tmux/tmux.conf $HOME/.tmux.conf                         # tmux
-ln $PWD/fonts/fonts.conf $HOME/.fonts.conf                      # fonts
-ln $PWD/picom/picom.conf $HOME/.config/picom.conf               # picom
-mkdir -p $HOME/.config/i3                                       # i3
-ln $PWD/i3/i3_config $HOME/.config/i3/config                    #
-ln $PWD/i3/i3status_config $HOME/.i3status.conf                 # i3 status
-ln -s $PWD/nvim $HOME/.config/nvim                              # nvim
-ln -s $PWD/fish $HOME/.config/fish                              # fish
-ln -s $PWD/dunst $HOME/.config/dunst                            # dunst
-ln -s $PWD/scripts $HOME/.config/scripts                        # scripts
-
-lightdm:
-sudo dnf install lightdm lightdm-gtk-greeter
-sudo systemctl enable lightdm
-sudo systemctl set-default graphical.target 
+```zsh
+ln $PWD/starship/starship.toml $HOME/.config/starship.toml    # starship
+ln $PWD/tmux/tmux.conf $HOME/.tmux.conf                       # tmux
+ln $PWD/fonts/fonts.conf $HOME/.fonts.conf                    # fonts
+ln $PWD/picom/picom.conf $HOME/.config/picom.conf             # picom
+ln $PWD/zsh/.zshrc $HOME/.zshrc                               # zsh
+ln -s $PWD/nvim $HOME/.config/nvim                            # nvim
+ln -s $PWD/alacritty $HOME/.config/alacritty                  # alacritty
+ln -s $PWD/dunst $HOME/.config/dunst                          # dunst
+ln -s $PWD/assets $HOME/.config/assets                        # assets
+ln -s $PWD/nixos /etc/nixos                                   # nixos
+```
 
 nvim:
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim
-setup ChatGPT for nvim later: https://github.com/jackMort/ChatGPT.nvim
+```
+wget https://github.com/neovim/neovim/releases/download/v0.10.2/nvim.appimage   # install binary
+./nvim.appimage --appimage-extract                                              # if system don't have FUSE
+```
+- setup ChatGPT for nvim later: https://github.com/jackMort/ChatGPT.nvim
 
 tmux:
-sudo dnf install tmux
+```
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 prefix + I to install tpm plugins
-todo: transparent tmux status bar
+```
 
 starship:
+```
 curl -sS https://starship.rs/install.sh | sh
+```
 
 fonts:
+```
 mkdir -p ~/.local/share/fonts && cd ~/.local/share/fonts && wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.0.0/JetBrainsMono.zip && aunpack JetBrainsMono.zip && rm JetBrainsMono.zip && cd -
+```
 
 password-store:
+```
 gpg --output pass-public.pgp --armor --export Benjmanxd
 gpg --output pass-private.pgp --armor --export-secret-key Benjmanxd
 sudo dnf install pass pinentry
@@ -61,14 +60,4 @@ git clone git@github.com:Benjmanxd/password-store.git ~/.password-store
 gpg --batch --import pass-private.pgp pass-public.pgp
 pkill gpg-agent
 gpg-agent --pinentry-program=/usr/bin/pinentry --daemon
-
-i3lock-color (todo):
-sudo dnf install -y autoconf automake cairo-devel fontconfig gcc libev-devel libjpeg-turbo-devel libXinerama libxkbcommon-devel libxkbcommon-x11-devel libXrandr pam-devel pkgconf xcb-util-image-devel xcb-util-xrm-devel
-git clone https://github.com/Raymo111/i3lock-color.git
-cd i3lock-color
-./build.sh
-./install-i3lock-color.sh
-
-music player (todo):
-sudo dnf install mopidy-spotify
-refer to: https://blog.deepjyoti30.dev/using-spotify-with-ncmpcpp-mopidy-linux
+```
