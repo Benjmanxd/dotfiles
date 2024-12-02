@@ -950,7 +950,32 @@
     </application>
     <application class="stalonetray">
       <focus>no</focus>
-      <decor>yes</decor>
+      <decor>no</decor>
+    </application>
+    <application class="Pinentry">
+      <focus>yes</focus>
+      <decor>no</decor>
+      <position>
+        <x>center</x>
+        <y>center</y>
+      </position>
+      <size>
+        <width>30%</width>
+        <height>40%</height>
+      </size>
+    </application>
+    <application class="discord">
+      <focus>yes</focus>
+      <decor>no</decor>
+      <position>
+        <x>center</x>
+        <y>center</y>
+        <monitor>1</monitor>
+      </position>
+      <size>
+        <width>60%</width>
+        <height>70%</height>
+      </size>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
