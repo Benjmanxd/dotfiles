@@ -431,17 +431,17 @@
     <!-- Media Controls-->
     <keybind key="A-equal">
       <action name="Execute">
-        <command>amixer set Master 5%+</command>
+        <command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+</command>
       </action>
     </keybind>
     <keybind key="A-minus">
       <action name="Execute">
-        <command>amixer set Master 5%-</command>
+        <command>wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-</command>
       </action>
     </keybind>
     <keybind key="A-BackSpace">
       <action name="Execute">
-        <command>amixer set Master toggle</command>
+        <command>wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle</command>
       </action>
     </keybind>
     <keybind key="XF86AudioStop">
@@ -970,7 +970,18 @@
       <position>
         <x>center</x>
         <y>center</y>
-        <monitor>1</monitor>
+      </position>
+      <size>
+        <width>60%</width>
+        <height>70%</height>
+      </size>
+    </application>
+    <application class="Slack">
+      <focus>yes</focus>
+      <decor>no</decor>
+      <position>
+        <x>center</x>
+        <y>center</y>
       </position>
       <size>
         <width>60%</width>

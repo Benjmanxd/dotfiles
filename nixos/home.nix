@@ -79,6 +79,7 @@
     polybar
     feh
     dunst
+    slack
     skypeforlinux
     discord
     brave
