@@ -562,17 +562,17 @@
     </keybind>
     <keybind key="A-comma">
       <action name="Execute">
-        <command>~/.config/assets/bin/utilities/panel/status previous</command>
+        <command>~/.config/assets/bin/utilities/panel/player.sh previous</command>
       </action>
     </keybind>
     <keybind key="A-period">
       <action name="Execute">
-        <command>~/.config/assets/bin/utilities/panel/status spotify-ctl</command>
+        <command>~/.config/assets/bin/utilities/panel/player.sh spotify-ctl</command>
       </action>
     </keybind>
     <keybind key="A-slash">
       <action name="Execute">
-        <command>~/.config/assets/bin/utilities/panel/status next</command>
+        <command>~/.config/assets/bin/utilities/panel/player.sh next</command>
       </action>
     </keybind>
     <!-- CLI Apps -->
