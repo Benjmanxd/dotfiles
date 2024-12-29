@@ -1,8 +1,4 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
-{ config, pkgs, inputs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -17,7 +13,7 @@
     initrd = {
       systemd.enable = true;
       availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-      kernelModules = [ "kvm-amd" ];
+      kernelModules = [ "kvm-amd" "snd-seq" "snd-rawmidi" ];
     };
 
     loader = {
@@ -57,6 +53,7 @@
       "wheel"
       "video"
       "audio"
+      "jackaudio"
     ]; # Enable ‘sudo’ for the user.
     group = "users";
     packages = with pkgs; [
@@ -85,6 +82,7 @@
     xkb.layout = "us";
     desktopManager.runXdgAutostartIfNone = true;
     windowManager.openbox.enable = true;
+    # videoDrivers = ["nvidia"];
     displayManager = {
       lightdm = {
         enable = true;
@@ -97,12 +95,19 @@
   services.displayManager.defaultSession = "none+openbox";
 
   security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    jack.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  #   jack.enable = true;
+  # };
+  services.jack = {
+    jackd.enable = true;
+    alsa.enable = false;
+    loopback = {
+      enable = true;
+    };
   };
 
   services.pcscd.enable = true;
@@ -116,6 +121,7 @@
     enableSSHSupport = true;
   };
 
+  networking.useDHCP = lib.mkDefault true;
   networking.firewall.enable = false;
   networking.networkmanager.enable = true;
 

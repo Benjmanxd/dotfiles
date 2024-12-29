@@ -70,7 +70,6 @@
     perf-tools
 
     # application
-    pavucontrol
     polkit
     openbox
     openbox-menu
@@ -112,6 +111,12 @@
     source-han-sans
     source-han-serif
     source-han-mono
+
+    # audio
+    pavucontrol
+    jack2
+    qjackctl
+    jack_capture
 
     # others
     xorg.xbacklight

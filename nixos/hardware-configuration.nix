@@ -13,7 +13,7 @@
       device = "/dev/disk/by-uuid/3725a917-625f-4499-a33a-24fb4bad8667";
       fsType = "ext4";
       options = [
-	"rw"
+        "rw"
       ];
     };
 
@@ -28,7 +28,7 @@
       device = "/dev/disk/by-uuid/0019781d-3b9b-41a0-a371-02c773f79f0f";
       fsType = "ext4";
       options = [
-	"rw"
+        "rw"
       ];
     };
 
@@ -37,7 +37,7 @@
       device = "/dev/disk/by-uuid/174c31ba-e9d0-4550-8451-7a2857ee107b";
       fsType = "ext4";
       options = [
-	"rw"
+        "rw"
       ];
     };
 
@@ -47,9 +47,23 @@
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
   # networking.interfaces.enp7s0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
+  hardware.pulseaudio.package = pkgs.pulseaudio.override { jackaudioSupport = true; };
+  # hardware.graphics.enable = true;
+  # hardware.nvidia = {
+  #   modesetting.enable = true;
+  #   powerManagement.finegrained = false;
+  #   open = false;
+  #   nvidiaSettings = true;
+  #   package = config.boot.kernelPackages.nvidiaPackages.stable;
+  #   prime = {
+  #     offload = {
+  #       enable = true;
+  #       enableOffloadCmd = true;
+  #     };
+  #   };
+  # };
 }
