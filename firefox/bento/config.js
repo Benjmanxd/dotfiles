@@ -57,37 +57,37 @@ const CONFIG = {
 			id: '1',
 			name: 'Github',
 			icon: 'github',
-			link: 'https://github.com/',
+			link: 'https://www.github.com',
 		},
 		{
 			id: '2',
 			name: 'Mail',
 			icon: 'mail',
-			link: 'https://mail.protonmail.com/',
+			link: 'https://mail.google.com',
 		},
 		{
 			id: '3',
-			name: 'Todoist',
-			icon: 'trello',
-			link: 'https://todoist.com',
+			name: 'Netflix',
+			icon: 'film',
+			link: 'https://www.netflix.com',
 		},
 		{
 			id: '4',
 			name: 'Calendar',
 			icon: 'calendar',
-			link: 'https://calendar.google.com/calendar/r',
+			link: 'https://calendar.google.com',
 		},
 		{
 			id: '5',
-			name: 'Reddit',
+			name: 'Instagram',
 			icon: 'glasses',
-			link: 'https://reddit.com',
+			link: 'https://www.instagram.com',
 		},
 		{
 			id: '6',
 			name: 'Youtube',
 			icon: 'youtube',
-			link: 'https://youtube.com/',
+			link: 'https://www.youtube.com',
 		},
 	],
 
@@ -141,8 +141,8 @@ const CONFIG = {
 			id: '1',
 			links: [
 				{
-					name: 'Inspirational',
-					link: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+					name: 'Spotify',
+					link: 'https://www.spotify.com',
 				},
 				{
 					name: 'Classic',
@@ -162,22 +162,34 @@ const CONFIG = {
 			icon: 'coffee',
 			id: '2',
 			links: [
+        {
+          name: 'Reddit',
+          link: 'https://www.reddit.com',
+        },
+        {
+          name: 'Twitter',
+          link: 'https://www.twitter.com',
+        },
 				{
 					name: 'Linkedin',
 					link: 'https://www.linkedin.com',
 				},
-				{
-					name: 'Dribbble',
-					link: 'https://www.dribbble.com',
-				},
-				{
-					name: 'Trello',
-					link: 'https://www.trello.com',
-				},
-				{
-					name: 'Slack',
-					link: 'https://www.slack.com',
-				},
+        {
+          name: 'Facebook',
+          link: 'https://www.facebook.com',
+        },
+				// {
+				// 	name: 'Dribbble',
+				// 	link: 'https://www.dribbble.com',
+				// },
+				// {
+				// 	name: 'Trello',
+				// 	link: 'https://www.trello.com',
+				// },
+				// {
+				// 	name: 'Slack',
+				// 	link: 'https://www.slack.com',
+				// },
 			],
 		},
 	],
