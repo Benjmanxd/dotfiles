@@ -6,8 +6,10 @@
 ## Kill if already running
 killall -9 xfsettingsd picom polybar mpd dunst ksuperkey
 
-## Restore Wallpaper
-#nitrogen --restore
+## xrandr setting
+xrandr --output DP-1 --brightness 0.8
+xrandr --output HDMI-1 --brightness 0.8
+# xrandr --output DP-5 --left-of HDMI-0
 
 ## xfce4-settings daemon
 #xfsettingsd &
@@ -19,9 +21,6 @@ fi
 
 ## wallpaper
 feh --bg-fill ~/.config/assets/wallpaper/current_wallpaper.jpg
-
-## Enable power management
-#xfce4-power-manager &
 
 ## Start Compositing Manager
 exec picom &
@@ -56,7 +55,3 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 
 ## Launch fcitx
 # fcitx -d
-
-## Display Brightness
-xrandr --output DP-1 --brightness 0.8
-xrandr --output HDMI-1 --brightness 0.8

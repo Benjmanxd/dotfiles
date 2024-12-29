@@ -956,12 +956,13 @@
       <focus>yes</focus>
       <decor>no</decor>
       <position>
-        <x>center</x>
-        <y>center</y>
+        <x>1%</x>
+        <y>-1%</y>
+        <monitor>1</monitor>
       </position>
       <size>
-        <width>30%</width>
-        <height>40%</height>
+        <width>15%</width>
+        <height>20%</height>
       </size>
     </application>
     <application class="discord">
@@ -970,6 +971,7 @@
       <position>
         <x>center</x>
         <y>center</y>
+        <monitor>1</monitor>
       </position>
       <size>
         <width>60%</width>
@@ -982,11 +984,19 @@
       <position>
         <x>center</x>
         <y>center</y>
+        <monitor>1</monitor>
       </position>
       <size>
         <width>60%</width>
         <height>70%</height>
       </size>
+    </application>
+    <application class="QjackCtl">
+      <focus>yes</focus>
+      <decor>no</decor>
+      <position>
+        <monitor>2</monitor>
+      </position>
     </application>
     <!--
   # this is an example with comments through out. use these to make your
