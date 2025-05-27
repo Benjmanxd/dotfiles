@@ -2,34 +2,44 @@
   description = "Benjmanxd's flake configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { nixpkgs, home-manager, spicetify-nix, ... } @ inputs:
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, spicetify-nix, ... } :
   let
     system = "x86_64-linux";
+    lib = nixpkgs.lib;
     pkgs = import nixpkgs {
       inherit system;
       config = { allowUnfree = true; };
     };
-    lib = nixpkgs.lib;
+    pkgs-unstable = import nixpkgs-unstable {
+      inherit system;
+      config = { allowUnfree = true; };
+    };
   in {
     nixosConfigurations = {
-      nixos = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+      Main = lib.nixosSystem {
+        inherit system;
+        specialArgs = {};
         modules = [
           ./configuration.nix
+          ./hardware-configuration.nix
           home-manager.nixosModules.home-manager {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.benjmanxd = import ./home.nix;
-            home-manager.extraSpecialArgs = { inherit inputs; };
+            home-manager.extraSpecialArgs = {
+              inherit pkgs;
+              inherit pkgs-unstable;
+              inherit spicetify-nix;
+            };
           }
         ];
       };

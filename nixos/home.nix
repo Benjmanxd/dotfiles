@@ -1,8 +1,8 @@
-{ pkgs, lib, config, ... } :
+{ config, lib, pkgs, ... } :
 {
   imports = [ ./modules/spicetify.nix ];
 
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.05";
   home.username = "benjmanxd";
   home.homeDirectory = "/home/benjmanxd";
   home.keyboard.layout = lib.mkForce "us";
@@ -56,6 +56,7 @@
     strace
     ltrace
     luajitPackages.luarocks
+    # busybox
 
     # programming
     gnumake
@@ -68,6 +69,7 @@
     cargo
     go
     perf-tools
+    conda
 
     # application
     polkit
@@ -79,7 +81,6 @@
     feh
     dunst
     slack
-    skypeforlinux
     discord
     brave
     gimp
@@ -95,6 +96,7 @@
     gpick
     flameshot
     anydesk
+    wineWowPackages.stable
 
     # virtualization
     virt-manager
@@ -107,7 +109,7 @@
     # fonts
     jetbrains-mono
     cascadia-code
-    fira-code-nerdfont
+    nerd-fonts.fira-code
     source-han-sans
     source-han-serif
     source-han-mono
@@ -144,7 +146,7 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initExtra = "
+    initContent = "
 # source ~/.config/assets/theme/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents \"\${pkgs.stdenv.cc}/nix-support/dynamic-linker\"; in NIX_LD')
 export HOME_CONF=/etc/nixos/
@@ -153,9 +155,9 @@ neofetch
     ";
     shellAliases = {
       ll = "ls -l";
-      update-packages = "cd $HOME_CONF && sudo nix-channel --update && sudo nixos-rebuild switch --upgrade && cd -";
-      update-full-system = "cd $HOME_CONF && sudo nixos-rebuild switch --recreate-lock-file --flake . && cd -";
-      update-config = "cd $HOME_CONF && sudo nixos-rebuild switch && cd -";
+      update-packages = "cd $HOME_CONF && sudo nix-channel --update && sudo nixos-rebuild switch --upgrade --flake .#Main && cd -";
+      update-full-system = "cd $HOME_CONF && sudo nixos-rebuild switch --recreate-lock-file --flake .#Main && cd -";
+      update-config = "cd $HOME_CONF && sudo nixos-rebuild switch --flake .#Main && cd -";
       gen-del = "sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d";
       gen-list = "nix profile history --profile /nix/var/nix/profiles/system";
       cache-del = "nix-collect-garbage -d";
@@ -168,7 +170,8 @@ neofetch
   programs.starship.enable = true;
 
   i18n.inputMethod = {
-    enabled = "fcitx5";
+    enable = true;
+    type = "fcitx5";
     fcitx5.addons = with pkgs; [
       fcitx5-rime
       fcitx5-mozc

@@ -1,10 +1,5 @@
-{ config, lib, pkgs, inputs, ... }:
+{ lib, options, pkgs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
-
   # bootloader
   boot = {
     kernelParams = [ "quiet" ];
@@ -43,7 +38,6 @@
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  nixpkgs.config.allowUnfree = true;
 
   users.users.benjmanxd = {
     isNormalUser = true;
@@ -54,10 +48,10 @@
       "video"
       "audio"
       "jackaudio"
+      "networkmanager"
     ]; # Enable ‘sudo’ for the user.
     group = "users";
-    packages = with pkgs; [
-    ];
+    packages = [];
   };
 
   time.timeZone = "Asia/Hong_Kong";
@@ -110,9 +104,10 @@
     };
   };
 
+  services.pulseaudio.package = pkgs.pulseaudio.override { jackaudioSupport = true; };
+
   services.pcscd.enable = true;
 
-  programs.nix-ld.enable = true;
   programs.dconf.enable = true;
 
   programs.gnupg.agent = {
@@ -121,11 +116,17 @@
     enableSSHSupport = true;
   };
 
+  programs.nix-ld = {
+    enable = true;
+    libraries = options.programs.nix-ld.libraries.default;
+  };
+
   networking.useDHCP = lib.mkDefault true;
   networking.firewall.enable = false;
   networking.networkmanager.enable = true;
+  services.bind.enable = true;
 
   virtualisation.libvirtd.enable = true;
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 }

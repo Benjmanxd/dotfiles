@@ -51,7 +51,6 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-  hardware.pulseaudio.package = pkgs.pulseaudio.override { jackaudioSupport = true; };
   # hardware.graphics.enable = true;
   # hardware.nvidia = {
   #   modesetting.enable = true;
