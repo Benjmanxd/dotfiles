@@ -1,7 +1,7 @@
 #!/bin/sh
 
 bar_pid=$(pgrep -a "polybar" | cut -d" " -f1)
-players="spotify,%any,firefox,chromium,brave,mpd"
+players="spotify,firefox,chromium,brave,mpd"
 player_status=$(playerctl -p $players status)
 script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 exit=$?
@@ -54,6 +54,10 @@ case $1 in
     playerctl -p $players play-pause
   ;;
   spotify-ctl)
+    if [ "$player_status" == "Playing" ]; then
+      playerctl -p $players play-pause
+      exit
+    fi
     if [ -z "$(pgrep spotify)" ]; then
       spotify &
       sleep 1
