@@ -56,7 +56,6 @@
     strace
     ltrace
     luajitPackages.luarocks
-    # busybox
 
     # programming
     gnumake
@@ -97,6 +96,7 @@
     flameshot
     anydesk
     wineWowPackages.stable
+    qalculate-qt
 
     # virtualization
     virt-manager
