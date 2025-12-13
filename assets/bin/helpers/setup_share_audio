@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+
+set -e
+MICROPHONE="alsa_input.usb-046d_0825_6AB82EA0-02.pro-input-0"
+SPEAKER="alsa_output.usb-Universal_Audio_Volt_2_22022037046507-00.pro-output-0"
+
+module_file="/tmp/pulseaudio_module_list.txt"
+
+if [ "$#" -ne 1 ]; then
+  echo "specify load or unload"
+  exit
+fi
+
+if [ "$1" == "load" ]; then
+  # Create the null sinks
+  # virtual1 gets your audio source (mplayer ...) only
+  # virtual2 gets virtual1 + micro
+  pactl load-module module-null-sink sink_name=virtual1 sink_properties=device.description="audio" >> "${module_file}"
+  pactl load-module module-null-sink sink_name=virtual2 sink_properties=device.description="audio_mic" >> "${module_file}"
+
+  # Now create the loopback devices, all arguments are optional and can be configured with pavucontrol
+  pactl load-module module-loopback source="${SPEAKER}.monitor" sink=virtual1 >> "${module_file}"
+  pactl load-module module-loopback source=virtual1.monitor sink=virtual2 >> "${module_file}"
+  pactl load-module module-loopback source="$MICROPHONE" sink=virtual2 >> "${module_file}"
+
+  # pactl load-module module-virtual-source source_name=virtual2.mic master=virtual2.monitor source_properties=device.description="recording device" >> "${module_file}"
+elif [ "$1" == "unload" ]; then
+  if [ ! -f "${module_file}" ]; then
+    echo "ERROR: file ${module_file} doesn't exist" >&2
+    exit 1
+  fi
+
+  while read -r module; do
+    if [[ "${module}" =~ ^[0-9]+$ ]]; then
+      pactl unload-module "${module}"
+    else
+      echo "ERROR: file ${module_file} is not correctly formated" >&2
+      exit 1
+    fi
+  done < "${module_file}"
+
+  rm "${module_file}"
+else
+  echo "unknown option"
+fi
