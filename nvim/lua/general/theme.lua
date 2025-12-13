@@ -89,7 +89,7 @@ theme.base = {
 }
 
 theme.alpha = {
-  AlphaHeader = { fg = palette.yellow, bg = palette.none },
+	AlphaHeader = { fg = palette.yellow, bg = palette.none },
 }
 
 theme.aerial = {
@@ -152,9 +152,9 @@ theme.cmp = {
 }
 
 theme.dap = {
-  DapBreakpoint = { fg = palette.red_1, },
-  DapLogPoint = { fg = palette.blue, },
-  DapStopped = { fg = palette.green, },
+	DapBreakpoint = { fg = palette.red_1 },
+	DapLogPoint = { fg = palette.blue },
+	DapStopped = { fg = palette.green },
 }
 
 theme.illuminate = {
@@ -199,6 +199,16 @@ theme.neotree = {
 	NeoTreeTabSeparatorActive = { fg = palette.blue_normal, bg = palette.bg, bold = true },
 	NeoTreeTabSeparatorInactive = { fg = palette.bg_highlight_2, bg = palette.bg_1 },
 	NeoTreeWinSeparator = { fg = palette.blue_normal },
+}
+
+theme.multicursor = {
+	MultiCursorCursor = { reverse = true },
+	MultiCursorVisual = theme.base.Visual,
+	MultiCursorSign = theme.base.SignColumn,
+	MultiCursorMatchPreview = theme.base.Search,
+	MultiCursorDisabledCursor = { reverse = true },
+	MultiCursorDisabledVisual = theme.base.Visual,
+	MultiCursorDisabledSign = theme.base.SignColumn,
 }
 
 for _, entry in pairs(theme) do
