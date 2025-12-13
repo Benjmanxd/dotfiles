@@ -17,11 +17,17 @@
     lib = nixpkgs.lib;
     pkgs = import nixpkgs {
       inherit system;
-      config = { allowUnfree = true; };
+      config = {
+        allowUnfree = true;
+        # allowUnsupportedSystem = true;
+      };
     };
     pkgs-unstable = import nixpkgs-unstable {
       inherit system;
-      config = { allowUnfree = true; };
+      config = {
+        allowUnfree = true;
+        # allowUnsupportedSystem = true;
+      };
     };
   in {
     nixosConfigurations = {
