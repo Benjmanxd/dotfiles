@@ -150,7 +150,7 @@
 # source ~/.config/assets/theme/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents \"\${pkgs.stdenv.cc}/nix-support/dynamic-linker\"; in NIX_LD')
 export HOME_CONF=/etc/nixos/
-export PATH=\"/home/benjmanxd/dotfiles/assets/bin/helpers:$PATH\"
+export PATH=\"$HOME/dotfiles/assets/bin/helpers:$HOME/bin/:$PATH\"
 neofetch
     ";
     shellAliases = {
