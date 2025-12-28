@@ -15,8 +15,8 @@ vim.keymap.set("", "<Space>", "<Nop>", { noremap = true, silent = true })
 -- explorernoremap = true, silent = tru
 --vim.keymap.set("n", "<leader>x", ":Lex 30<CR>", opts)
 -- buffer navigation
-vim.keymap.set("n", "<leader>bn", "<CMD>bnext<CR>", { desc = "[B]uffer [N]ext", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>bp", "<CMD>bprevious<CR>", { desc = "[B]uffer [P]revious", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>n", "<CMD>bnext<CR>", { desc = "[B]uffer [N]ext", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>p", "<CMD>bprevious<CR>", { desc = "[B]uffer [P]revious", noremap = true, silent = true })
 -- window navigation
 vim.keymap.set("n", "<C-h>", "<C-w>h", { desc = "[W]indow [H](left)", noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { desc = "[W]indow [L](right)", noremap = true, silent = true })
