@@ -1,5 +1,8 @@
 { lib, options, pkgs, ... }:
 {
+  imports = [
+    ./modules/nordvpn.nix
+  ];
   # bootloader
   boot = {
     kernelParams = [ "quiet" ];
@@ -51,6 +54,7 @@
       "audio"
       "jackaudio"
       "networkmanager"
+      "nordvpn"
     ]; # Enable ‘sudo’ for the user.
     group = "users";
     packages = [];
@@ -131,4 +135,7 @@
   virtualisation.libvirtd.enable = true;
 
   system.stateVersion = "25.05"; # Did you read the comment?
+
+  # custom services
+  benjmanxd.services.custom.nordvpn.enable = true;
 }

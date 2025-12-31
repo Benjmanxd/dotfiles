@@ -15,19 +15,17 @@
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
+    config = {
+      allowUnfree = true;
+      # allowUnsupportedSystem = true;
+    };
     pkgs = import nixpkgs {
       inherit system;
-      config = {
-        allowUnfree = true;
-        # allowUnsupportedSystem = true;
-      };
+      inherit config;
     };
     pkgs-unstable = import nixpkgs-unstable {
       inherit system;
-      config = {
-        allowUnfree = true;
-        # allowUnsupportedSystem = true;
-      };
+      inherit config;
     };
   in {
     nixosConfigurations = {

@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... } :
 {
-  imports = [ ./modules/spicetify.nix ];
+  imports = [
+    ./modules/spicetify.nix
+  ];
 
   home.stateVersion = "25.05";
   home.username = "benjmanxd";
