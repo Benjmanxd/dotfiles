@@ -146,7 +146,7 @@
     history.size = 10000;
     history.path = "${config.xdg.dataHome}/zsh/history";
     enableCompletion = true;
-    autosuggestion.enable = true;
+    autosuggestion.enable = false;
     syntaxHighlighting.enable = true;
     initContent = "
 # source ~/.config/assets/theme/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
@@ -166,7 +166,7 @@ neofetch
     };
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "pass" "man" "git" "fzf" "vagrant" "tmux" "vi-mode" ]; #podman
+      plugins = [ "git" "pass" "man" "fzf" "vagrant" "tmux" "vi-mode" ]; #podman
     };
   };
   programs.starship.enable = true;
