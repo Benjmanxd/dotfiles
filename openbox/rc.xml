@@ -235,7 +235,7 @@
       </action>
       <action name="MoveToEdgeEast"/>
     </keybind>
-    <keybind key="W-m">
+    <keybind key="W-period">
       <action name="Lower"/>
       <action name="FocusToBottom"/>
       <action name="Unfocus"/>
@@ -503,11 +503,11 @@
         <command>~/.config/assets/bin/utilities/menu/launcher.sh drun</command>
       </action>
     </keybind>
-    <keybind key="W-n">
-      <action name="Execute">
-        <command>networkmanager_dmenu</command>
-      </action>
-    </keybind>
+    <!-- <keybind key="W-n"> -->
+    <!--   <action name="Execute"> -->
+    <!--     <command>networkmanager_dmenu</command> -->
+    <!--   </action> -->
+    <!-- </keybind> -->
     <keybind key="W-x">
       <action name="Execute">
         <command>~/.config/assets/bin/utilities/menu/power.sh</command>
@@ -606,10 +606,10 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Activate Move/Resize -->
-    <keybind key="A-r">
+    <keybind key="W-n">
       <action name="Resize"/>
     </keybind>
-    <keybind key="A-m">
+    <keybind key="W-m">
       <action name="Move"/>
     </keybind>
     <!-- Launch Openbox Menu -->
