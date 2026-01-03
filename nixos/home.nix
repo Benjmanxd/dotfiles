@@ -153,6 +153,7 @@
 export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents \"\${pkgs.stdenv.cc}/nix-support/dynamic-linker\"; in NIX_LD')
 export HOME_CONF=/etc/nixos/
 export PATH=\"$HOME/dotfiles/assets/bin/helpers:$HOME/bin/:$PATH\"
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
 neofetch
     ";
     shellAliases = {
