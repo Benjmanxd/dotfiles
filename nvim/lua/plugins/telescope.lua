@@ -16,7 +16,7 @@ return {
     { "<leader>st", "<CMD>Telescope help_tags<CR>", desc = "[S]earch [H]elp" },
     -- { "<leader>sw", "<CMD>Telescope grep_string<CR>", desc = "[S]earch current [W]ord" },
     { "<leader>sd", "<CMD>Telescope diagnostics<CR>", desc = "[S]earch [D]ianostics" },
-    { "<leader>b", "<CMD>Telescope buffers<CR>", desc = "[S]earch [B]uffers" },
+    -- { "<leader>b", "<CMD>Telescope buffers<CR>", desc = "[S]earch [B]uffers" },
     { "<leader>sw", "<CMD>Telescope live_grep_args live_grep_args<CR>", desc = "[S]earch by [G]rep" },
     { "<leader>sr", "<CMD>Telescope lsp_references<CR>", desc = "[S]earch [R]eferences" },
     { "<leader>/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "[/] Fuzzily search in current buffer" },
@@ -74,7 +74,6 @@ return {
         live_grep_args = {
           auto_quoting = true,
         },
-        harpoon = {},
       },
     }
   end,
