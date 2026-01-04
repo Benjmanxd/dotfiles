@@ -26,7 +26,6 @@ return {
 		{ "<leader>sgc", "<CMD>Telescope git_commits<CR>", desc = "[S]earch [G]it [C]ommits" },
 		{ "<leader>sgb", "<CMD>Telescope git_branches<CR>", desc = "[S]earch [G]it [B]ranches" },
 		{ "<leader>sgs", "<CMD>Telescope git_status<CR>", desc = "[S]earch [G]it [S]tatus" },
-		-- { "<leader>hh", "<CMD>Telescope harpoon marks<CR>", desc = "[H]arpoon List Toggle"},
 	},
 	opts = function()
 		local actions = require("telescope.actions")
@@ -77,16 +76,12 @@ return {
 			},
 		}
 	end,
-	config = function(_, opts)
+	init = function()
 		local telescope = require("telescope")
-
 		telescope.load_extension("fzf")
 		telescope.load_extension("file_browser")
 		telescope.load_extension("live_grep_args")
 		-- telescope.load_extension("find_template")
-		-- telescope.load_extension("harpoon")
-
-		telescope.setup(opts)
 	end,
 }
 

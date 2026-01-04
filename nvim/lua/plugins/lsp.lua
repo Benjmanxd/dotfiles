@@ -1,12 +1,49 @@
 return {
 	{
-		"neovim/nvim-lspconfig",
-		keys = {
-			{ "[d", vim.diagnostic.goto_prev, desc = "Go to previous diagnostic message" },
-			{ "]d", vim.diagnostic.goto_next, desc = "Go to next diagnostic message" },
-			{ "gl", vim.diagnostic.open_float, desc = "Open flating diagnostic message" },
-			{ "<leader>q", vim.diagnostic.setloclist, desc = "Open diagnostic list" },
+		"ray-x/lsp_signature.nvim",
+		event = "InsertEnter",
+		keys = function()
+			local lsp_sig = require("lsp_signature")
+			return {
+				{ "gs", lsp_sig.toggle_float_win, desc = "[G]oto [S]ignature Help" },
+			}
+		end,
+		opts = {
+			bind = true,
+			wrap = true,
+			floating_window = true,
+			fix_pos = true,
+			timer_interval = 50,
+			handler_opts = {
+				border = "rounded",
+			},
 		},
+	},
+
+	{
+		"neovim/nvim-lspconfig",
+		keys = function()
+			local buf = vim.lsp.buf
+			local diag = vim.diagnostic
+			return {
+				{ "<leader>rn", buf.rename, desc = "[R]e[n]ame entity" },
+				{ "<leader>ca", buf.code_action, desc = "[C]ode [A]ction" },
+				-- { "gD", buf.declaration, desc = "[G]oto [D]eclaration" },
+				-- { "gd", buf.definition, desc = "[G]oto [D]efinition" },
+				-- { "gi", buf.implementation, desc = "[G]oto [I]mplementation" },
+				{ "gt", buf.type_definition, desc = "[G]oto [T]ype Definition" },
+				{
+					"gh",
+					function() vim.lsp.buf.hover({ border = "rounded", max_height = 25, max_width = 120 }) end,
+					desc = "[G]oto [H]over",
+				},
+				{ "gr", buf.references, desc = "[G]oto [R]eferences" },
+				{ "gl", diag.open_float, desc = "Open flating diagnostic message" },
+				{ "[d", diag.goto_prev, desc = "Go to previous diagnostic message" },
+				{ "]d", diag.goto_next, desc = "Go to next diagnostic message" },
+				{ "gd", diag.setloclist, desc = "Open diagnostic list" },
+			}
+		end,
 		init = function()
 			local nerd_font = require("general.icons.nerd_font")
 			local signs = {
@@ -36,15 +73,9 @@ return {
 					prefix = "",
 				},
 			})
-
-			vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-				border = "rounded",
-			})
-			vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-				border = "rounded",
-			})
 		end,
 	},
+
 	{
 		"mason-org/mason.nvim",
 		opts = {
@@ -54,6 +85,7 @@ return {
 			},
 		},
 	},
+
 	{
 		"mason-org/mason-lspconfig.nvim",
 		dependencies = { "neovim/nvim-lspconfig" },
