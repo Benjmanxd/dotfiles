@@ -1,7 +1,7 @@
 return {
 	"goolord/alpha-nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
-  opts = function()
+	opts = function()
 		local dashboard = require("alpha.themes.startify")
 		dashboard.section.header.val = {
 			[[     ___        ___        ___        ___        ___        ___        ___        ___        ___     ]],
@@ -20,6 +20,6 @@ return {
 			position = "center",
 			hl = "AlphaHeader",
 		}
-    return dashboard.config
-  end,
+		return dashboard.config
+	end,
 }

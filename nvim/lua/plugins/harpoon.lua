@@ -50,11 +50,27 @@ return {
 		end
 
 		return {
-			{ "<leader>a", function() harpoon:list():add() end, desc = "Harpoon add entry" },
+			{
+				"<leader>a",
+				function() harpoon:list():add() end,
+				desc = "Harpoon add entry",
+			},
 			-- { "<leader>l", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, desc = "Harpoon list entries" },
-			{ "<leader>p", function() harpoon:list():prev() end, desc = "Harpoon prev entry" },
-			{ "<leader>n", function() harpoon:list():next() end, desc = "Harpoon next entry" },
-			{ "<leader>b", function() toggle_telescope(harpoon:list()) end, desc = "Telescope Harpoon list entries" },
+			{
+				"<leader>p",
+				function() harpoon:list():prev() end,
+				desc = "Harpoon prev entry",
+			},
+			{
+				"<leader>n",
+				function() harpoon:list():next() end,
+				desc = "Harpoon next entry",
+			},
+			{
+				"<leader>b",
+				function() toggle_telescope(harpoon:list()) end,
+				desc = "Telescope Harpoon list entries",
+			},
 			-- { "<C-h>", function() harpoon:list():select(1) end, desc = "Harpoon select entry 1" },
 			-- { "<C-t>", function() harpoon:list():select(2) end, desc = "Harpoon select entry 2" },
 			-- { "<C-n>", function() harpoon:list():select(3) end, desc = "Harpoon select entry 3" },

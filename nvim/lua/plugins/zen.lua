@@ -16,9 +16,9 @@ return {
 				-- list = false, -- disable whitespace characters
 			},
 		},
-    plugins = {
-      tmux = { enabled = false },
-      alacritty = { enabled = false, font = "16" },
-    }
+		plugins = {
+			tmux = { enabled = false },
+			alacritty = { enabled = false, font = "16" },
+		},
 	},
 }

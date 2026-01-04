@@ -86,7 +86,7 @@ return {
 				{ name = "nvim_lua", max_item_count = 5 },
 				{ name = "path", max_item_count = 5, option = { trailing_slash = true, label_trailing_slash = true } },
 				{ name = "emoji", max_item_count = 5 },
-        { name = "nvim_lsp_document_symbol" },
+				{ name = "nvim_lsp_document_symbol" },
 			}, {
 				{ name = "buffer", max_item_count = 5, keyword_length = 3 },
 			}),
@@ -155,11 +155,15 @@ return {
 		cmp.setup.cmdline(":", {
 			mapping = cmp.mapping.preset.cmdline(),
 			sources = cmp.config.sources({
-				{ name = "path", max_item_count = 10, option = { trailing_slash = false, label_trailing_slash = true } },
+				{
+					name = "path",
+					max_item_count = 10,
+					option = { trailing_slash = false, label_trailing_slash = true },
+				},
 			}, {
 				{ name = "cmdline", max_item_count = 10, option = { treat_trailing_slash = false } },
 			}),
-      matching = { disallow_symbol_nonprefix_matching = false }
+			matching = { disallow_symbol_nonprefix_matching = false },
 		})
 
 		require("luasnip.loaders.from_vscode").lazy_load()

@@ -1,93 +1,93 @@
 return {
-  "nvim-telescope/telescope.nvim",
-  tag = "0.1.8",
-  lazy = false,
-  dependencies = {
-    { "nvim-lua/plenary.nvim" },
-    { "nvim-telescope/telescope-fzf-native.nvim",    build = "make" },
-    { "nvim-telescope/telescope-file-browser.nvim" },
-    { "nvim-telescope/telescope-live-grep-args.nvim" },
-  },
-  keys = {
-    -- FIX: broken keymaps!!
-    { "<leader>sf", "<CMD>Telescope find_files<CR>", desc = "[S]earch [F]iles" },
-    -- vim.keymap.set("n", "<leader>sf", utils.func_wrapper(builtin.find_files, {cwd = vim.fn.expand('%:p:h')}), { desc = "[S]earch [F]iles" })
-    { "<leader>sof", "<CMD>Telescope oldfiles<CR>", desc = "[S]earch [O]ld [F]iles" },
-    { "<leader>st", "<CMD>Telescope help_tags<CR>", desc = "[S]earch [H]elp" },
-    -- { "<leader>sw", "<CMD>Telescope grep_string<CR>", desc = "[S]earch current [W]ord" },
-    { "<leader>sd", "<CMD>Telescope diagnostics<CR>", desc = "[S]earch [D]ianostics" },
-    -- { "<leader>b", "<CMD>Telescope buffers<CR>", desc = "[S]earch [B]uffers" },
-    { "<leader>sw", "<CMD>Telescope live_grep_args live_grep_args<CR>", desc = "[S]earch by [G]rep" },
-    { "<leader>sr", "<CMD>Telescope lsp_references<CR>", desc = "[S]earch [R]eferences" },
-    { "<leader>/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "[/] Fuzzily search in current buffer" },
-    { "<leader>ds", "<CMD>Telescope lsp_document_symbols<CR>", desc = "[D]ocument [S]ymbols" },
-    { "<leader>ws", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "[W]orkspace [S]ymbols" },
-    { "<leader>x", "<CMD>Telescope file_browser<CR>", noremap = true, desc = "Telescope File E[X]plorer" },
-    { "<leader>sgc", "<CMD>Telescope git_commits<CR>", desc = "[S]earch [G]it [C]ommits" },
-    { "<leader>sgb", "<CMD>Telescope git_branches<CR>", desc = "[S]earch [G]it [B]ranches" },
-    { "<leader>sgs", "<CMD>Telescope git_status<CR>", desc = "[S]earch [G]it [S]tatus" },
-    -- { "<leader>hh", "<CMD>Telescope harpoon marks<CR>", desc = "[H]arpoon List Toggle"},
-  },
-  opts = function()
-    local actions = require("telescope.actions")
-    return {
-      defaults = {
-        -- :help telescope.layout
-        path_display = { truncate = 5 },
-        selection_strategy = "reset",
-        sorting_strategy = "ascending",
-        scroll_strategy = "limit",
-        color_devicons = true,
-        layout_strategy = "horizontal",
-        layout_config = {
-          prompt_position = "top",
-          height = 0.85,
-          width = 0.85,
-        },
-        mappings = {
-          i = {
-            ["<ESC>"] = actions.close,
-          },
-        },
-      },
-      pickers = {
-        find_files = {
-          -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
-          find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
-        },
-      },
-      extensions = {
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = "smart_case",
-        },
-        file_browser = {
-          path_display = { truncate = 5 },
-          selection_strategy = "reset",
-          sorting_strategy = "ascending",
-          scroll_strategy = "limit",
-          theme = "ivy",
-          hijack_netrw = false,
-        },
-        live_grep_args = {
-          auto_quoting = true,
-        },
-      },
-    }
-  end,
-  config = function(_, opts)
-    local telescope = require("telescope")
+	"nvim-telescope/telescope.nvim",
+	tag = "0.1.8",
+	lazy = false,
+	dependencies = {
+		{ "nvim-lua/plenary.nvim" },
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-telescope/telescope-file-browser.nvim" },
+		{ "nvim-telescope/telescope-live-grep-args.nvim" },
+	},
+	keys = {
+		-- FIX: broken keymaps!!
+		{ "<leader>sf", "<CMD>Telescope find_files<CR>", desc = "[S]earch [F]iles" },
+		-- vim.keymap.set("n", "<leader>sf", utils.func_wrapper(builtin.find_files, {cwd = vim.fn.expand('%:p:h')}), { desc = "[S]earch [F]iles" })
+		{ "<leader>sof", "<CMD>Telescope oldfiles<CR>", desc = "[S]earch [O]ld [F]iles" },
+		{ "<leader>st", "<CMD>Telescope help_tags<CR>", desc = "[S]earch [H]elp" },
+		-- { "<leader>sw", "<CMD>Telescope grep_string<CR>", desc = "[S]earch current [W]ord" },
+		{ "<leader>sd", "<CMD>Telescope diagnostics<CR>", desc = "[S]earch [D]ianostics" },
+		-- { "<leader>b", "<CMD>Telescope buffers<CR>", desc = "[S]earch [B]uffers" },
+		{ "<leader>sw", "<CMD>Telescope live_grep_args live_grep_args<CR>", desc = "[S]earch by [G]rep" },
+		{ "<leader>sr", "<CMD>Telescope lsp_references<CR>", desc = "[S]earch [R]eferences" },
+		{ "<leader>/", "<CMD>Telescope current_buffer_fuzzy_find<CR>", desc = "[/] Fuzzily search in current buffer" },
+		{ "<leader>ds", "<CMD>Telescope lsp_document_symbols<CR>", desc = "[D]ocument [S]ymbols" },
+		{ "<leader>ws", "<CMD>Telescope lsp_dynamic_workspace_symbols<CR>", desc = "[W]orkspace [S]ymbols" },
+		{ "<leader>x", "<CMD>Telescope file_browser<CR>", noremap = true, desc = "Telescope File E[X]plorer" },
+		{ "<leader>sgc", "<CMD>Telescope git_commits<CR>", desc = "[S]earch [G]it [C]ommits" },
+		{ "<leader>sgb", "<CMD>Telescope git_branches<CR>", desc = "[S]earch [G]it [B]ranches" },
+		{ "<leader>sgs", "<CMD>Telescope git_status<CR>", desc = "[S]earch [G]it [S]tatus" },
+		-- { "<leader>hh", "<CMD>Telescope harpoon marks<CR>", desc = "[H]arpoon List Toggle"},
+	},
+	opts = function()
+		local actions = require("telescope.actions")
+		return {
+			defaults = {
+				-- :help telescope.layout
+				path_display = { truncate = 5 },
+				selection_strategy = "reset",
+				sorting_strategy = "ascending",
+				scroll_strategy = "limit",
+				color_devicons = true,
+				layout_strategy = "horizontal",
+				layout_config = {
+					prompt_position = "top",
+					height = 0.85,
+					width = 0.85,
+				},
+				mappings = {
+					i = {
+						["<ESC>"] = actions.close,
+					},
+				},
+			},
+			pickers = {
+				find_files = {
+					-- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+					find_command = { "rg", "--files", "--hidden", "--glob", "!.git/*" },
+				},
+			},
+			extensions = {
+				fzf = {
+					fuzzy = true,
+					override_generic_sorter = true,
+					override_file_sorter = true,
+					case_mode = "smart_case",
+				},
+				file_browser = {
+					path_display = { truncate = 5 },
+					selection_strategy = "reset",
+					sorting_strategy = "ascending",
+					scroll_strategy = "limit",
+					theme = "ivy",
+					hijack_netrw = false,
+				},
+				live_grep_args = {
+					auto_quoting = true,
+				},
+			},
+		}
+	end,
+	config = function(_, opts)
+		local telescope = require("telescope")
 
-    telescope.load_extension("fzf")
-    telescope.load_extension("file_browser")
-    telescope.load_extension("live_grep_args")
-    -- telescope.load_extension("find_template")
-    -- telescope.load_extension("harpoon")
+		telescope.load_extension("fzf")
+		telescope.load_extension("file_browser")
+		telescope.load_extension("live_grep_args")
+		-- telescope.load_extension("find_template")
+		-- telescope.load_extension("harpoon")
 
-    telescope.setup(opts)
-  end,
+		telescope.setup(opts)
+	end,
 }
 
 --[[
