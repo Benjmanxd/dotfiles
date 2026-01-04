@@ -71,6 +71,7 @@
     go
     perf-tools
     conda
+    gdb
 
     # application
     polkit
