@@ -1,4 +1,4 @@
-{ lib, options, pkgs, ... }:
+{ config, lib, options, pkgs, ... }:
 {
   imports = [
     ./modules/nordvpn.nix
@@ -75,6 +75,13 @@
     lightdm-gtk-greeter
     dconf
   ];
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "nordvpn"
+    "nvidia-x11"
+    "nvidia-settings"
+    "nvidia-persistenced"
+  ];
+
   environment.variables.EDITOR = "vim";
 
   services.xserver = {
@@ -82,7 +89,7 @@
     xkb.layout = "us";
     desktopManager.runXdgAutostartIfNone = true;
     windowManager.openbox.enable = true;
-    # videoDrivers = ["nvidia"];
+    videoDrivers = ["nvidia"];
     displayManager = {
       lightdm = {
         enable = true;
@@ -93,6 +100,16 @@
     };
   };
   services.displayManager.defaultSession = "none+openbox";
+
+  hardware.graphics.enable = true;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+  };
 
   security.rtkit.enable = true;
   # services.pipewire = {
@@ -138,4 +155,10 @@
 
   # custom services
   benjmanxd.services.custom.nordvpn.enable = true;
+
+  systemd.services."systemd-suspend" = {
+    serviceConfig = {
+      Environment=''"SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false"'';
+    };
+  };
 }

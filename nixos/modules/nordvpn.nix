@@ -113,7 +113,6 @@ with lib; {
   };
 
   config = mkIf config.benjmanxd.services.custom.nordvpn.enable {
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "nordvpn" ];
     networking.firewall.checkReversePath = false;
 
     environment.systemPackages = [nordVpnPkg];
