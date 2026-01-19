@@ -1,26 +1,5 @@
 return {
 	{
-		"ray-x/lsp_signature.nvim",
-		event = "InsertEnter",
-		keys = function()
-			local lsp_sig = require("lsp_signature")
-			return {
-				{ "gs", lsp_sig.toggle_float_win, desc = "[G]oto [S]ignature Help" },
-			}
-		end,
-		opts = {
-			bind = true,
-			wrap = true,
-			floating_window = true,
-			fix_pos = true,
-			timer_interval = 50,
-			handler_opts = {
-				border = "rounded",
-			},
-		},
-	},
-
-	{
 		"neovim/nvim-lspconfig",
 		keys = function()
 			local buf = vim.lsp.buf

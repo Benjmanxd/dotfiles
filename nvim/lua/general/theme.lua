@@ -96,6 +96,13 @@ theme.aerial = {
 	AerialLine = { fg = palette.black_1, bg = palette.purple_highlight },
 }
 
+theme.blink = {
+	BlinkCmpMenuSelection = { bg = palette.bg_highlight_1 },
+	-- BlinkCmpMenuSelection = { fg = palette.blue_entry_cmp },
+	BlinkCmpLabelMatch = { fg = palette.blue_char_cmp },
+	BlinkIndent = { fg = palette.purple_comment, bg = palette.none },
+}
+
 theme.bufferline = {
 	BufferLineFill = { fg = palette.bg_1, bg = palette.bg_1 },
 	BufferLineBackground = { fg = palette.fg, bg = palette.bg_1 }, -- buffer that not shown in window
@@ -132,25 +139,6 @@ theme.bufferline = {
 	BufferLineHintDiagnosticSelected = { fg = palette.white_hint, bg = palette.bg, bold = true, italic = true },
 }
 
-theme.cmp = {
-	CmpItemAbbrDeprecated = { bg = "NONE", strikethrough = true, fg = "#808080" },
-	-- blue
-	-- CmpItemAbbrMatch = { fg = "NONE", bg = "#569CD6" },
-	CmpItemAbbrMatch = { fg = "#569CD6" },
-	CmpItemAbbrMatchFuzzy = { link = "CmpIntemAbbrMatch" },
-	-- light blue
-	CmpItemKindVariable = { fg = "#9CDCFE" },
-	CmpItemKindInterface = { link = "CmpItemKindVariable" },
-	CmpItemKindText = { link = "CmpItemKindVariable" },
-	-- pink
-	CmpItemKindFunction = { fg = "#C586C0" },
-	CmpItemKindMethod = { link = "CmpItemKindFunction" },
-	-- front
-	CmpItemKindKeyword = { fg = "#D4D4D4" },
-	CmpItemKindProperty = { link = "CmpItemKindKeyword" },
-	CmpItemKindUnit = { link = "CmpItemKindKeyword" },
-}
-
 theme.dap = {
 	DapBreakpoint = { fg = palette.red_1 },
 	DapLogPoint = { fg = palette.blue },
@@ -161,10 +149,6 @@ theme.illuminate = {
 	IlluminatedWordText = { bg = palette.bg_highlight_2 },
 	IlluminatedWordRead = { bg = palette.bg_highlight_2 },
 	IlluminatedWordWrite = { bg = palette.bg_highlight_2 },
-}
-
-theme.indentblankline = {
-	IblIndent = { fg = palette.purple_comment, bg = palette.none },
 }
 
 theme.lazy = {
