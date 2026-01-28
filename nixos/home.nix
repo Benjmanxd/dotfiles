@@ -57,7 +57,9 @@
     lsof
     strace
     ltrace
-    luajitPackages.luarocks
+    ntfs3g
+    xbps
+    file
 
     # programming
     gnumake
@@ -71,6 +73,7 @@
     go
     perf-tools
     conda
+    luajitPackages.luarocks
     gdb
 
     # application
