@@ -38,7 +38,10 @@ return {
 			},
 		},
 		cmdline = {
-			keymap = { preset = "inherit" },
+			keymap = {
+				["<Tab>"] = { "show", "accept" },
+				["<CR>"] = { "accept_and_enter", "fallback" },
+			},
 			completion = {
 				menu = {
 					auto_show = function(ctx) return vim.fn.getcmdtype() == ":" end,
@@ -53,8 +56,10 @@ return {
 			},
 		},
 		keymap = {
-			["<Down>"] = { "select_next", "fallback" },
-			["<Up>"] = { "select_prev", "fallback" },
+			["<Down>"] = false,
+			["<Up>"] = false,
+			-- ["<Down>"] = { "select_next", "fallback" },
+			-- ["<Up>"] = { "select_prev", "fallback" },
 			["<C-n>"] = { "select_next", "fallback_to_mappings" },
 			["<C-p>"] = { "select_prev", "fallback_to_mappings" },
 			["<C-y>"] = { "select_and_accept", "fallback" },
