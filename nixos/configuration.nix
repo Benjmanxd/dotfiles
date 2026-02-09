@@ -101,16 +101,6 @@
   };
   services.displayManager.defaultSession = "none+openbox";
 
-  hardware.graphics.enable = true;
-  hardware.nvidia = {
-    modesetting.enable = true;
-    powerManagement.enable = true;
-    powerManagement.finegrained = false;
-    open = false;
-    nvidiaSettings = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-  };
-
   security.rtkit.enable = true;
   # services.pipewire = {
   #   enable = true;
