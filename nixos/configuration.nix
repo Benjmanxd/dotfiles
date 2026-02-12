@@ -6,7 +6,7 @@
   # bootloader
   boot = {
     kernelParams = [ "quiet" ];
-    extraModulePackages = [ ];
+    extraModulePackages = [ config.hardware.nvidia.package ];
 
     initrd = {
       systemd.enable = true;
@@ -89,7 +89,7 @@
     xkb.layout = "us";
     desktopManager.runXdgAutostartIfNone = true;
     windowManager.openbox.enable = true;
-    videoDrivers = ["nvidia"];
+    # videoDrivers = [ "nvidia" ];
     displayManager = {
       lightdm = {
         enable = true;
@@ -129,11 +129,6 @@
     enableSSHSupport = true;
   };
 
-  programs.nix-ld = {
-    enable = true;
-    libraries = options.programs.nix-ld.libraries.default;
-  };
-
   networking.useDHCP = lib.mkDefault true;
   networking.firewall.enable = false;
   networking.networkmanager.enable = true;
@@ -141,14 +136,14 @@
 
   virtualisation.libvirtd.enable = true;
 
-  system.stateVersion = "25.05"; # Did you read the comment?
+  system.stateVersion = "25.11";
 
   # custom services
   benjmanxd.services.custom.nordvpn.enable = true;
 
-  systemd.services."systemd-suspend" = {
-    serviceConfig = {
-      Environment=''"SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false"'';
-    };
-  };
+  # systemd.services."systemd-suspend" = {
+  #   serviceConfig = {
+  #     Environment=''"SYSTEMD_SLEEP_FREEZE_USER_SESSIONS=false"'';
+  #   };
+  # };
 }

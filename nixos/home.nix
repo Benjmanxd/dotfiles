@@ -4,7 +4,7 @@
     ./modules/spicetify.nix
   ];
 
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
   home.username = "benjmanxd";
   home.homeDirectory = "/home/benjmanxd";
   home.keyboard.layout = lib.mkForce "us";
@@ -60,21 +60,22 @@
     ntfs3g
     xbps
     file
+    # spotify-player
 
     # programming
     gnumake
     cmake
-    nodejs
-    tree-sitter
     gcc
     clang-tools
+    gdb
+    luajitPackages.luarocks
+    nodejs
     rustc
     cargo
     go
     perf-tools
     conda
-    luajitPackages.luarocks
-    gdb
+    tree-sitter
 
     # application
     polkit
@@ -94,7 +95,7 @@
     zscroll
     betterlockscreen
     telegram-desktop
-    whatsapp-for-linux
+    wasistlos
     signal-desktop
     notion-app-enhanced
     vlc
@@ -130,19 +131,14 @@
     # others
     xorg.xbacklight
     ksuperkey
-
-    # python
-    (python311.withPackages (ppkgs: [
-      ppkgs.pip
-      ppkgs.numpy
-      ppkgs.pytest
-    ]))
   ];
 
   programs.git = {
     enable = true;
-    userName = "Benjmanxd";
-    userEmail = "benjaminchoi00@gmail.com";
+    settings = {
+      user.name = "Benjmanxd";
+      user.email = "benjaminchoi00@gmail.com";
+    };
   };
 
   programs.zsh = {
@@ -156,7 +152,7 @@
 # source ~/.config/assets/theme/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents \"\${pkgs.stdenv.cc}/nix-support/dynamic-linker\"; in NIX_LD')
 export HOME_CONF=/etc/nixos/
-export PATH=\"$HOME/dotfiles/assets/bin/helpers:$HOME/bin/:$PATH\"
+export PATH=\"$HOME/dotfiles/assets/bin/helpers:$HOME/bin/:$HOME/.cargo/bin/:$PATH\"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 neofetch
     ";
@@ -185,7 +181,7 @@ neofetch
       fcitx5-hangul
       fcitx5-m17n
       fcitx5-gtk
-      fcitx5-chinese-addons
+      qt6Packages.fcitx5-chinese-addons
       fcitx5-table-extra
       fcitx5-chewing
     ];
