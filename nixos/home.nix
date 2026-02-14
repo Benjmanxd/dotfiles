@@ -1,9 +1,5 @@
 { config, lib, pkgs, ... } :
 {
-  imports = [
-    ./modules/spicetify.nix
-  ];
-
   home.stateVersion = "25.11";
   home.username = "benjmanxd";
   home.homeDirectory = "/home/benjmanxd";
@@ -60,7 +56,6 @@
     ntfs3g
     xbps
     file
-    # spotify-player
 
     # programming
     gnumake

@@ -4,15 +4,12 @@
 ## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
 
 ## Kill if already running
-killall -9 xfsettingsd picom polybar mpd dunst ksuperkey
+killall -9 xfsettingsd picom polybar mpd dunst ksuperkey playerctld
 
 ## xrandr setting
 xrandr --output DP-1 --brightness 0.8
 xrandr --output HDMI-1 --brightness 0.8
 xrandr --output DP-1 --left-of HDMI-1
-
-## xfce4-settings daemon
-#xfsettingsd &
 
 ## polkit agent
 if [[ ! `pidof xfce-polkit` ]]; then
@@ -32,9 +29,6 @@ polybar -q main -c ~/.config/polybar/config.ini &
 ## Notification Daemon
 exec dunst &
 
-## Start Music Player Daemon
-#exec mpd &
-
 ## Thunar Daemon
 exec thunar --daemon &
 
@@ -42,12 +36,14 @@ exec thunar --daemon &
 ksuperkey -e 'Super_L=Alt_L|F1' &
 ksuperkey -e 'Super_R=Alt_L|F1' &
 
+## player control daemon
+exec playerctld daemon
+
+## spotify_player daemon
+$HOME/.cargo/bin/spotify_player -d
+
 ## Lock screen service
 #systemctl enable betterlockscreen@benjmanxd
-
-## Launch polybar-spotify listener service
-#systemctl --user enable spotify-listener
-#systemctl --user start spotify-listener
 
 ## Launch nordvpn service
 #systemctl enable nordvpnd.service
