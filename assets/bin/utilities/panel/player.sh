@@ -1,8 +1,9 @@
-#!/bin/sh
-
+#!/usr/bin/env bash
 bar_pid=$(pgrep -a "polybar" | cut -d" " -f1)
-players="spotify,firefox,chromium,brave,mpd"
+browsers="firefox,brave"
+players="spotify_player,firefox,brave"
 player_status=$(playerctl -p $players status)
+spotify_window_name="SpotifyPlayer"
 script_dir=$(cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 exit=$?
 
@@ -54,22 +55,19 @@ case $1 in
     playerctl -p $players play-pause
   ;;
   spotify-ctl)
-    if [ "$player_status" == "Playing" ]; then
-      playerctl -p $players play-pause
+    browser_status=$(playerctl -p $browsers status)
+    if [ "$browser_status" == "Playing" ]; then
+      playerctl -p $browsers play-pause
       exit
     fi
-    if [ -z "$(pgrep spotify)" ]; then
-      spotify &
-      sleep 1
-    fi
-    playerctl -p spotify play-pause
+    playerctl -p spotify_player play-pause
   ;;
   spotify-move)
-    spotify_status=$(pgrep spotify)
-    if [ -z "$(pgrep spotify)" ]; then
-      spotify &
+    spotify_status=$(wmctrl -l | grep "$spotify_window_name")
+    if [ -z "$spotify_status" ]; then
+      alacritty -T "$spotify_window_name" -e spotify_player
     else
-      wmctrl -x -R "Spotify"
+      wmctrl -F -R "$spotify_window_name"
     fi
   ;;
 esac

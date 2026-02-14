@@ -61,3 +61,8 @@ gpg --batch --import pass-private.pgp pass-public.pgp
 pkill gpg-agent
 gpg-agent --pinentry-program=/usr/bin/pinentry --daemon
 ```
+
+spotify_player:
+```
+cargo install spotify_player --no-default-features --features pulseaudio-backend,notify,daemon,fzf,pixelate,streaming,media-control
+```
