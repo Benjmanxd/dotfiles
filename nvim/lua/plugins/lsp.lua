@@ -52,23 +52,7 @@ return {
 					prefix = "",
 				},
 			})
-		end,
-	},
 
-	{
-		"mason-org/mason.nvim",
-		opts = {
-			ui = {
-				check_outdated_packages_on_open = true,
-				border = "rounded",
-			},
-		},
-	},
-
-	{
-		"mason-org/mason-lspconfig.nvim",
-		dependencies = { "neovim/nvim-lspconfig" },
-		config = function(_, _)
 			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
 				settings = {
@@ -91,4 +75,21 @@ return {
 			require("lspconfig.ui.windows").default_options.border = "rounded"
 		end,
 	},
+
+	-- {
+	-- 	"mason-org/mason.nvim",
+	-- 	opts = {
+	-- 		ui = {
+	-- 			check_outdated_packages_on_open = true,
+	-- 			border = "rounded",
+	-- 		},
+	-- 	},
+	-- },
+
+	-- {
+	-- 	"mason-org/mason-lspconfig.nvim",
+	-- 	dependencies = { "neovim/nvim-lspconfig" },
+	-- 	config = function(_, _)
+	-- 	end,
+	-- },
 }

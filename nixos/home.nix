@@ -71,6 +71,9 @@
     perf-tools
     conda
     tree-sitter
+    rust-analyzer
+    stylua
+    pyright
 
     # application
     polkit

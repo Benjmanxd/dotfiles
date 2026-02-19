@@ -139,7 +139,7 @@
   system.stateVersion = "25.11";
 
   # custom services
-  benjmanxd.services.custom.nordvpn.enable = true;
+  # benjmanxd.services.custom.nordvpn.enable = true;
 
   # systemd.services."systemd-suspend" = {
   #   serviceConfig = {
