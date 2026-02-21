@@ -138,6 +138,17 @@
 
   system.stateVersion = "25.11";
 
+  systemd.services."suspend" = {
+    enable = true;
+    description = "Call user's suspend target after system suspend";
+    after = [ "suspend.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "${lib.getExe' pkgs.systemd "systemctl"} --user --machine=benjmanxd@ start --wait suspend.target";
+    };
+    wantedBy = [ "suspend.target" ];
+  };
+
   # custom services
   # benjmanxd.services.custom.nordvpn.enable = true;
 

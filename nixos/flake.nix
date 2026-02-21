@@ -8,10 +8,9 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { nixpkgs, nixpkgs-unstable, home-manager, spicetify-nix, ... } :
+  outputs = { nixpkgs, nixpkgs-unstable, home-manager, ... } :
   let
     system = "x86_64-linux";
     lib = nixpkgs.lib;
@@ -42,7 +41,6 @@
             home-manager.extraSpecialArgs = {
               inherit pkgs;
               inherit pkgs-unstable;
-              inherit spicetify-nix;
             };
           }
         ];

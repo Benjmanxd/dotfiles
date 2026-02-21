@@ -1,4 +1,17 @@
 { config, lib, pkgs, ... } :
+let
+  custom_pkgs = [
+    (pkgs.spotify-player.override {
+      withStreaming = true;
+      withDaemon = true;
+      withAudioBackend = "pulseaudio";
+      withMediaControl = true;
+      withImage = true;
+      withNotify = true;
+      withFuzzy = true;
+    })
+  ];
+in
 {
   home.stateVersion = "25.11";
   home.username = "benjmanxd";
@@ -129,7 +142,7 @@
     # others
     xorg.xbacklight
     ksuperkey
-  ];
+  ] ++ custom_pkgs;
 
   programs.git = {
     enable = true;
@@ -150,7 +163,7 @@
 # source ~/.config/assets/theme/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 export NIX_LD=$(nix eval --impure --raw --expr 'let pkgs = import <nixpkgs> {}; NIX_LD = pkgs.lib.fileContents \"\${pkgs.stdenv.cc}/nix-support/dynamic-linker\"; in NIX_LD')
 export HOME_CONF=/etc/nixos/
-export PATH=\"$HOME/dotfiles/assets/bin/helpers:$HOME/bin/:$HOME/.cargo/bin/:$PATH\"
+export PATH=\"$HOME/dotfiles/assets/bin/helpers:$HOME/bin/:$PATH\"
 export STARSHIP_CONFIG=~/.config/starship/starship.toml
 neofetch
     ";
@@ -190,5 +203,42 @@ neofetch
     enable = true;
     defaultCacheTtl = 1800;
     enableSshSupport = true;
+  };
+
+  systemd.user.targets.suspend = {
+    Unit = {
+      Description = "User level suspend target";
+      StopWhenUnneeded = true;
+    };
+  };
+
+  systemd.user.services.spotify-player = {
+    Unit = {
+      Description = "Spotify Player daemon mode";
+      After = [ "network.target" "sound.target" ];
+    };
+    Service = {
+      Type = "forking";
+      ExecStart = "${lib.getExe pkgs.spotify-player} --daemon";
+      Restart = "on-failure";
+      RestartSec = "3s";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+  };
+
+  systemd.user.services.spotify-player-resume = {
+    Unit = {
+      Description = "Restart Spotify Player daemon after system resume from suspend/hibernate";
+      After = [ "suspend.target" ];
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = "${lib.getExe' pkgs.systemd "systemctl"} --user restart spotify-player.service";
+    };
+    Install = {
+      WantedBy = [ "suspend.target" ];
+    };
   };
 }

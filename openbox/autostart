@@ -39,9 +39,6 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 ## player control daemon
 exec playerctld daemon
 
-## spotify_player daemon
-$HOME/.cargo/bin/spotify_player -d
-
 ## Lock screen service
 #systemctl enable betterlockscreen@benjmanxd
 
