@@ -17,7 +17,7 @@ if [[ ! `pidof xfce-polkit` ]]; then
 fi
 
 ## wallpaper
-feh --bg-fill ~/.config/assets/wallpaper/current_wallpaper.jpg
+feh --bg-fill ~/.config/assets/wallpaper/hk_bw_cityscape.jpg
 
 ## Start Compositing Manager
 exec picom &
